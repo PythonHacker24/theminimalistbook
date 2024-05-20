@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=61132&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+
+  <title>
+    The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices - The Minimalist&#39;s Book
+  </title>
+
+  <meta name="description" content="Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever." /><meta name="generator" content="Hugo 0.126.1">
+
+  <link rel="stylesheet" href="//localhost:61132/css/main.css" />
+
+  
+  
+
+  <meta property="og:url" content="//localhost:61132/technical/fundamentals_of_hardware_hacking/">
+  <meta property="og:site_name" content="The Minimalist&#39;s Book">
+  <meta property="og:title" content="The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices">
+  <meta property="og:description" content="Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="technical">
+    <meta property="article:published_time" content="2024-03-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-15T00:00:00+00:00">
+    <meta property="og:image" content="//localhost:61132/digital-garden-logo.png">
+
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:61132/digital-garden-logo.png">
+  <meta name="twitter:title" content="The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices">
+  <meta name="twitter:description" content="Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.">
+
+
+  
+  <meta itemprop="name" content="The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices">
+  <meta itemprop="description" content="Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.">
+  <meta itemprop="datePublished" content="2024-03-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-03-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1356">
+  <meta itemprop="image" content="//localhost:61132/digital-garden-logo.png">
+
+  
+  <meta itemprop="name" content="The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices">
+  <meta itemprop="description" content="Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.">
+  <meta itemprop="datePublished" content="2024-03-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-03-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1356">
+  <meta itemprop="image" content="//localhost:61132/digital-garden-logo.png">
+</head><body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="//localhost:61132/" class="px-2">
+      <span>The Minimalist&#39;s Book</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>❄️ Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Explore</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical" >
+        <span>✍️ Technical Writings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/thinkings" >
+        <span>🤔 Thinkings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/projects" >
+        <span>🏗️ Projects</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/backpack" >
+        <span>🎒 Backpack</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Links</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://medium.com/@adityapatil24680"  target="_blank"
+        rel="noopener" >
+        <span>Medium</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/PythonHacker24" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/aditya-patil-260a631b2/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="adityapatil24680@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles/index.xml" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">RSS</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="//localhost:61132/technical/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Deep Dive Articles</h2>
+    </a>
+<label class="mb-2 block px-2">
+  <span></span>
+  <input type="text" placeholder="Search articles" class="searchInput bg-white rounded px-2 py-1 w-full border" />
+</label>
+<script>
+  const searchElt = document.querySelector('.searchInput')
+  if (searchElt) {
+    searchElt.addEventListener('input', evt => {
+      const value = evt.target.value || '';
+
+      const articles = document.querySelectorAll('.article')
+      if (!value) {
+        articles.forEach(article => article.classList.remove('hidden'))
+      } else {
+        articles.forEach(article => article.classList.add('hidden'))
+        Array.from(articles).filter(article => {
+          const title = article.querySelector('h3')
+          if (!title) return false;
+
+          return title.textContent.toLowerCase().includes(value.toLowerCase())
+        }).forEach(article => article.classList.remove('hidden'))
+      }
+    })
+  }
+</script>
+<div class="space-y-2.5">
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Serious Reconnaissance with Unmanned Aerial Vehicles — Mapping Out Devices in an Area with Drones</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction: The following content is for educational purposes and for hackers living in basements knowing enough ethics. The author is not responsible for any damage caused by the knowledge provided here and does not support anything like that. It’s essential to check out the rules in the area of reconnaissance about the tactics provided here and the use of materials (unless and until there is any apocalypse and a solid recon is required).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/technical/fundamentals_of_hardware_hacking/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/setting_up_remote_git_server/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nature_of_linux_kernel_development/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Nature of Linux Kernel Development — Difference Between Rules of Kernel Level and User-Space Application Level</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is intended to explain a clear distinction between the core principles of Linux Kernel Development and User-Application Level Development. The provided information is based on my research on Kernel Development through various sources and I have tried to make it as accurate as possible. Efforts have been made to explain it as simply and concisely as possible.
+Introduction to the Nature of Linux Kernel Linux Kernel is the abstraction layer between the Operating System and the Hardware in the system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_process_scheduling/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_processes/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Processes — A Kernel’s Perspective Explained with Clarity and Simplicity</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been going through the book “Linux Kernel Development” by Robert Love which I highly recommend for understanding the Linux Kernel in depth. I decided to write this article to explain “Linux Processes” simply and concisely. The topic itself is broad and is not explained into the deepest of it, but essential for Linux Administrators, Developers and even Linux users to appreciate the beauty of the Kernel they make use of every day.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nginx_for_deploying_nextjs_application_on_aws/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">NGINX for Deploying Next.js Application on AWS EC2 with AWS ELB — Control and Stability of Deployments</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          I was looking for an article like this a few days ago, which I didn’t find at that time, so I did the deployment on my own and came up with this article to prevent other developers from saving those efforts and focusing on development. I am not explaining every single step and have provided links for references.
+I prefer manual deployment of applications over automated (and even serverless) methods. Although they are convenient and require less effort by the developers, they are bound to the providers and offer less control over the underlying system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/configuring_and_building_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Configuring and Building the Linux Kernel — Absolute Guide to Compiling Your Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Linux Kernel is an Open-Source Software and the user is free to modify and customise it as per the requirements. The modification of the Kernel requires a deep understanding of the working of the Kernel, although patches are available to make the Kernel optimised for specific hardware. Linux Kernel Source Code has various options to configure the drivers, modules, preferences on hardware options, etc. This part can be studied by the user and is pretty much easy to work with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/elegance_of_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Elegance of the Linux Kernel — A Concise History of Unix and the Creation of the Linux Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction and Context I was going through the book “Linux Kernel Development” by Robert Love, an absolute guide to getting started with Linux Kernel Development and a highly recommended book for understanding the core of the Linux Kernel. Linux Kernel has been one of the most important software ever written and is even considered one of the biggest projects ever undertaken by a single person. The idea of the Linux Kernel was initiated by Linus Torvalds, a student from the University of Helsinki and is maintained by him to date (while writing this article).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_shell_scripting/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Shell Scripting — A Suckless and Concise Guide to the Command-line of Linux</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Statements: This is a concise guide on the Linux Shell Scripting while consolidating all the facts about the Linux Shell for quick developer’s reference while using Linux. I am referencing the Bash (Bourne-Again Shell) which is the default shell for Linux-based systems. I will also be providing references and external links to dive into depth and not fill the article with too much explanation about a single topic which is not universally required by all the readers.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/suckless_utilities_for_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Suckless Utilities for Arch Linux — The Most Minimal Way Run a Computer</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Suckless utilities have been my favourite at this time and kind of essentials for my use of the computer. I have been using Arch Linux for a fair amount of time now and I started using it with XFCE for few weeks. I would appreciate the XFCE desktop environment for it’s smoothness and light-weight nature with works really fine when newly shifting on Arch Linux. But then I learnt the suckless ecosystem and eventually shifted to it as my full-time environment.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/installing_pacman_in_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Installing Pacman in Arch Linux — When You Blow it Up</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Let me suckless and divide the article into two parts:
+My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
+The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/boot_process_of_computers/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Boot Process of Computers — A Learner’s Perspective Of Exploring the Depth of Computers</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Clarifications: Here, I will be providing a philosophical explanation about the bootloaders and understanding them in a simple and as minimal way as possible. This is not supposed to be a manual for bootloader or provide any advice for experimenting over your live system. It’s my journey to understand computers (one of the most complex creations of mankind) and I will be stating my thoughts. Take it with a pinch of salt.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/networking_fundamentals_for_linux_administrators/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Networking Fundamentals for Linux Administrators — A Suckless and Concise Explanation</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Statistics are clear on the fact that 96.3% (while writing this article) of the servers use Linux as their Operating System which is no doubt what every other Linux user on this Earth expects. I believe that the Linux Administrator has to take the shot about the configuration of Networking in Linux Based Server. Some of the underlying concepts remain the same for any other distros but it is mainly intended for Linux.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/operating_systems_and_low_level_access_to_the_hardware/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Operating Systems and Low-Level Access to the Hardware — Why should you learn it?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Today, I completed the whole read of the book “Linux Kernel in a Nutshell” by Greg Kroah-Hartman and I highly recommend that you go through it if you want to understand how to build your custom configuration of Linux Kernel and all you need to know about all the nuts and bolts. It’s always great to have such handbooks around the desk.
+This blog is about why it’s so awesome to look into the operating system you are using with your hardware and why have a grasp on the Low-Level aspects of a computer.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/arch_linux_custom_builds/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Arch Linux Custom Builds — Freedom of the Operating System</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          While writing this blog, I was reading the book “Linux Kernel in a Nutshell” by Greg Kroab-Hartman and as far as the pages of the book are concerned, it seems to be a two-day read (this is a handbook so reading it once and having around the desk is super useful). By the way, the author has the book left open for download http://www.kroah.com/lkn/ so check that out if you want to follow up.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/bypass_the_linux_login_to_access_the_files/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Bypassing the Linux Login to access the files (with Physical Access), even the root!</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.
+        </div>
+      </a>
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices</h1>
+
+	  
+      <p class="text-sm text-slate-500 !mb-8"> Planted March 15, 2024
+		
+	  </p>
+      
+
+      
+
+      <p><em><strong>Disclaimer —</strong> This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!</em></p>
+<h2 id="the-beauty-of-electronic-devices">The Beauty of Electronic Devices</h2>
+<p>In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever. Advancements in electronics and microprocessors unlocked infinite potential for developing devices that have become basic needs to survive the economy. Homes and cars became smart enough to make decisions as well as make suggestions to the user. Things that were supposed to be in fantasy books are now absolute essentials of every day. Anything less than that is considered to be outdated or underdeveloped.</p>
+<p>Behind these devices possessing these functionalities are circuit boards that house all of the components that work together to make each functionality happen. With the entry point of the power supply where electrons are introduced, millions of active and passive components manipulate the flow of electrons to make the pipeline of wires behave in a certain way.</p>
+<p>This flow of electrons which affect the physical behaviors in a certain way to make a functionality happen is nothing less than a miracle of the human brain.</p>
+<p>But to make mistakes is called being a human being. Since these devices are just implementations of human minds, they end up containing some sort of mistakes, that hackers like us hunt for.</p>
+<p><em><strong>It’s human to make mistakes and some of us are more human than others. — Ashleigh Brilliant</strong></em></p>
+<h2 id="hardware-hacking--deviating-that-one-electron">Hardware Hacking — Deviating that one Electron</h2>
+<p>Electronic devices are circuits that create rules about how electrons must flow to cause a certain logic to execute and interact with the physical world in the way it is intended to do. Since these electrons do follow these rules to flow, in the case when the rules are manipulated, they can do much more than they were designed to do by the manufacturer.</p>
+<p><em><strong>To hack a system requires getting to know its rules better than the people who created it or are running it. — Permanent Record (Book by Edward Snowden)</strong></em></p>
+<h2 id="manipulating-the-flow-of-current-or-logic-in-an-electronic-circuit-at-any-level-of-abstraction-rather-be-the-kernel-or-physical-component-is-called-hardware-hacking">Manipulating the flow of current, or logic in an electronic circuit, at any level of abstraction, rather be the kernel or physical component is called hardware hacking.</h2>
+<p>Understanding the rules of electronics is absolutely essential before trying to exploit them.</p>
+<p>The Layers inside Electronic Devices
+An electronic circuit comprises various abstraction layers, developed by humans to better understand the logical structures of the design. Developing the whole functionality of hardware devices just by connecting components is not feasible and certainly not the best way to do the job. The tasks of developing a device are distributed in various sections. The software layer and Hardware layer are the highest levels of classifications.</p>
+<p>The lowest element in the stack is the hardware layer. This comprises physical components that are responsible for manipulating the flow of electrons in the circuit. This includes active and passive components like resistors, capacitors, inductors, microprocessors, transistors, MOSFETs, storage devices like EEPROMs, etc. These are all the physical elements in an electronic circuit.</p>
+<p>To make sense of millions of components in the circuit, various protocols and standards are defined. An EEPROM can read and write data into it on specific instructions. These instructions are just fluctuations in the current to a certain pin that is defined by some protocol which would be considered as a valid input to the device. Being a valid input, the rest of the process happens inside the packaging of the EEPROM. Which is again a set of logic that would be triggered on a valid input.</p>
+<p>These logics are combined into certain rules and standards that further become the software layer of that device. This layer is all about the implications of abstract logic to make certain things happen. These certain things, designed carefully constitute functionalities that the users of that device expect.</p>
+<p>The sole purpose of developing circuits in this way is to make them more understandable and universal. Standards and Protocols are being developed that are used to develop them that make them more understandable and become cross-platform.</p>
+<h2 id="approach-to-hardware-hacking-and-electronic-devices-security">Approach to Hardware Hacking and Electronic Devices Security</h2>
+<p>Approaching and Hardware Device for hunting security issues works in two ways (or often simultaneously).</p>
+<p>One is to hunt on the hardware level. Another is to go with the software level. Combine them in necessary situations and you get to understand the relation between the hardware component or certain flow of current in a wire with the software logic defined.</p>
+<p>At the hardware level, analyzing for logic in the current flow and values of various parameters is a good start. Certainly, it’s not always about understanding the whole circuit diagram (although it helps in complicated cases. It settles down to knowledge and past experiences of which component is most likely to cause an issue.</p>
+<p>At this point in the hardware level, it’s mostly about measurements of parameters in various conditions and states of functionalities.</p>
+<p>At the software level, it usually goes with firmware analysis. It goes somewhere close to software security, where the flow of programs is manipulated to cause certain behaviors.</p>
+<p>The major difference between application security and hardware security is the dependence on the underlying hardware layer and the code execution. In application security, the hardware underlying the software is not a major influencer. Certainly not the electronic components underlying it. Processor architecture indeed matters in software development, but architecture design is just a set of logic and values of current and voltage that do not have much effect on code execution, at least for software developers.</p>
+<p>Hardware Attacks like fault injection require hardware-level glitching (voltage dropping across certain components) to jump instructions at the software level. In this attack, the voltage level is dropped by a certain value at the precise time when an instruction is to be executed, causing the execution to not happen, and giving the attacker a way to bypass certain instructions constituting logic like authentication.</p>
+<p>Side Channel Power Analysis is a good example of the relationship between software and hardware devices. Certain CPU instructions take more power than others and vice versa. The input power is measured at points to analyze which instruction is fetched and executed. This is particularly helpful for cryptographic operations analysis and extracting keys from the hardware.</p>
+<h2 id="what-does-it-take-to-be-a-hardware-hacker">What does it take to be a Hardware Hacker?</h2>
+<p>Understanding electronic devices as well as software development is essential for hardware hacking.</p>
+<p>Certainly, search engines are one of the best ways to make things happen! The internet is full of resources regarding hardware security.</p>
+<p>As a starter, basic electronics and software development skills (embedded ones are more helpful) provide a good kickstart.</p>
+<p>Remember, hardware hacking requires a lot of patience. Hacking physical devices incorporates imperfections from physical nature. Unlike application security where rules are perfect, the hardware side has errors and tolerance to them. Hence, it’s more about judgment and experience.</p>
+<p>Additional Tip: Wireless Routers are one of the best ways to learn hardware hacking. Modern routers are a combination of wireless technology, web servers, authentication, networking, embedded development, storage mediums, etc. This provides a whole playground for experimenting with various attacks and learning along the way.</p>
+<h2 id="summing-up-everything">Summing Up Everything</h2>
+<p>To hack into a system requires an understanding of the rules better than the designer. Hardware has a lot of it to adhere to. It’s awesome to think how many of these devices surround us and developing exploits on them can make a person with an understanding of them the one in control.</p>
+<p>More of it: Since Blockchain Technology is on its way to making things smarter and financially capable, the space of hardware hacking is just getting pushed way more than ever before. When these smart devices get integrated with smart contracts, there is a lot more to do than just bypassing password authentication. It would go towards cryptography and finances. So more fun in the future!</p>
+
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+  
+
+
+</body>
+
+</html>
