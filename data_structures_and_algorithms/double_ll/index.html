@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+
+  <title>
+    Doubly Linked List - The Minimalist&#39;s Book
+  </title>
+
+  <meta name="description" content="A doubly linked list is a type of linked list where each node contains data and references to two other nodes:
+One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &lt;iostream&gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !" /><meta name="generator" content="Hugo 0.126.1">
+
+  <link rel="stylesheet" href="//localhost:1313/css/main.css" />
+
+  
+  
+
+  <meta property="og:url" content="//localhost:1313/data_structures_and_algorithms/double_ll/">
+  <meta property="og:site_name" content="The Minimalist&#39;s Book">
+  <meta property="og:title" content="Doubly Linked List">
+  <meta property="og:description" content="A doubly linked list is a type of linked list where each node contains data and references to two other nodes:
+One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &lt;iostream&gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="data_structures_and_algorithms">
+    <meta property="og:image" content="//localhost:1313/digital-garden-logo.png">
+
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/digital-garden-logo.png">
+  <meta name="twitter:title" content="Doubly Linked List">
+  <meta name="twitter:description" content="A doubly linked list is a type of linked list where each node contains data and references to two other nodes:
+One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &lt;iostream&gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !">
+
+
+  
+  <meta itemprop="name" content="Doubly Linked List">
+  <meta itemprop="description" content="A doubly linked list is a type of linked list where each node contains data and references to two other nodes:
+One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &lt;iostream&gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !">
+  <meta itemprop="wordCount" content="801">
+  <meta itemprop="image" content="//localhost:1313/digital-garden-logo.png">
+
+  
+  <meta itemprop="name" content="Doubly Linked List">
+  <meta itemprop="description" content="A doubly linked list is a type of linked list where each node contains data and references to two other nodes:
+One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &lt;iostream&gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !">
+  <meta itemprop="wordCount" content="801">
+  <meta itemprop="image" content="//localhost:1313/digital-garden-logo.png">
+</head><body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="//localhost:1313/" class="px-2">
+      <span>The Minimalist&#39;s Book</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>⭐️ Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Explore</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical" >
+        <span>✍️ Technical Writings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/thinkings" >
+        <span>🤔 Thinkings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/projects" >
+        <span>🏗️ Projects</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/backpack" >
+        <span>🎒 Backpack</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Learn</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms" >
+        <span>🚀 Data Structures (C&#43;&#43;)</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Links</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://medium.com/@adityapatil24680"  target="_blank"
+        rel="noopener" >
+        <span>Medium</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/PythonHacker24" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/aditya-patil-260a631b2/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="adityapatil24680@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles/index.xml" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">RSS</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="//localhost:1313/data_structures_and_algorithms/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Data Structures in C&#43;&#43; ⭐️</h2>
+    </a>
+<label class="mb-2 block px-2">
+  <span></span>
+  <input type="text" placeholder="Search articles" class="searchInput bg-white rounded px-2 py-1 w-full border" />
+</label>
+<script>
+  const searchElt = document.querySelector('.searchInput')
+  if (searchElt) {
+    searchElt.addEventListener('input', evt => {
+      const value = evt.target.value || '';
+
+      const articles = document.querySelectorAll('.article')
+      if (!value) {
+        articles.forEach(article => article.classList.remove('hidden'))
+      } else {
+        articles.forEach(article => article.classList.add('hidden'))
+        Array.from(articles).filter(article => {
+          const title = article.querySelector('h3')
+          if (!title) return false;
+
+          return title.textContent.toLowerCase().includes(value.toLowerCase())
+        }).forEach(article => article.classList.remove('hidden'))
+      }
+    })
+  }
+</script>
+<div class="space-y-2.5">
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms/binary_tree/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Binary Tree</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Trees A tree consists of Nodes that points to multiple nodes (In this case, binary tree has been consider where each node can point to at max 2 nodes). The Node that points to other Node is called it’s parent and the Node that is being pointed is called it’s child Node. A parent can have multiple child nodes but a child Node can’t have multiple parent Nodes. A child can also be a parent Node to other child Nodes.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/data_structures_and_algorithms/double_ll/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Doubly Linked List</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          A doubly linked list is a type of linked list where each node contains data and references to two other nodes:
+One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &lt;iostream&gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms/graph/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Graphs</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          In DSA (Data Structures and Algorithms), a graph is a collection of nodes (also called vertices) connected by edges.
+Nodes represent data. Edges represent the relationships between that data. #include &lt;iostream&gt; #include &lt;unordered_map&gt;	// Similar to hash table, there are two rows where key-value pair structures are stored. #include &lt;unordered_set&gt;	// It&#39;s like a array. Here, if same data is pushed into the array, only one instance is created. (Close enough to Hash Table concept) using namespace std; class Graph{ private: unordered_map&lt;string, unordered_set&lt;string&gt; &gt; adjList;	// unordered_map&lt; data_type, data_type &gt; map_name; // Here, in this case, key is s string and the value is a unordered_set with string values and this whole map is named adjList public: void printGraph(){ for (auto [vertex, edges] : adjList){	// As per the plan, the structuring is arranged.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms/hash/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Hash Tables</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Hash tables are the tables where each piece of data is stored in a given index which is generated when the data is passed through some hash function.
+For example: If {”dataset_1”:1000} would value of 4 (from the hash function), it would be stored in the index of 4. {”dataset_2”:2000} might be 8, so it would be stored in the index of 8.
+It may happen in cases that data can get same index with hash function, in which case a condition on collision occurs.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms/queue/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Queue</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Queue works as FIFO (First In First Out). The value that is added first will be the one that can be access first. Here, Linked List would be used in reverse order. A linked list will have prepend function operation complexity to be O(1) and deleteFirst also to be O(1).
+#include &lt;iostream&gt; using namespace std; // Node Class will create a Node class Node{ public: int value; Node* next; Node(int value){ this-&gt;value = value; next = nullptr; } }; // Queue Class will develop the Queue class Queue{ private: Node* first; Node* last; int length; public: // Constructor for the Queue Class Queue(int value){ Node* newNode = new Node(value); first = newNode; last = newNode; length = 1; } // printQueue will print the values in the Queue void printQueue(){ Node* temp = first; while(temp){ cout &lt;&lt; temp-&gt;value &lt;&lt; endl; temp = temp-&gt;next; } } // getFirst will print the value of the first element in the Queue void getFirst(){ cout &lt;&lt; &#34;First: &#34; &lt;&lt; first-&gt;value &lt;&lt; endl; } // getLast will print the value of the last element in the Queue void getLast(){ cout &lt;&lt; &#34;Last: &#34; &lt;&lt; last-&gt;value &lt;&lt; endl; } // getLength will print the length of the Queue void getLength(){ cout &lt;&lt; &#34;Length: &#34; &lt;&lt; length &lt;&lt; endl; } // enqueue will add a element to the Queue void enqueue(int value){ Node* newNode = new Node(value); if (length == 0){ first = newNode; last = newNode; } else{ last-&gt;next = newNode; last = newNode; } length++; } // dequeue will remove a element from the Queue int dequeue(){ if (length == 0) return INT_MIN; Node* temp = first; int dequeuedValue = first-&gt;value; if (length == 1){ first = nullptr; last = nullptr; } else{ first = first-&gt;next; } delete temp; length--; return dequeuedValue; } }; // info function will return information about the given Queue void info(Queue* myQueue){ cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl &lt;&lt; &#34;Printing the Queue&#34; &lt;&lt; endl; myQueue-&gt;printQueue(); myQueue-&gt;getFirst(); myQueue-&gt;getLast(); myQueue-&gt;getLength(); cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl; } int main(){ Queue* myQueue = new Queue(4); info(myQueue); myQueue-&gt;enqueue(2); myQueue-&gt;enqueue(8); myQueue-&gt;enqueue(4); myQueue-&gt;enqueue(5); info(myQueue); }#include &lt;iostream&gt; using namespace std; // Node Class will create a Node class Node{ public: int value; Node* next; Node(int value){ this-&gt;value = value; next = nullptr; } }; // Queue Class will develop the Queue class Queue{ private: Node* first; Node* last; int length; public: // Constructor for the Queue Class Queue(int value){ Node* newNode = new Node(value); first = newNode; last = newNode; length = 1; } // printQueue will print the values in the Queue void printQueue(){ Node* temp = first; while(temp){ cout &lt;&lt; temp-&gt;value &lt;&lt; endl; temp = temp-&gt;next; } } // getFirst will print the value of the first element in the Queue void getFirst(){ cout &lt;&lt; &#34;First: &#34; &lt;&lt; first-&gt;value &lt;&lt; endl; } // getLast will print the value of the last element in the Queue void getLast(){ cout &lt;&lt; &#34;Last: &#34; &lt;&lt; last-&gt;value &lt;&lt; endl; } // getLength will print the length of the Queue void getLength(){ cout &lt;&lt; &#34;Length: &#34; &lt;&lt; length &lt;&lt; endl; } // enqueue will add a element to the Queue void enqueue(int value){ Node* newNode = new Node(value); if (length == 0){ first = newNode; last = newNode; } else{ last-&gt;next = newNode; last = newNode; } length++; } // dequeue will remove a element from the Queue int dequeue(){ if (length == 0) return INT_MIN; Node* temp = first; int dequeuedValue = first-&gt;value; if (length == 1){ first = nullptr; last = nullptr; } else{ first = first-&gt;next; } delete temp; length--; return dequeuedValue; } }; // info function will return information about the given Queue void info(Queue* myQueue){ cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl &lt;&lt; &#34;Printing the Queue&#34; &lt;&lt; endl; myQueue-&gt;printQueue(); myQueue-&gt;getFirst(); myQueue-&gt;getLast(); myQueue-&gt;getLength(); cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl; } int main(){ Queue* myQueue = new Queue(4); info(myQueue); myQueue-&gt;enqueue(2); myQueue-&gt;enqueue(8); myQueue-&gt;enqueue(4); myQueue-&gt;enqueue(5); info(myQueue); }#include &lt;iostream&gt; using namespace std; // Node Class will create a Node class Node{ public: int value; Node* next; Node(int value){ this-&gt;value = value; next = nullptr; } }; // Queue Class will develop the Queue class Queue{ private: Node* first; Node* last; int length; public: // Constructor for the Queue Class Queue(int value){ Node* newNode = new Node(value); first = newNode; last = newNode; length = 1; } // printQueue will print the values in the Queue void printQueue(){ Node* temp = first; while(temp){ cout &lt;&lt; temp-&gt;value &lt;&lt; endl; temp = temp-&gt;next; } } // getFirst will print the value of the first element in the Queue void getFirst(){ cout &lt;&lt; &#34;First: &#34; &lt;&lt; first-&gt;value &lt;&lt; endl; } // getLast will print the value of the last element in the Queue void getLast(){ cout &lt;&lt; &#34;Last: &#34; &lt;&lt; last-&gt;value &lt;&lt; endl; } // getLength will print the length of the Queue void getLength(){ cout &lt;&lt; &#34;Length: &#34; &lt;&lt; length &lt;&lt; endl; } // enqueue will add a element to the Queue void enqueue(int value){ Node* newNode = new Node(value); if (length == 0){ first = newNode; last = newNode; } else{ last-&gt;next = newNode; last = newNode; } length++; } // dequeue will remove a element from the Queue int dequeue(){ if (length == 0) return INT_MIN; Node* temp = first; int dequeuedValue = first-&gt;value; if (length == 1){ first = nullptr; last = nullptr; } else{ first = first-&gt;next; } delete temp; length--; return dequeuedValue; } }; // info function will return information about the given Queue void info(Queue* myQueue){ cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl &lt;&lt; &#34;Printing the Queue&#34; &lt;&lt; endl; myQueue-&gt;printQueue(); myQueue-&gt;getFirst(); myQueue-&gt;getLast(); myQueue-&gt;getLength(); cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl; } int main(){ Queue* myQueue = new Queue(4); info(myQueue); myQueue-&gt;enqueue(2); myQueue-&gt;enqueue(8); myQueue-&gt;enqueue(4); myQueue-&gt;enqueue(5); info(myQueue); }#include &lt;iostream&gt; using namespace std; // Node Class will create a Node class Node{ public: int value; Node* next; Node(int value){ this-&gt;value = value; next = nullptr; } }; // Queue Class will develop the Queue class Queue{ private: Node* first; Node* last; int length; public: // Constructor for the Queue Class Queue(int value){ Node* newNode = new Node(value); first = newNode; last = newNode; length = 1; } // printQueue will print the values in the Queue void printQueue(){ Node* temp = first; while(temp){ cout &lt;&lt; temp-&gt;value &lt;&lt; endl; temp = temp-&gt;next; } } // getFirst will print the value of the first element in the Queue void getFirst(){ cout &lt;&lt; &#34;First: &#34; &lt;&lt; first-&gt;value &lt;&lt; endl; } // getLast will print the value of the last element in the Queue void getLast(){ cout &lt;&lt; &#34;Last: &#34; &lt;&lt; last-&gt;value &lt;&lt; endl; } // getLength will print the length of the Queue void getLength(){ cout &lt;&lt; &#34;Length: &#34; &lt;&lt; length &lt;&lt; endl; } // enqueue will add a element to the Queue void enqueue(int value){ Node* newNode = new Node(value); if (length == 0){ first = newNode; last = newNode; } else{ last-&gt;next = newNode; last = newNode; } length++; } // dequeue will remove a element from the Queue int dequeue(){ if (length == 0) return INT_MIN; Node* temp = first; int dequeuedValue = first-&gt;value; if (length == 1){ first = nullptr; last = nullptr; } else{ first = first-&gt;next; } delete temp; length--; return dequeuedValue; } }; // info function will return information about the given Queue void info(Queue* myQueue){ cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl &lt;&lt; &#34;Printing the Queue&#34; &lt;&lt; endl; myQueue-&gt;printQueue(); myQueue-&gt;getFirst(); myQueue-&gt;getLast(); myQueue-&gt;getLength(); cout &lt;&lt; &#34;----------------&#34; &lt;&lt; endl; } int main(){ Queue* myQueue = new Queue(4); info(myQueue); myQueue-&gt;enqueue(2); myQueue-&gt;enqueue(8); myQueue-&gt;enqueue(4); myQueue-&gt;enqueue(5); info(myQueue); } 
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms/linkedlist/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Singly Linked List</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Linked Lists and Vectors are different concepts. A Vector has index assigned to it’s elements whereas there are no index in Linked Lists. A Vector has it’s elements stored in memory address consecutively whereas Linked List have it’s elements stored in memory address that are not in any order (arbitrarily assigned). Each element points to the next elements memory address and the last elements points to null value (that means no where).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures_and_algorithms/stacks/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Stack</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          The stack will be a vertical Linked List that will have it’s tail at the bottom (the actual tail pointer will not be present) and head at the Top (top pointer will be present instead of head pointer). Prepend like function called push will add a node at the top of the stack and pop function will return the value of the popped node and will delete the node when it will be called.
+        </div>
+      </a>
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">Doubly Linked List</h1>
+
+	  
+
+      
+
+      <p>A doubly linked list is a type of linked list where each node contains data and references to two other nodes:</p>
+<ul>
+<li>One pointer to the previous node in the list.</li>
+<li>Another pointer to the next node in the list.
+This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> <span style="color:#ff79c6">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Creating the Node Class
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Node</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> value;
+</span></span><span style="display:flex;"><span>  Node <span style="color:#ff79c6">*</span>next;
+</span></span><span style="display:flex;"><span>  Node <span style="color:#ff79c6">*</span>prev;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Node(<span style="color:#8be9fd">int</span> value) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&gt;</span>value <span style="color:#ff79c6">=</span> value;
+</span></span><span style="display:flex;"><span>    next <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>    prev <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Creating Double Linked List Class
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DoublyLinkedList</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  Node <span style="color:#ff79c6">*</span>head;
+</span></span><span style="display:flex;"><span>  Node <span style="color:#ff79c6">*</span>tail;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> length;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Constructor for the Doubly Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  DoublyLinkedList(<span style="color:#8be9fd">int</span> value) {
+</span></span><span style="display:flex;"><span>    Node <span style="color:#ff79c6">*</span>newNode <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Node(value);
+</span></span><span style="display:flex;"><span>    head <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    tail <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Destructor for the Doubly Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">~</span>DoublyLinkedList() {
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> temp <span style="color:#ff79c6">=</span> head;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">while</span> (head) {
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">delete</span> temp;
+</span></span><span style="display:flex;"><span>      temp <span style="color:#ff79c6">=</span> head;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// printList will print the Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printList</span>() {
+</span></span><span style="display:flex;"><span>    Node <span style="color:#ff79c6">*</span>temp <span style="color:#ff79c6">=</span> head;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">while</span> (temp <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nullptr</span>) {
+</span></span><span style="display:flex;"><span>      cout <span style="color:#ff79c6">&lt;&lt;</span> temp<span style="color:#ff79c6">-&gt;</span>value <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>      temp <span style="color:#ff79c6">=</span> temp<span style="color:#ff79c6">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getHead</span>() { cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Head: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> head<span style="color:#ff79c6">-&gt;</span>value <span style="color:#ff79c6">&lt;&lt;</span> endl; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getTail</span>() { cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Tail: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> tail<span style="color:#ff79c6">-&gt;</span>value <span style="color:#ff79c6">&lt;&lt;</span> endl; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getLength</span>() { cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Length: &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> length <span style="color:#ff79c6">&lt;&lt;</span> endl; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// append funtion will append a Node at the end of the Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">append</span>(<span style="color:#8be9fd">int</span> value) {
+</span></span><span style="display:flex;"><span>    Node <span style="color:#ff79c6">*</span>newNode <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Node(value);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (length <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>      tail <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>      tail<span style="color:#ff79c6">-&gt;</span>next <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>      newNode<span style="color:#ff79c6">-&gt;</span>prev <span style="color:#ff79c6">=</span> tail;
+</span></span><span style="display:flex;"><span>      tail <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    length<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// deleteLast function will delete the last Node of the Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">deleteLast</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (length <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> temp <span style="color:#ff79c6">=</span> tail;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (length <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>){
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>      tail <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>{
+</span></span><span style="display:flex;"><span>      tail <span style="color:#ff79c6">=</span> tail<span style="color:#ff79c6">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>      tail<span style="color:#ff79c6">-&gt;</span>next <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> temp;
+</span></span><span style="display:flex;"><span>    length<span style="color:#ff79c6">--</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// prepend function will prepend a Node at the beginning of the Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">prepend</span>(<span style="color:#8be9fd">int</span> value){
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> newNode <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Node(value);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (length <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>){
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>      tail <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>{
+</span></span><span style="display:flex;"><span>      newNode<span style="color:#ff79c6">-&gt;</span>next <span style="color:#ff79c6">=</span> head;
+</span></span><span style="display:flex;"><span>      head<span style="color:#ff79c6">-&gt;</span>prev <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    length<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// deleteFirst function will delete the first Node of the Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">deleteFirst</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (length <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> temp <span style="color:#ff79c6">=</span> head;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (length <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>){
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>      tail <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>{
+</span></span><span style="display:flex;"><span>      head <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>      head<span style="color:#ff79c6">-&gt;</span>prev <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> temp;
+</span></span><span style="display:flex;"><span>    length<span style="color:#ff79c6">--</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// get function will return the pointer pointing to the given index of the Linked List
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  Node<span style="color:#ff79c6">*</span> <span style="color:#50fa7b">get</span>(<span style="color:#8be9fd">int</span> index){
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">||</span> index <span style="color:#ff79c6">&gt;=</span> length) <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nullptr</span>;
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> temp <span style="color:#ff79c6">=</span> head;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">&lt;</span> length <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> index; i<span style="color:#ff79c6">++</span>){
+</span></span><span style="display:flex;"><span>        temp <span style="color:#ff79c6">=</span> temp<span style="color:#ff79c6">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>{
+</span></span><span style="display:flex;"><span>      temp <span style="color:#ff79c6">=</span> tail;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> length <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>; i <span style="color:#ff79c6">&gt;</span> index; i<span style="color:#ff79c6">--</span>){
+</span></span><span style="display:flex;"><span>        temp <span style="color:#ff79c6">=</span> temp<span style="color:#ff79c6">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> temp;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// set function will set the value of the Node of a given index to the  given value
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">bool</span> <span style="color:#50fa7b">set</span>(<span style="color:#8be9fd">int</span> index, <span style="color:#8be9fd">int</span> value){
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> temp <span style="color:#ff79c6">=</span> get(index);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (temp <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nullptr</span>){
+</span></span><span style="display:flex;"><span>      temp<span style="color:#ff79c6">-&gt;</span>value <span style="color:#ff79c6">=</span> value;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">false</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// insert function will be used to insert a Node a given value at given index 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">bool</span> <span style="color:#50fa7b">insert</span>(<span style="color:#8be9fd">int</span> index, <span style="color:#8be9fd">int</span> value){
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">||</span> index <span style="color:#ff79c6">&gt;</span> length) <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>){
+</span></span><span style="display:flex;"><span>      prepend(value);
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">==</span> length){
+</span></span><span style="display:flex;"><span>      append(value);
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> newNode <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Node(value);
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> before <span style="color:#ff79c6">=</span> get(index <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> after <span style="color:#ff79c6">=</span> before<span style="color:#ff79c6">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    newNode<span style="color:#ff79c6">-&gt;</span>prev <span style="color:#ff79c6">=</span> before;
+</span></span><span style="display:flex;"><span>    newNode<span style="color:#ff79c6">-&gt;</span>next <span style="color:#ff79c6">=</span> after;
+</span></span><span style="display:flex;"><span>    before<span style="color:#ff79c6">-&gt;</span>next <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    after<span style="color:#ff79c6">-&gt;</span>prev <span style="color:#ff79c6">=</span> newNode;
+</span></span><span style="display:flex;"><span>    length<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// deleteNode function will delete the Node of given index
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">deleteNode</span>(<span style="color:#8be9fd">int</span> index){
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">||</span> index <span style="color:#ff79c6">&gt;=</span> length) <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">return</span> deleteFirst();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (index <span style="color:#ff79c6">==</span> length <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">return</span> deleteLast();
+</span></span><span style="display:flex;"><span>    Node<span style="color:#ff79c6">*</span> temp <span style="color:#ff79c6">=</span> get(index);
+</span></span><span style="display:flex;"><span>    temp<span style="color:#ff79c6">-&gt;</span>next<span style="color:#ff79c6">-&gt;</span>prev <span style="color:#ff79c6">=</span> temp<span style="color:#ff79c6">-&gt;</span>prev;
+</span></span><span style="display:flex;"><span>    temp<span style="color:#ff79c6">-&gt;</span>prev<span style="color:#ff79c6">-&gt;</span>next <span style="color:#ff79c6">=</span> temp<span style="color:#ff79c6">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span> temp;
+</span></span><span style="display:flex;"><span>    length<span style="color:#ff79c6">--</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Print function will print information about the linked list for debugging purposes. This function has not been defined in the class.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">print</span>(DoublyLinkedList<span style="color:#ff79c6">*</span> myDLL){
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;---------------------&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Printing Linked List&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>printList();
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>getHead();
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>getTail();
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>getLength();
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;---------------------&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>  DoublyLinkedList<span style="color:#ff79c6">*</span> myDLL <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DoublyLinkedList(<span style="color:#bd93f9">7</span>);
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>append(<span style="color:#bd93f9">3</span>);
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>append(<span style="color:#bd93f9">4</span>);
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>append(<span style="color:#bd93f9">5</span>);
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>append(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Deleting Last&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>deleteLast();
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Prepending&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>prepend(<span style="color:#bd93f9">5</span>);
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Appending&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>append(<span style="color:#bd93f9">8</span>);
+</span></span><span style="display:flex;"><span>  print(myDLL);  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Deleting First&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>deleteFirst();
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Getting the value of given Index&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> myDLL<span style="color:#ff79c6">-&gt;</span>get(<span style="color:#bd93f9">2</span>)<span style="color:#ff79c6">-&gt;</span>value <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Setting the value of index 2 to 10&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>set(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">10</span>);
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;Inserting a Node of value 8 at index 3&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>  myDLL<span style="color:#ff79c6">-&gt;</span>insert(<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">8</span>);
+</span></span><span style="display:flex;"><span>  print(myDLL);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+  
+
+
+</body>
+
+</html>
