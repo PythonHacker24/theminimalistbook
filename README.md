@@ -1,6 +1,6 @@
 # The Minimalist's Book ✨ 
 
-![logo](./logo.png)
+![logo](./static/logo.png)
 
 ## What's this book about? 
 
