@@ -36,7 +36,7 @@ I write about lot of things. So I decided to divide my writings into parts, so t
 
 ## Site Details 
 
-This site is completely owned by me as an indivisual. It has been developed with **Hugo** and **Digital Garden Theme**. I am keeping the source code open-source for any contributions that can be made from the community. You are welcome to fix any mistakes or typos in my writings, since I don't use any kind of fancy writing tools and everything is custom tailored. I am certainly not the best grammer expert, so your expertise would help make it better.
+This site is completely owned by me as an individual. It has been developed with **Hugo** and **Digital Garden Theme**. I am keeping the source code open-source for any contributions that can be made from the community. You are welcome to fix any mistakes or typos in my writings, since I don't use any kind of fancy writing tools and everything is custom tailored. I am certainly not the best grammer expert, so your expertise would help make it better.
 
 ## License
 

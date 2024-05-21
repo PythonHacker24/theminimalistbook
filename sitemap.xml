@@ -82,7 +82,11 @@
   </url><url>
     <loc>/projects/design1/</loc>
   </url><url>
+    <loc>/algorithms/</loc>
+  </url><url>
     <loc>/data_structures/binary_tree/</loc>
+  </url><url>
+    <loc>/algorithms/bubble_sort/</loc>
   </url><url>
     <loc>/categories/</loc>
   </url><url>
@@ -96,11 +100,19 @@
   </url><url>
     <loc>/data_structures/hash/</loc>
   </url><url>
+    <loc>/algorithms/insertion_sort/</loc>
+  </url><url>
+    <loc>/algorithms/merge_sort/</loc>
+  </url><url>
     <loc>/backpack/</loc>
   </url><url>
     <loc>/projects/</loc>
   </url><url>
     <loc>/data_structures/queue/</loc>
+  </url><url>
+    <loc>/algorithms/quick_sort/</loc>
+  </url><url>
+    <loc>/algorithms/selection_sort/</loc>
   </url><url>
     <loc>/data_structures/linkedlist/</loc>
   </url><url>
@@ -109,5 +121,13 @@
     <loc>/tags/</loc>
   </url><url>
     <loc>/projects/design3/</loc>
+  </url><url>
+    <loc>/algorithms/tree_traversal_breath_first_search/</loc>
+  </url><url>
+    <loc>/algorithms/tree_traversal_depth_first_search_in_order_search/</loc>
+  </url><url>
+    <loc>/algorithms/tree_traversal_depth_first_search_post_order/</loc>
+  </url><url>
+    <loc>/algorithms/tree_traversal_depth_first_search_pre_order/</loc>
   </url>
 </urlset>
