@@ -6,8 +6,15 @@
     <description>Recent content in Deep Dive Articles ⭐️ on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/technical/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Concept of RSS Feed - A Reliable Way for Publishers and Subscribers Model</title>
+      <link>/technical/concept_of_rss_feed/</link>
+      <pubDate>Tue, 21 May 2024 00:00:00 +0000</pubDate>
+      <guid>/technical/concept_of_rss_feed/</guid>
+      <description>Preface: I have been looking for simple solutions in nearly everything related to computing. A lot of software designed these days is not designed per your requirements but as per companies&amp;rsquo; profit. Hence, most of these solutions end up sucking your time and energy and need to be replaced by more optimised solutions that would boost your productivity in the right way. RSS Feed is something that I found after searching for solutions related to subscribing to websites or creators without sucking much resources and design that is reliable to the user itself.</description>
+    </item>
     <item>
       <title>Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</title>
       <link>/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</link>
