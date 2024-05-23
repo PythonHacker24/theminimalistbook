@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects 🛠️ on The Minimalist&#39;s Book</title>
+    <title>Projects on The Minimalist&#39;s Book</title>
     <link>/projects/</link>
-    <description>Recent content in Projects 🛠️ on The Minimalist&#39;s Book</description>
+    <description>Recent content in Projects on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
