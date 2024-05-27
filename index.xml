@@ -6,8 +6,15 @@
     <description>Recent content in Homepage on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</title>
+      <link>/technical/tmux_is_the_ultimate_choice_for_power_users/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
+      <guid>/technical/tmux_is_the_ultimate_choice_for_power_users/</guid>
+      <description>What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.</description>
+    </item>
     <item>
       <title>The Future of Work and Lifestyle - The Inevitable Change in Thinking and Growth</title>
       <link>/thinkings/the_future_of_work_and_lifestyle/</link>

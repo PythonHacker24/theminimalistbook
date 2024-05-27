@@ -8,59 +8,49 @@
   <link rel="icon" href="/favicon.ico">
 
   <title>
-    Installing Pacman in Arch Linux — When You Blow it Up - The Minimalist&#39;s Book
+    Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions - The Minimalist&#39;s Book
   </title>
 
-  <meta name="description" content="Let me suckless and divide the article into two parts:
-My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
-The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome." /><meta name="generator" content="Hugo 0.126.1">
+  <meta name="description" content="What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with." /><meta name="generator" content="Hugo 0.126.1">
 
   <link rel="stylesheet" href="/css/main.css" />
 
   
   
 
-  <meta property="og:url" content="/technical/installing_pacman_in_arch_linux/">
+  <meta property="og:url" content="/technical/tmux_is_the_ultimate_choice_for_power_users/">
   <meta property="og:site_name" content="The Minimalist&#39;s Book">
-  <meta property="og:title" content="Installing Pacman in Arch Linux — When You Blow it Up">
-  <meta property="og:description" content="Let me suckless and divide the article into two parts:
-My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
-The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.">
+  <meta property="og:title" content="Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions">
+  <meta property="og:description" content="What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="technical">
-    <meta property="article:published_time" content="2024-01-17T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-01-17T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-05-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-27T00:00:00+00:00">
     <meta property="og:image" content="/digital-garden-logo.png">
 
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/digital-garden-logo.png">
-  <meta name="twitter:title" content="Installing Pacman in Arch Linux — When You Blow it Up">
-  <meta name="twitter:description" content="Let me suckless and divide the article into two parts:
-My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
-The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.">
+  <meta name="twitter:title" content="Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions">
+  <meta name="twitter:description" content="What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.">
 
 
   
-  <meta itemprop="name" content="Installing Pacman in Arch Linux — When You Blow it Up">
-  <meta itemprop="description" content="Let me suckless and divide the article into two parts:
-My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
-The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.">
-  <meta itemprop="datePublished" content="2024-01-17T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-01-17T00:00:00+00:00">
-  <meta itemprop="wordCount" content="706">
+  <meta itemprop="name" content="Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions">
+  <meta itemprop="description" content="What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.">
+  <meta itemprop="datePublished" content="2024-05-27T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-05-27T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1682">
   <meta itemprop="image" content="/digital-garden-logo.png">
 
   
-  <meta itemprop="name" content="Installing Pacman in Arch Linux — When You Blow it Up">
-  <meta itemprop="description" content="Let me suckless and divide the article into two parts:
-My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
-The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.">
-  <meta itemprop="datePublished" content="2024-01-17T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-01-17T00:00:00+00:00">
-  <meta itemprop="wordCount" content="706">
+  <meta itemprop="name" content="Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions">
+  <meta itemprop="description" content="What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.">
+  <meta itemprop="datePublished" content="2024-05-27T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-05-27T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1682">
   <meta itemprop="image" content="/digital-garden-logo.png">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
@@ -333,13 +323,13 @@ The Scenario — Blow it Up I was trying to install the pacman game from the Int
 </script>
 <div class="space-y-2.5">
       
-      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
         href="/technical/tmux_is_the_ultimate_choice_for_power_users/">
         
         
         <h3 class="text-lg font-semibold mb-0.5">Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</h3>
         <div
-          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          class="text-sm  text-slate-400  line-clamp-2">
           What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.
         </div>
       </a>
@@ -490,13 +480,13 @@ I prefer manual deployment of applications over automated (and even serverless) 
         </div>
       </a>
       
-      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
         href="/technical/installing_pacman_in_arch_linux/">
         
         
         <h3 class="text-lg font-semibold mb-0.5">Installing Pacman in Arch Linux — When You Blow it Up</h3>
         <div
-          class="text-sm  text-slate-400  line-clamp-2">
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
           Let me suckless and divide the article into two parts:
 My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
 The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.
@@ -566,55 +556,119 @@ This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Li
     <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
 
       
-      <h1 class="!mb-2">Installing Pacman in Arch Linux — When You Blow it Up</h1>
+      <h1 class="!mb-2">Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</h1>
 
 	  
-      <p class="text-sm text-slate-500 !mb-8"> Planted January 17, 2024
+      <p class="text-sm text-slate-500 !mb-8"> Planted May 27, 2024
 		
 	  </p>
       
 
       
 
-      <p>Let me suckless and divide the article into two parts:</p>
-<p>My story how I blew up Pacman Package Manager
-How to reinstall the Pacman Package Manager
-If you only care about the second part, skip the first one.</p>
-<h2 id="the-scenario--blow-it-up">The Scenario — Blow it Up</h2>
-<p>I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome. It was fun to the point that I decided to add it to my /usr/bin directory to make it my usual command and play it whenever I want. This is where I messed up and replaced the Pacman Package Manager binary with the Pacman Game binary. And now I ended up losing it and unable to update or install anything to my system and enabled me to play a Pacman Game.</p>
-<p>Now when you are in a relaxed state and don’t have a broad angle of thinking what you are doing, you ending messing things up. And it may be a case happened to you too and you might too have blown you Pacman Package Manager by any reason (trust me, you messed up).</p>
-<p>It is a 2 minutes solution which took me 2 hours to find out. I am including the steps here so that you can save your good time.</p>
-<h2 id="looking-on-the-brighter-side">Looking on the Brighter Side</h2>
-<p>The 2 hours went by where some of the good hours that Arch Linux gives you frequently. Last time, it was a Wi-Fi driver error due to outdated kernel which I documented in my other article. This is what I use Arch for: not just getting my system fast and make it the most custom tailored operating system ever, but also learning a lot of things through challenges like this. I actually love these challenges that come in my way to make me think valid approaches and tackle that problem.</p>
-<p>I first thought of using pacstrap (which of course was not a command in my Arch Distro). To overcome this, I got my Arch Installation media (super useful to have: for installing Arch in new systems and debugging existing machines as well) ready, which is a 16GB USB. I plugged it in, used <code>iwctl</code> to connect to the Wi-Fi, mount the SSD with my Arch Linux with the commands <code>mkdir /mnt/boot</code>, <code>mount /dev/sda1</code> <code>/mnt/boot</code>, <code>mount /dev/sda2 /mnt</code> (mine was sda labelled). Then I pacstrapped it: <code>pacstrap /mnt base base-devel</code>. And it failed.</p>
-<p>Then spent time with the the Arch Wiki (this takes the most amout of time) and got the whole git repo of Pacman Package Manager cloned in my system. Followed all the steps to get the meson build ready as well as ninja build and install. At last, didn’t work (it will work in the solutions part).</p>
-<p>After this part, I did make it happen. It was just a small configuration of adding repositories to the configuration, from which the Arch Linux will install all of it’s tools.</p>
-<h2 id="solution-to-the-problem-getting-pacman-package-manager-installed-on-the-system">Solution to the Problem: Getting Pacman Package Manager Installed on the System</h2>
-<ol>
-<li>Get the Pacman Package Manager git repository cloned in your system <code>git clone https://gitlab.archlinux.org/pacman/pacman.git</code></li>
-<li>Get the Build and Install Procedures done :</li>
-</ol>
-<ul>
-<li><code>$ meson build</code></li>
-<li><code>$ ninja -C build</code></li>
-<li><code>$ ninja -C build install</code></li>
-</ul>
-<ol start="3">
-<li>Edit the pacman.conf file: File location: <code>/etc/pacman.conf</code>. Add these lines in the pacman.conf.</li>
-</ol>
-<p>[core]
-Include = /etc/pacman.d/mirrorlist</p>
-<p>[extra]
-Include = /etc/pacman.d/mirrorlist</p>
-<p>[community]
-Include = /etc/pacman.d/mirrorlist</p>
-<ol start="4">
-<li>Update the mirrorlist with the Official Arch Linux Mirrorlist Generator. Just selected the desired location and other settings. Then just copy and paste them in the file <code>/etc/pacman.d/mirrorlist</code>.</li>
-</ol>
-<p>Arch Official Mirrorlist Generator: <code>https://archlinux.org/mirrorlist/</code></p>
-<p>And the Pacman Package Manager would run as expected with the command <code>pacman</code>. Try doing <code>pacman -Syu</code> which updates your system for testing it.</p>
-<p>Official Webpage for Pacman: <a href="https://archlinux.org/pacman/"  target="_blank" rel="noopener" >https://archlinux.org/pacman/</a></p>
-<p>If still you Pacman Package Manager doesn’t work out, I am really sorry for your loss. You need to try harder to get it done. I would like to know if there are even more ways to solve this problem (or even things can go even more wrong). Although theoretically it must work by now, but in case if it doesn’t, happy solving the issue.</p>
+      <h2 id="what-is-tmux">What is Tmux?</h2>
+<p>Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.</p>
+<p>Tmux is Free and Open Source Software and its source code is available at its Official GitHub Repository: <a href="https://github.com/tmux/tmux"  target="_blank" rel="noopener" >https://github.com/tmux/tmux</a></p>
+<p>Readers of my articles know how much I love Open Source and Free Software and this one is one of my favourite terminal applications.</p>
+<h2 id="why-do-you-need-tmux">Why do You Need Tmux?</h2>
+<p>One thing about Tmux that I would like to mention is that Tmux is highly productive and you just need some amount of patience to learn it.</p>
+<p>Terminal Emulators are great, they can manage a lot of things like splitting panes and tabs, which Tmux also does by default. For instance, I use the Suckless Terminal with DWM (Dynamic Window Manager) which is a tiling window manager that allows me to have screen layout split into patterns that I prefer depending upon my work and have multiple workspaces mimicking as tabs on my system for the terminal emulators. In the past, I used to work with Terminator which is a graphical-based terminal emulator and had a decent amount of functionalities where windows were split and tabs were created inside one whole application. The GNOME terminal also supports the same and gets these basic jobs done.</p>
+<p>Tmux on the other hand works in a different way. Tmux runs on the terminal emulator and performs these operations on the TUI itself. So it doesn’t matter which terminal application you use, Tmux is going to work in the same way. When you split the screen, it’s not the GUI of the Terminal (like in GNOME terminals) where it’s going to split graphically. It would be splitting the terminal space in that terminal session.</p>
+<p>It might sound a bit confusing in the beginning but is easy when you use it. Let me put it like a story:</p>
+<p>When you open a terminal emulator on a desktop environment, it runs as a GUI and starts a terminal session with the underlying operating system. All the stuff you work in here is gone into the terminal session and is confined inside it.</p>
+<p>When you split the terminal, a new session is created which is different from the session it was in that prompt. It’s a “different terminal session”. The same goes with the tabs, when you open a new tab, a new terminal session is spawned.</p>
+<p>In the case of Tmux, when you open a GUI terminal, you get that one terminal session to work on. When you start a Tmux session inside it, all the tabs and windows are packed into that tmux session which is running on the same terminal session. Hence, you would be controlling a lot of prompts inside the same terminal session. All the creation of tabs and windows would be happening inside the tmux session which was inside that terminal session.</p>
+<p>Now if somehow your terminal crashes or gets closed by mistake, the terminal session is lost and all the history or temporary environment variables disappear. But if you were working in the Tmux session, that Tmux session can be restored in any other terminal session as well.</p>
+<p>You can have multiple terminal sessions running and you can access the Tmux session from all of them at once. So even if one of the terminal sessions is closed, the underlying Tmux session doesn’t stop and can be restored.</p>
+<h2 id="tmux-for-linux-administration">Tmux for Linux Administration</h2>
+<p>Linux Administrators connect to servers remotely, commonly via SSH (Secure Shell). Working with a shell that is connected to a server with a network can be fragile. And you get disconnected with the shell, all the work that wasn’t saved or history can get destroyed. Tmux provides a persistent session here with a lot of other functionalities.</p>
+<p>When you log into a server, if you start a Tmux Session and start working on it, then that session is stored in the server while it’s running, even if the SSH is logged out. And you are allowed to create multiple Tmux sessions if you want! All those sessions would be restored even if get accidentally disconnected from the server, saving your precious work done on that session.</p>
+<p>Furthermore, when you spilt screens in terminal emulators, it happens on the client side. So when you are connected to a server and you need to do multiple things on different panes, you need to log in again on that split terminal (remember, the split terminal is a new terminal session, in this case on the client side only). But with Tmux when you split the screen, it’s split on the server side and you would see a split terminal on the client side in the same session of the terminal, without any interaction with the client’s terminal. The same goes with tabs, they are created on the server side with Tmux. And even when you disconnect from the server, all the Tmux sessions, tabs and windows are saved!</p>
+<p>This makes Tmux one of the best tools for Linux Administration purposes and when you are working remotely with servers.</p>
+<h2 id="tmux-for-personal-computers">Tmux for Personal Computers</h2>
+<p>As good as remote servers, Tmux works like a charm with productive setups on your personal computers. All the good things listed above are as important in Personal Computers too. Creating tabs, and sessions and splitting windows with persistent and redundant sessions come in handy while immersing in the work.</p>
+<p>When you are working with the terminal all the time (like Vim users), persistent sessions are important in case of disruptions like the terminal crashing or accidentally closing the terminal application. Everything in Tmux is stored as it was before it was detached.</p>
+<p>And learning Tmux has an advantage too. Tmux doesn’t care which terminal emulator has been used. So even if you are working on different terminal emulators, say you are a Kitty user shifted to Alacritty, the binding of Tmux would be as per your configurations and would not change. And when you are good with Tmux, your server administration skills will boost up too. When you are conceptually clear with Tmux and have the habits of key bindings, the terminal session on the servers will be as productive as it is on your personal computers.</p>
+<p>I recommend creating an automated script for these cases. For instance, if you need to constantly monitor CPU usage and Memory utilisation on the server while you work, Tmux widgets can be useful to do so. So you can develop a script, which when run on the remote server, installs and configures Tmux in that way in one command.</p>
+<h2 id="installing-tmux">Installing Tmux</h2>
+<p>Installing Tmux for different depending upon the Operating System, few of them are listed below (you can install it with your package manager):</p>
+<h3 id="debain-based-distros">Debain Based Distros</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install tmux
+</span></span></code></pre></div><h3 id="red-hat-based-distros">Red Hat-based Distros</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install tmux
+</span></span></code></pre></div><h3 id="fedora-based-distros">Fedora Based Distros</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install tmux
+</span></span></code></pre></div><h3 id="arch-linux-based-distros">Arch Linux Based Distros</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S tmux
+</span></span></code></pre></div><h3 id="opensuse">OpenSUSE</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo zypper install tmux
+</span></span></code></pre></div><h3 id="gentoo-linux">Gentoo Linux</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>emerge tmux
+</span></span></code></pre></div><h3 id="macos">MacOS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install tmux
+</span></span></code></pre></div><h3 id="installing-from-source-unix-like-distros">Installing from Source (Unix Like Distros)</h3>
+<h3 id="installing-dependencies">Installing Dependencies</h3>
+<p>(Listing for Debain, same can be done with different package managers on different distros)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install -y build-essential libevent-dev libncurses-dev
+</span></span></code></pre></div><h4 id="downloading-the-source-code">Downloading the Source Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+</span></span><span style="display:flex;"><span>tar -xvzf tmux-3.3a.tar.gz
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> tmux-3.3a
+</span></span></code></pre></div><h4 id="compile-and-install">Compile and Install</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>Refer the Official Tmux Wiki for more information or Troubleshooting: <a href="https://github.com/tmux/tmux/wiki"  target="_blank" rel="noopener" >https://github.com/tmux/tmux/wiki</a></p>
+<h2 id="tmux-plugins---the-tmux-plugin-manager">Tmux Plugins - The Tmux Plugin Manager</h2>
+<p>Tmux supports a variety of plugins, which is made easy by the TPM (Tmux Plugin Manager) which allows you to manage your tmux plugins in a better way. Installing TPM is simple, use the following command to download TPM and just add the following line to your tmux.conf file (if it doesn’t exist, create one).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+</span></span></code></pre></div><pre tabindex="0"><code class="language-config" data-lang="config">set -g @plugin &#39;tmux-plugins/tpm&#39;
+
+# Plugins here 
+
+# At the end
+run &#39;~/.tmux/plugins/tpm/tpm&#39;
+</code></pre><p>Finally, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tmux <span style="color:#8be9fd;font-style:italic">source</span> ~/.tmux.conf
+</span></span></code></pre></div><p>After this, you are ready to install any plugin of your choice. A few plugins that I use will be listed in the next section where you can understand how to install plugins via TPM.</p>
+<h2 id="example-of-tmux-usage---how-i-use-it-and-my-config-files">Example of Tmux Usage - How I Use it and My Config Files</h2>
+<p>I use Tmux on my main Debian Machine and my Macbook all the time. My usual workspace is Tmux + NeoVim for both of my machines (and Tmux looks like a tiling window manager, just like DWM). Although, I use some plugins to make my Tmux beautiful and add some more features. Also, I use my custom bindings as per my requirements.</p>
+<p><img src="" alt="tmux"></p>
+<p>This is my Tmux configuration file:</p>
+<pre tabindex="0"><code class="language-config" data-lang="config">unbind r 
+bind r source-file ~/.tmux.conf
+
+set -g prefix C-s 
+set -g status-position top
+
+set -g status-position top
+
+# Vim Bindings 
+setw -g mode-keys vi 
+bind-key h select-pane -L 
+bind-key j select-pane -D 
+bind-key k select-pane -U 
+bind-key l select-pane -R
+
+# List of plugins 
+set -g @plugin &#39;tmux-plugins/tpm&#39;
+set -g @plugin &#39;dracula/tmux&#39;
+
+set -g @dracula-plugins &#34;cpu-usage ram-usage battery time&#34;
+set -g @dracula-show-powerline true
+set -g @dracula-show-left-icon window
+set -g @dracula-battery-label &#34;Battery&#34;
+set -g @dracula-git-show-current-symbol ✓
+set -g @dracula-time-format &#34;%T&#34;
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run &#39;~/.tmux/plugins/tpm/tpm&#39;
+</code></pre><p>I am using the dracula tmux colorscheme which is dark with optimal contrast to make tmux took awesome. Dracula supports a lot of other features like monitoring various things, like for me, the CPU, Memory and Battery (for Laptop) and a few other configurations.</p>
+<p>Dracula Theme Official Page: <a href="https://draculatheme.com/tmux"  target="_blank" rel="noopener" >https://draculatheme.com/tmux</a></p>
+<p>Configuring Dracula is super easy and is well documented on the Official Page.</p>
+<p>Here, I am using NeoVim on MacOS and I will be posting articles on NeoVim in the future about how to configure it and use it for maximum developer productivity.</p>
 
     </article>
   </div>
