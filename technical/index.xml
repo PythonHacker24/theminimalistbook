@@ -6,8 +6,15 @@
     <description>Recent content in Deep Dive Articles on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/technical/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Shifted From Arch Linux to Debian Linux?</title>
+      <link>/technical/why_i_shifted_from_arch_to_debian/</link>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      <guid>/technical/why_i_shifted_from_arch_to_debian/</guid>
+      <description>Preface: The following article is based on my personal experience with Arch Linux and Debian Linux. While I appreciate both distributions for their unique strengths and different use cases, the information provided reflects my own opinions and experiences. Your experiences may vary.&#xA;What was I going for Initially? Bit of my Story as a Beginner Linux User When I started using Linux, I was going through security stuff and learning computer security when I was in my High School.</description>
+    </item>
     <item>
       <title>Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</title>
       <link>/technical/tmux_is_the_ultimate_choice_for_power_users/</link>
