@@ -8,49 +8,54 @@
   <link rel="icon" href="/favicon.ico">
 
   <title>
-    Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server - The Minimalist&#39;s Book
+    Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance.  - The Minimalist&#39;s Book
   </title>
 
-  <meta name="description" content="Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control." /><meta name="generator" content="Hugo 0.126.1">
+  <meta name="description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform." /><meta name="generator" content="Hugo 0.126.1">
 
   <link rel="stylesheet" href="//localhost:1313/css/main.css" />
 
   
   
 
-  <meta property="og:url" content="//localhost:1313/technical/setting_up_remote_git_server/">
+  <meta property="og:url" content="//localhost:1313/technical/why_more_is_not_always_good/">
   <meta property="og:site_name" content="The Minimalist&#39;s Book">
-  <meta property="og:title" content="Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server">
-  <meta property="og:description" content="Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.">
+  <meta property="og:title" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
+  <meta property="og:description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="technical">
-    <meta property="article:published_time" content="2024-02-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-02-10T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-05-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-30T00:00:00+00:00">
     <meta property="og:image" content="//localhost:1313/digital-garden-logo.png">
 
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="//localhost:1313/digital-garden-logo.png">
-  <meta name="twitter:title" content="Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server">
-  <meta name="twitter:description" content="Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.">
+  <meta name="twitter:title" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
+  <meta name="twitter:description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
 
 
   
-  <meta itemprop="name" content="Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server">
-  <meta itemprop="description" content="Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.">
-  <meta itemprop="datePublished" content="2024-02-10T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-02-10T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1744">
+  <meta itemprop="name" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
+  <meta itemprop="description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
+  <meta itemprop="datePublished" content="2024-05-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-05-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2083">
   <meta itemprop="image" content="//localhost:1313/digital-garden-logo.png">
 
   
-  <meta itemprop="name" content="Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server">
-  <meta itemprop="description" content="Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.">
-  <meta itemprop="datePublished" content="2024-02-10T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-02-10T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1744">
+  <meta itemprop="name" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
+  <meta itemprop="description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
+  <meta itemprop="datePublished" content="2024-05-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-05-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2083">
   <meta itemprop="image" content="//localhost:1313/digital-garden-logo.png">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
@@ -323,13 +328,13 @@
 </script>
 <div class="space-y-2.5">
       
-      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
         href="/technical/why_more_is_not_always_good/">
         
         
         <h3 class="text-lg font-semibold mb-0.5">Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </h3>
         <div
-          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          class="text-sm  text-slate-400  line-clamp-2">
           Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
 What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.
         </div>
@@ -403,13 +408,13 @@ The Beauty of Electronic Devices In the ever-growing world of smart devices and 
         </div>
       </a>
       
-      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
         href="/technical/setting_up_remote_git_server/">
         
         
         <h3 class="text-lg font-semibold mb-0.5">Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</h3>
         <div
-          class="text-sm  text-slate-400  line-clamp-2">
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
           Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.
         </div>
       </a>
@@ -580,130 +585,81 @@ This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Li
     <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
 
       
-      <h1 class="!mb-2">Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</h1>
+      <h1 class="!mb-2">Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </h1>
 
 	  
-      <p class="text-sm text-slate-500 !mb-8"> Planted February 10, 2024
+      <p class="text-sm text-slate-500 !mb-8"> Planted May 30, 2024
 		
 	  </p>
       
 
       
 
-      <p><em>Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.</em></p>
-<h2 id="introduction-to-private-remote-git-server">Introduction to Private Remote Git Server</h2>
-<p>A private remote git server allows multiple developers to collaborate and develop software with the comfort of version control. All the codebase and files would be stored in the remote git repository with each change tracked systematically. Although there are plenty of options to go with for remote git management services, owning a private server provides the organisation with more control over their data as well as customisations they can make over their property. These git servers can be paired with domain names for convenience and hence, the organisation enjoys the ownership of its data.</p>
-<p>If the software is intended to be hosted openly for the public, a simple web interface works fine here and would be covered here (having a domain name like <code>git.domain-name.tld</code> can be done here).</p>
-<p>To set up a remote git server, you need the resources mentioned here:</p>
+      <p><em><strong>Preface:</strong></em> <em>This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.</em></p>
+<h2 id="what-i-am-specifically-talking-about">What I am Specifically Talking About?</h2>
+<p>I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.</p>
+<p>I have been a Linux User for a few years now, and there have been some wild experiences when I am working especially with cross-platform applications. This is usually when I work with deployments where I am using different Operating Systems or environments, and what I think must be done or must be followed to avoid this kind of issue.</p>
+<p>Software Compliance is a necessary component while developing tools and applications for different platforms. Here, I am not talking about widely different OS, like comparing Windows and Linux for software compliance, in which case we know that the Kernels are completely different, but about the ones that seem somewhat similar, but have some hidden strings attached that would disrupt your usage.</p>
+<p>I am going to provide a few examples related to Bash, which is a GNU utility and how it’s creating a sense of extra features for new users, who get comfortable with it and end up failing to use other platforms when needed and can’t figure out why. So if you are new to Linux user or have been suffering from this issue, or even if you don’t care about cross-platform applications since your work is not related to it, it’s an article based on a lot of information related to what GNU is going and where the POSIX side of compliance is going. There are going to be facts about a Bash and the SED utility, so even if you think that this is stupid, you still have some takeaways from reading this article.</p>
+<h2 id="example-of-bash-ism">Example of Bash-ism</h2>
+<p>Bash is an interactive shell, which is built by GNU and is the default in a lot of Linux distributions, including a lot of which new to Linux users try as their first Linux Distro. Even for me, Bash was the first shell used, while I was using Kali Linux which is built upon Debian, with its default shell Bash. So for me, Bash became a standard for using shells and writing shell scripts.</p>
+<p>Before proceeding, let me first state what POSIX compliance is, since it’s necessary to understand it before proceeding:</p>
+<p><em>POSIX compliance refers to adherence to the standards specified by POSIX (Portable Operating System Interface), which is a family of standards defined by the IEEE for maintaining compatibility between operating systems. These standards cover various aspects of operating system interfaces, including shell command languages, system calls, and utilities. The main goal of POSIX is to ensure that software written for one POSIX-compliant system can be easily ported to another without significant changes.</em></p>
+<p>Now Bash by default is not POSIX compliant, like its subset is POSIX Compliant, and all the things that were written for POSIX compliant scripts will run on Bash, but not vice-versa. If you try to run a shell script, which was particularly written on the Bash environment and runs perfectly on Bash Shells with features that only Bash had in itself, it would break on others, including POSIX complaint shells. Now this is an issue that would come when you are a new Linux user.</p>
+<p>When you are new to Linux and use distributions like Ubuntu, Mint, etc. you start with using Bash as your default shell. And you learn a lot of commands and manipulate them, tie them up to get something useful out of it and decide to write a shell script. That shell script with all those Bash-ism included in it would break on other shells, like the dash shell which is POSIX Compliant and doesn’t have those bash functionality.</p>
+<p>Don’t get me wrong while I give examples of Bash and Bash-ism, a lot of tools and utilities have this problem within them and cause the learning curve for newbies to get steeper once they realise this. This issue introduces inefficiency in work, even though they promise to get more efficient work by extended functionalities going out of compliance.</p>
+<p>Now proper acknowledgement of these additional features can help, assuming that the steep learning curve and lesser cross-compactible issues can be fixed by ever-changing the shell scripts written for bash can be modified or rewritten again for POSIX Compliant Shells (which is not, it would be too much tedious), still there the basic issue here. That is a lack of acknowledgement of these features. Let me give an example to clear this out.&amp;&amp;</p>
+<p>The diff command is used to find the differences between two files and what’s less and more in two given files. It finds line by line what is the difference between both of them and is super useful in bash scripts to find the difference between two files or if a file has been updated.</p>
+<p>General Syntax (very basic usage):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>diff file1 file2 
+</span></span></code></pre></div><p>Now let&rsquo;s say you want to find if interfaces and IP Addresses are updated with the ifconfig command. Now in normal usage terms, you can do something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ifconfig &gt; intial_file 
+</span></span></code></pre></div><p>When checking time comes,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ifconfig &gt; updated_file 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>diff initial_file updated_file
+</span></span></code></pre></div><p>And this will get the job done. And it’s okay with POSIX Complaint software Shells.</p>
+<p>But with Bash Shell, there is a feature called process substitutions.</p>
+<p>In this case, you will directly add outputs of commands into the diff command without creating a file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ifconfig &gt; initial_file
+</span></span></code></pre></div><p>When checking time comes to check updates,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>diff &lt;<span style="color:#ff79c6">(</span>ifconfig<span style="color:#ff79c6">)</span> initial_file
+</span></span></code></pre></div><p>And this is an example of Bash-ism. This would break on POSIX Compliant shells, like dash which is at times symbolically linked with /bin/sh in a lot of Linux distributions. So this would work when you run it with bash.</p>
+<p>Now if you consider a situation with bash as your interactive shell but your /bin/bash is symbolically linked with the dash shell. Then if process substitutions work on your prompt of Bash, it would break when you write #!/bin/sh on the shell script and run it with ./script.sh. And if you don’t know what’s happening underlying these terms of dash and bash, it would take a lot of time to figure out what you are doing.</p>
+<p>And when you are new to Linux user and you start writing shell scripts, it’s unlikely that you would discover /bin/bash is linked with dash as a POSIX compliant shell to interpret your shell scripts but you are using bash as your shell where things like <em>process substitutions</em> work.</p>
+<p>And if you are using bash to interpret your scripts or /bin/sh is symbolically linked with /bin/bash, then that script would be working on your machine but would break in POSIX-compliant shells. So this Bash-ism would make you run your pre-written scripts on Bash only or if you are not familiar with this, on the same distro of Linux that you use while writing your scripts.</p>
+<p>Now Bash also has a POSIX-compliant version, that is accessible with the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash --posix 
+</span></span></code></pre></div><p>But that’s not the default, and it’s unlikely that you would start using it if you are a new Linux user.</p>
+<h2 id="gnu-sed-vs-bsd-sed">GNU SED vs BSD SED</h2>
+<p>This is an example of different versions of utilities of two different Operating Systems. As you might know, the GNU/Linux term comes with the fact that Linux is the underlying kernel and GNU makes the utilities for that Operating System. BSD stands for the Berkley Software Distribution which has its own Unix-like operating System. Both have the SED command, which stands for stream editor used for editing text files in the shell.</p>
+<p>Now Linux has its own SED developed by GNU and BSD has its own BSD SED. Now it doesn’t matter if you are using bash, dash or any other shells, if functionality of SED for GNU-based OS is used, it would break on the BSD version. Now that the shell script works on shell-like ZSH or Bash, it would break on the same shell on the BSD variant.</p>
+<p>For example, let’s consider the very basic usage of SED, replacing words.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sed ‘s/example/EXAMPLE’ file.txt
+</span></span></code></pre></div><p>This will replace the word “example” with “EXAMPLE” in the file.txt file.</p>
+<p>Now if you want to create a backup file before you make any edits, you need to do the following in GNU SED</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sed -i.bak ‘s/example/EXAMPLE’ file.txt
+</span></span></code></pre></div><p>But on BSD SED</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sed -i .bak ‘s/example/EXAMPLE’ file.txt
+</span></span></code></pre></div><p>Notice that the whitespace between -i and .bak is in BSD SED while there is no whitespace in the case of GNU SED.</p>
+<p>So no matter what shell you use, or if it’s POSIX compliant, or the same tool for both software, it’s going to break down.</p>
+<p>And if you are unaware of this, you would eventually spend a lot of time fixing this and realising this, while they are the same tools in the same shell.</p>
+<h2 id="problems-created-by-non-compliant-software">Problems Created by Non-Compliant Software</h2>
+<p>So if you have read the above sections, it’s pretty evident that you have understood the issues with non-compliant software. Practically, they end up breaking a lot of stuff and cause a waste of time if you don’t know about this.</p>
+<p>Now let me state a practical fact here, there are very few people who would read the whole thing before using a tool. If you are using SED for just substitution, it’s unlikely that you would consider reading the whole man page for SED just to understand. You would think that it just works and gets the job done. Time saved. So acknowledgement of tiny changes like this would go unnoticed even if it is there. And it’s not the case for all of them. Some tools would be similar for a lot of distros but some would be different. It’s pretty time-consuming to read every tiny bit of all the tools for all the platforms. That’s something practically evident, even if ideally it’s recommended to read the manual of a tool before using it.</p>
+<p>So if you understand practically what is happening here, you would understand how these non-compliant software, even if they extend their functionality and make it somewhat more friendly, is adding hurdles when it comes to new Linux users (or experienced professionals too. That’s because it’s a fact that most of us learned Linux with intuition rather than scrolling on man pages and documentations).</p>
+<h2 id="my-opinion-on-software-compliance">My Opinion on Software Compliance</h2>
+<p>Now since a lot of us have been using Linux based on our learning through intuitions and reading man pages as well as documentation on the go when we need to understand all the features of a tool, which is not always the case, non-compliant software makes us bound to the existing environment. It’s somewhere causing the Linux Learning curve to become steeper than it should be and making it kind of obligatory to meticulously go through the docs of the same tools for different platforms, making the acknowledgement issue to become important.</p>
+<p>I think compliant tools are a viable solution here and even if additional functionalities need to be introduced, they must be done by switching extra buttons rather than making them default. This would help beginner Linux users to learn things that are valid cross-platform and further move on to use those extra features by turning on those utilities and going non-compliant. Having the base and default features to be compliant with various platforms will also solve the acknowledgement issues since users going out of the compliant way would mention it beforehand.</p>
+<p>So for shell scripting, I can recommend this. These are the list of fully POSIX complaint shells.</p>
 <ol>
-<li>Remote Linux Server (I prefer Debian and Cloud-based) as per the requirements and load-handling capabilities</li>
-<li>Computer to SSH into the Server</li>
-<li>Domain Name (Optional)</li>
+<li>dash (Debian Almquist shell)</li>
+<li>ksh (Korn shell)</li>
+<li>mksh (MirBSD Korn shell)</li>
+<li>pdksh (Public Domain Korn shell)</li>
 </ol>
-<p>The size of the Linux Server is as per the requirements of the organisation. This depends upon the load to withstand, the size of the files, network load, availability, etc. I usually prefer cloud servers for easy processes and upgradability if required (vertical scaling).</p>
-<h2 id="setting-up-a-git-user-in-the-remote-git-server">Setting Up a “git” User in the Remote Git Server</h2>
-<p>The first step is to SSH into your remote server (or even have a physical connection and access it, doesn’t matter) and log into it.</p>
-<p>The service that is going to run on the remote git server would be running as the “git” user. Although any user can use it and even root works fine, but this would cause a security issue and hence is not recommended. Also using a username called “git” would work systematically in future settings.</p>
-<p>To add a new user on Debian:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo adduser git
-</span></span><span style="display:flex;"><span>su git
-</span></span></code></pre></div><p>This will ask a couple of questions that can be resolved and the terminal will now log in as the “git” user. Now all the configurations (unless stated) would be done with this user. It’s a good idea to configure only git-related configurations with the user for security purposes.</p>
-<h2 id="setting-up-ssh-access-to-the-remote-git-server">Setting Up SSH Access to the Remote Git Server</h2>
-<p>This is the part where access to all the participants of the Git Server would be provided. This can be updated in future too to add more participants to the git server. This required generating their SSH private and public key with the following commands and adding them to the remote server.</p>
-<p>On the participant&rsquo;s computer (if id_rsa file exists on the computer, this part can be skipped):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> ~/
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> .ssh 
-</span></span><span style="display:flex;"><span>ssh-keygen
-</span></span></code></pre></div><p>In case the <code>.ssh</code> directory is not found, create it by <code>mkdir .ssh</code> command. The <code>ssh-keygen</code> command generated a private and public key. While naming them, it&rsquo;s a good practice to name them <code>id_rsa</code> which would allow the <code>ssh</code> command to work without <code>-i</code> to provide a key, it would self-detect the file. At the end of this procedure, two files will be generated: <code>id_rsa</code> and <code>id_rsa.pub</code> and will be stored in the <code>.ssh</code> directory.</p>
-<p>This needs to be done on all the participant’s computers to create access keys to the remote git server.</p>
-<p>Now the Public Keys generated need to be provided to the remote git server. It can be done via the following commands (in the “git” user):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kdir .ssh
-</span></span><span style="display:flex;"><span>chmod <span style="color:#bd93f9">700</span> .ssh/
-</span></span><span style="display:flex;"><span>touch .ssh/authorized_keys
-</span></span><span style="display:flex;"><span>chmod <span style="color:#bd93f9">600</span> .ssh/authorized_keys
-</span></span><span style="display:flex;"><span>vim .ssh/authorized_keys
-</span></span></code></pre></div><p>Any text editor can be used here instead of Vim. In this file, all the Public Keys need to be appended. On the participant’s computer, <code>cat .ssh/id_rsa.pub</code> and copy-paste it into the <code>.ssh.authorized_keys</code> file on the remote git server. All the public keys must be pasted one by one on each line.</p>
-<p>After this procedure, all the participants whose public keys were appended would be able to SSH into the git server without any password (due to the public key being present in the <code>.ssh</code> directory).</p>
-<h2 id="setting-up-required-tools-in-the-remote-git-server">Setting Up Required Tools in the Remote Git Server</h2>
-<p>The server now requires to installation of the tools given below with the commands (Here, Debian commands would be provided. Although this must work with almost all Linux systems and only tools are required. It can be done with any package manager).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#ff79c6">&amp;&amp;</span> sudo apt upgrade
-</span></span><span style="display:flex;"><span>sudo apt install git gitweb fcgiwrap nginx
-</span></span></code></pre></div><p>This will install the required tools for setting up the remote git server. For reference, <code>git</code> is the version control application. <code>gitweb</code> would provide a web interface for the git server. <code>fcgiwrap</code> is a simple FastCGI wrapper for CGI scripts required for <code>Nginx</code> and nginx is the HTTP server for the web application to run.</p>
-<h2 id="setting-up-the-repository-in-the-remote-git-server">Setting Up the Repository in the Remote Git Server</h2>
-<p>This step requires switching to the <code>root</code> user. A git directory needs to be created where all the projects would be stored. The official git server documentation uses <code>/srv/git</code> which can be used or even it’s as per the server administrator to store the projects. Although, it is recommended to do it in <code>/var/www/git</code>. This is because this folder is intended to be the hosting section of Linux Server. The <code>/var/www/html</code> is where the apache2 service hosts the files from. So it’s convenient to have the <code>git</code> there. Again, it can be done anywhere on the server.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /var/www
-</span></span><span style="display:flex;"><span>mkdir /var/www/git
-</span></span><span style="display:flex;"><span>chown git:git git/
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> git
-</span></span><span style="display:flex;"><span>su git
-</span></span></code></pre></div><p>The <code>chown</code> command transferred the ownership of the file to the “git” user. Now all the projects would be stored in this directory. For demonstration purposes, a directory called <code>dotfiles.git</code> can be created. This directory is usually used to have a backup of scripts that are required to run a computer that was developed by the user (note the “.git” extension at the end of the directory name).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir dotfiles.git
-</span></span></code></pre></div><p>Now to initiate this project:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init --bare
-</span></span></code></pre></div><p>Now the git server has been configured with a project called <code>dotfiles.git</code> and can be used to store projects and get files stored into it. Multiple projects can be created as per the requirements and the procedure remains the same.</p>
-<h2 id="configuring-local-repositories-to-remote-git-server">Configuring Local Repositories to Remote Git Server</h2>
-<p>The Local Repositories on the participant’s computers now need to be configured with the Remote Git Server. This requires editing a file in the <code>.git</code> folder in the repository.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vim .git/config
-</span></span></code></pre></div><p>Again, any text editor can be used instead of Vim. Now a remote section needs to be added to the config file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>remote <span style="color:#f1fa8c">&#34;&lt;name&gt;&#34;</span><span style="color:#ff79c6">]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">url</span> <span style="color:#ff79c6">=</span> &lt;username&gt;@&lt;server-ip or domain-name&gt;:&lt;absolute-path-to-project&gt;.git
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">fetch</span> <span style="color:#ff79c6">=</span> +refs/heads/*:refs/remotes/home/*
-</span></span></code></pre></div><p>For example, if all instructions all followed including references, it might look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>remote <span style="color:#f1fa8c">&#34;git-server&#34;</span><span style="color:#ff79c6">]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">url</span> <span style="color:#ff79c6">=</span> git@&lt;server-ip or domain-name&gt;:/var/www/git/dotfiles.git
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">fetch</span> <span style="color:#ff79c6">=</span> +refs/heads/*:refs/remotes/home/*
-</span></span></code></pre></div><p>Now git is ready to push the contents from the local repository to the remote git repository. This can be done with the commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push &lt;name&gt; &lt;branch-name&gt;
-</span></span></code></pre></div><p>For example with previous references, it might look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push git-server master
-</span></span></code></pre></div><p>Done! now all the content from the local git repository would be pushed into the remote git repository.</p>
-<p>This can be verified in the remote git server by going to the project file and using the command <code>git log</code> which would contain the logs of commit and pushes done.</p>
-<h2 id="setting-up-web-interface-for-the-remote-git-server">Setting Up Web Interface for the Remote Git Server</h2>
-<p>To set up the Web Interface for your Remote Git Server, you need to expose port 80 (for HTTP) or port 443 (for HTTPS). Here, steps for an HTTP server are provided as HTTPS configuration is out of the scope of this article. Hence, port 80 must be open and it should be made sure that the firewall is not blocking incoming or outgoing traffic on port 80 (usually, cloud servers have this by default closed and need to be configured manually).</p>
-<p>Here, gitweb would be used to create the website files and content management. Furthermore, Nginx would be used to host these files. To set gitweb, the following commands can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vim /etc/gitweb.conf
-</span></span></code></pre></div><p>Again, any text editor would do the job. Here, the <code>$projectroot</code> needs to be modified. It should be set to the directory of projects. Regarding the previous steps, it should look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">$projectroot</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/var/www/git&#34;</span>
-</span></span></code></pre></div><p>If in any part modifications of files throw any issue, try using <code>sudo</code> to get superuser rights to do it.</p>
-<p>After this, the Nginx needs to be configured. To do this, a file needs to be created in the <code>/etc/nginx/sites-available</code> directory. The following commands can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo touch /etc/nginx/sites-available/&lt;file-name&gt;.conf
-</span></span><span style="display:flex;"><span>sudo vim /etc/nginx/sites-available/&lt;file-name&gt;.conf
-</span></span></code></pre></div><p>The “file-name” can be anything. To configure this file, the following configuration can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>server <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  listen 80;
-</span></span><span style="display:flex;"><span>  server_name &lt;domain-name or server-ip&gt;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  location /index.cgi <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    root /usr/share/gitweb/;
-</span></span><span style="display:flex;"><span>    include fastcgi_params;
-</span></span><span style="display:flex;"><span>    gzip off;
-</span></span><span style="display:flex;"><span>    fastcgi_param SCRIPT_NAME <span style="color:#8be9fd;font-style:italic">$uri</span>;
-</span></span><span style="display:flex;"><span>    fastcgi_param GITWEB_CONFIG /etc/gitweb.conf;
-</span></span><span style="display:flex;"><span>    fastcgi_pass  unix:/var/run/fcgiwrap.socket;
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  location / <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    root /usr/share/gitweb/;
-</span></span><span style="display:flex;"><span>    index index.cgi;
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><p>The “server_name” variable needs to be configured as per the domain name or the IP address (in case there is no domain name configured with the IP address).</p>
-<p>To start the Nginx Server, the following commands can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart nginx
-</span></span></code></pre></div><p>Done! The web interface will be available now on the domain name or IP address.</p>
-<p>At this point, a full-fledged Remote Git Server has been set up on the remote server and can be used for the development and distribution of code.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Owning a private remote git server allows developers to have total control over their data and allows them to manage it as per their requirements. During the process of setting it up, there might be issues even if the guide is thoroughly followed, as it always happens. This can be resolved with some troubleshooting on the internet or by going through the official documents of the tools used in this process. Although efforts have been made to make this guide self-sufficient to walk-through developers to set up a remote git repository, issues persist in varying environments.</p>
-<p>The link to official docs is provided here:</p>
-<p>Git Docs: <a href="https://git-scm.com/doc"  target="_blank" rel="noopener" >https://git-scm.com/doc</a></p>
-<p>Git Remote Server Docs:https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server</p>
-<p>Nginx Docs: <a href="https://docs.nginx.com/"  target="_blank" rel="noopener" >https://docs.nginx.com/</a></p>
-<p>fcgiwrap Docs:</p>
-<ul>
-<li><a href="https://github.com/gnosek/fcgiwrap"  target="_blank" rel="noopener" >https://github.com/gnosek/fcgiwrap</a></li>
-<li><a href="https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/"  target="_blank" rel="noopener" >https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/</a></li>
-</ul>
+<p>So while you write scripts, use these shells to execute the scripts. This will make your scripts POSIX compliant. Meanwhile, you can use any shell, like Zsh or Bash which support POSIX compliant scripts, providing extra features which you can leverage as an interactive shell. This will force you to write scripts with POSIX compliant methods which would be cross-platform, which would run perfectly on POSIX compliant shells and also ones that support POSIX compliant and go beyond it to extend there funtionalilities.</p>
+<p>Again, this is my opinion on the topic and is the best of my knowledge in this regard. Your opinions and solution to the problem might be different and I respect that.</p>
 
     </article>
   </div>
