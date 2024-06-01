@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,12 +14,12 @@
   <meta name="description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
 What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform." /><meta name="generator" content="Hugo 0.126.1">
 
-  <link rel="stylesheet" href="//localhost:1313/css/main.css" />
+  <link rel="stylesheet" href="/css/main.css" />
 
   
   
 
-  <meta property="og:url" content="//localhost:1313/technical/why_more_is_not_always_good/">
+  <meta property="og:url" content="/technical/why_more_is_not_always_good/">
   <meta property="og:site_name" content="The Minimalist&#39;s Book">
   <meta property="og:title" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
   <meta property="og:description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
@@ -27,14 +27,14 @@ What I am Specifically Talking About? I am going to talk about the issues caused
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="technical">
-    <meta property="article:published_time" content="2024-05-30T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-05-30T00:00:00+00:00">
-    <meta property="og:image" content="//localhost:1313/digital-garden-logo.png">
+    <meta property="article:published_time" content="2024-06-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-01T00:00:00+00:00">
+    <meta property="og:image" content="/digital-garden-logo.png">
 
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/digital-garden-logo.png">
+  <meta name="twitter:image" content="/digital-garden-logo.png">
   <meta name="twitter:title" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
   <meta name="twitter:description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
 What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
@@ -44,19 +44,19 @@ What I am Specifically Talking About? I am going to talk about the issues caused
   <meta itemprop="name" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
   <meta itemprop="description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
 What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
-  <meta itemprop="datePublished" content="2024-05-30T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-05-30T00:00:00+00:00">
+  <meta itemprop="datePublished" content="2024-06-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-06-01T00:00:00+00:00">
   <meta itemprop="wordCount" content="2083">
-  <meta itemprop="image" content="//localhost:1313/digital-garden-logo.png">
+  <meta itemprop="image" content="/digital-garden-logo.png">
 
   
   <meta itemprop="name" content="Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. ">
   <meta itemprop="description" content="Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
 What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.">
-  <meta itemprop="datePublished" content="2024-05-30T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-05-30T00:00:00+00:00">
+  <meta itemprop="datePublished" content="2024-06-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-06-01T00:00:00+00:00">
   <meta itemprop="wordCount" content="2083">
-  <meta itemprop="image" content="//localhost:1313/digital-garden-logo.png">
+  <meta itemprop="image" content="/digital-garden-logo.png">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
@@ -67,7 +67,7 @@ What I am Specifically Talking About? I am going to talk about the issues caused
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
 </svg></button>
-    <a href="//localhost:1313/" class="px-2">
+    <a href="/" class="px-2">
       <span>The Minimalist&#39;s Book</span>
     </a>
     <button aria-label="Toggle dark mode"
@@ -298,7 +298,7 @@ What I am Specifically Talking About? I am going to talk about the issues caused
   lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
     
     
-    <a href="//localhost:1313/technical/">
+    <a href="/technical/">
       <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Deep Dive Articles</h2>
     </a>
 <label class="mb-2 block px-2">
@@ -588,7 +588,7 @@ This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Li
       <h1 class="!mb-2">Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </h1>
 
 	  
-      <p class="text-sm text-slate-500 !mb-8"> Planted May 30, 2024
+      <p class="text-sm text-slate-500 !mb-8"> Planted June 1, 2024
 		
 	  </p>
       
