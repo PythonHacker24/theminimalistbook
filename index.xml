@@ -6,8 +6,15 @@
     <description>Recent content in Homepage on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Best Way to Learn a New Programming Language from Scratch - How I Approach and Learn Any Programming Language Efficiently</title>
+      <link>/technical/how_to_learn_a_new_programming_language/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>/technical/how_to_learn_a_new_programming_language/</guid>
+      <description>Preface: The following article is based on my experiences and opinions on learning programming languages. I have been learning about computers in-depth and find learning languages with specific purposes useful. For example, Python was for beginning, C is for memory management and Rust is for learning to write memory-safe code in my case. This time, I started learning Golang which is known for its simple syntax and powerful performance, and widely known for its awesome concurrency.</description>
+    </item>
     <item>
       <title>Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </title>
       <link>/technical/why_more_is_not_always_good/</link>
