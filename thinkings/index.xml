@@ -2,52 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thinkings on The Minimalist&#39;s Book</title>
-    <link>/thinkings/</link>
+    <link>//localhost:1313/thinkings/</link>
     <description>Recent content in Thinkings on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/thinkings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/thinkings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You Need to Do this to Get An Unfair Advantage in the Software Engineering Market</title>
+      <link>//localhost:1313/thinkings/you_need_to_do_this_to_get_an_unfair_advantage_in_the_software_engineering_market/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/thinkings/you_need_to_do_this_to_get_an_unfair_advantage_in_the_software_engineering_market/</guid>
+      <description>Preface: This article is about my experiences and opinions based on my knowledge. We all have an unfair advantage since we all are unique and using that to get better in the market would take you much further. I have been working with software for like a few years while being a university student and learnt a lot from all the amazing people I worked with and followed. While I put down things that I learnt, it has to be noted that your opinions and experiences may vary and I greatly respect that.</description>
+    </item>
     <item>
       <title>The Future of Work and Lifestyle - The Inevitable Change in Thinking and Growth</title>
-      <link>/thinkings/the_future_of_work_and_lifestyle/</link>
+      <link>//localhost:1313/thinkings/the_future_of_work_and_lifestyle/</link>
       <pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate>
-      <guid>/thinkings/the_future_of_work_and_lifestyle/</guid>
+      <guid>//localhost:1313/thinkings/the_future_of_work_and_lifestyle/</guid>
       <description>The Current System of Workspace Working for a company or an organisation to become financially stable surely makes you and your family proud, and certainly, when you were in the 90s, that’s what most people termed as widely successful. It’s absolutely important to make money to have a nice home and send your kids to a good school. And most of the time that works and maybe certainly enough. This method of surviving has dominated for a while now and has shaped the current workspace.</description>
     </item>
     <item>
       <title>There are always Flaws — Malware Development and Exploitation of Control Flow</title>
-      <link>/thinkings/there_are_always_flaws/</link>
+      <link>//localhost:1313/thinkings/there_are_always_flaws/</link>
       <pubDate>Mon, 22 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/thinkings/there_are_always_flaws/</guid>
+      <guid>//localhost:1313/thinkings/there_are_always_flaws/</guid>
       <description>Disclaimer: The Author of the article does not hold any opinions of facts other than computer technology. Everything here is as per my research and may not be fully accurate (although I tried my best). He is a very simple person and a computer nerd so information in this blog must be taken with a pinch of salt.&#xA;I have been studying Cyber Security since an early age and know a few things about it till now.</description>
     </item>
     <item>
       <title>An Old Computer’s Teachings — Why Vintage Systems Can Make You an Expert</title>
-      <link>/thinkings/an_old_computers_teachings/</link>
+      <link>//localhost:1313/thinkings/an_old_computers_teachings/</link>
       <pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/thinkings/an_old_computers_teachings/</guid>
+      <guid>//localhost:1313/thinkings/an_old_computers_teachings/</guid>
       <description>On June 10 1997, Apple Computers released the Apple 2 computer which was one of the first mass-produced computers in the world. It was a success and had a sale of 5–6 million units till the year of 1993. There was a small documentary on this by Bloomberg Originals (here on YouTube) about the same with Steve Wozniak. Now I am not a 90’s kid or something. I was born in the year 2004 and had no connection with these computers.</description>
     </item>
     <item>
       <title>A Minimalist System — Philosophy Behind Terminal-based Applications to Suckless</title>
-      <link>/thinkings/a_minimilist_system/</link>
+      <link>//localhost:1313/thinkings/a_minimilist_system/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/thinkings/a_minimilist_system/</guid>
+      <guid>//localhost:1313/thinkings/a_minimilist_system/</guid>
       <description>Since I have been using Linux for most of my life till now and while I started my computer usage on the Windows Operating System (at a very early age), terminal-based programs have been a life-changing things for me. I have been a person obsessed with minimalism and simplicity in everything. While I spend most of my day in the cyber world, I like to have my computer workspace as minimal as possible.</description>
     </item>
     <item>
       <title>The Alchemy of Open-Source Software — Community and Freedom</title>
-      <link>/thinkings/alchemcy_of_open_source_software/</link>
+      <link>//localhost:1313/thinkings/alchemcy_of_open_source_software/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/thinkings/alchemcy_of_open_source_software/</guid>
+      <guid>//localhost:1313/thinkings/alchemcy_of_open_source_software/</guid>
       <description>Disclaimer — The following blog post contains the very personal opinions of the writer and is not intended beyond the scope of stating views about the Open-Source. The author respects the opinions of each individual so take it with a pinch of salt.&#xA;Open-source software has been there for a long time since the software industry started to get into some shape. Open-source is not just a way of developing software but a value that makes individuals in the community contribute to making their skills useful to the world.</description>
     </item>
     <item>
       <title>The Arch Linux Tales: No Wi-Fi for Today!</title>
-      <link>/thinkings/arch_linux_tales/</link>
+      <link>//localhost:1313/thinkings/arch_linux_tales/</link>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>/thinkings/arch_linux_tales/</guid>
+      <guid>//localhost:1313/thinkings/arch_linux_tales/</guid>
       <description>I have been using Arch Linux for days now for the sake of having full control over the hardware as well as the software (not moved to LibreBoot or CoreBoot but someday in the future). I have been utilising the suckless utilities and ricing my system for the best look I can have and take the privilege of saying “I use Arch BTW”. Since the total control of the Hardware and Software falls in the hands of the user and Arch repository Pacman releases even the latest packages, way before the software is even stable creating a sensation of being the early user of the tool at the same time being ready to crash out the system.</description>
     </item>
   </channel>
