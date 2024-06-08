@@ -2,171 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deep Dive Articles on The Minimalist&#39;s Book</title>
-    <link>//localhost:1313/technical/</link>
+    <link>/technical/</link>
     <description>Recent content in Deep Dive Articles on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/technical/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/technical/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Best Way to Learn a New Programming Language from Scratch - How I Approach and Learn Any Programming Language Efficiently</title>
-      <link>//localhost:1313/technical/how_to_learn_a_new_programming_language/</link>
+      <link>/technical/how_to_learn_a_new_programming_language/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/how_to_learn_a_new_programming_language/</guid>
+      <guid>/technical/how_to_learn_a_new_programming_language/</guid>
       <description>Preface: The following article is based on my experiences and opinions on learning programming languages. I have been learning about computers in-depth and find learning languages with specific purposes useful. For example, Python was for beginning, C is for memory management and Rust is for learning to write memory-safe code in my case. This time, I started learning Golang which is known for its simple syntax and powerful performance, and widely known for its awesome concurrency.</description>
     </item>
     <item>
       <title>Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </title>
-      <link>//localhost:1313/technical/why_more_is_not_always_good/</link>
+      <link>/technical/why_more_is_not_always_good/</link>
       <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/why_more_is_not_always_good/</guid>
+      <guid>/technical/why_more_is_not_always_good/</guid>
       <description>Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.&#xA;What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.</description>
     </item>
     <item>
       <title>Why I Shifted From Arch Linux to Debian Linux?</title>
-      <link>//localhost:1313/technical/why_i_shifted_from_arch_to_debian/</link>
+      <link>/technical/why_i_shifted_from_arch_to_debian/</link>
       <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/why_i_shifted_from_arch_to_debian/</guid>
+      <guid>/technical/why_i_shifted_from_arch_to_debian/</guid>
       <description>Preface: The following article is based on my personal experience with Arch Linux and Debian Linux. While I appreciate both distributions for their unique strengths and different use cases, the information provided reflects my own opinions and experiences. Your experiences may vary.&#xA;What was I going for Initially? Bit of my Story as a Beginner Linux User When I started using Linux, I was going through security stuff and learning computer security when I was in my High School.</description>
     </item>
     <item>
       <title>Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</title>
-      <link>//localhost:1313/technical/tmux_is_the_ultimate_choice_for_power_users/</link>
+      <link>/technical/tmux_is_the_ultimate_choice_for_power_users/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/tmux_is_the_ultimate_choice_for_power_users/</guid>
+      <guid>/technical/tmux_is_the_ultimate_choice_for_power_users/</guid>
       <description>What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.</description>
     </item>
     <item>
       <title>The Concept of RSS Feed - A Reliable Way for Publishers and Subscribers Model</title>
-      <link>//localhost:1313/technical/concept_of_rss_feed/</link>
+      <link>/technical/concept_of_rss_feed/</link>
       <pubDate>Tue, 21 May 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/concept_of_rss_feed/</guid>
+      <guid>/technical/concept_of_rss_feed/</guid>
       <description>Preface: I have been looking for simple solutions in nearly everything related to computing. A lot of software designed these days is not designed per your requirements but as per companies&amp;rsquo; profit. Hence, most of these solutions end up sucking your time and energy and need to be replaced by more optimised solutions that would boost your productivity in the right way. RSS Feed is something that I found after searching for solutions related to subscribing to websites or creators without sucking much resources and design that is reliable to the user itself.</description>
     </item>
     <item>
       <title>Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</title>
-      <link>//localhost:1313/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</link>
+      <link>/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</link>
       <pubDate>Thu, 18 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</guid>
+      <guid>/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</guid>
       <description>Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.</description>
     </item>
     <item>
       <title>Serious Reconnaissance with Unmanned Aerial Vehicles — Mapping Out Devices in an Area with Drones</title>
-      <link>//localhost:1313/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/</link>
+      <link>/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/</link>
       <pubDate>Tue, 02 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/</guid>
+      <guid>/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/</guid>
       <description>Introduction: The following content is for educational purposes and for hackers living in basements knowing enough ethics. The author is not responsible for any damage caused by the knowledge provided here and does not support anything like that. It’s essential to check out the rules in the area of reconnaissance about the tactics provided here and the use of materials (unless and until there is any apocalypse and a solid recon is required).</description>
     </item>
     <item>
       <title>The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices</title>
-      <link>//localhost:1313/technical/fundamentals_of_hardware_hacking/</link>
+      <link>/technical/fundamentals_of_hardware_hacking/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/fundamentals_of_hardware_hacking/</guid>
+      <guid>/technical/fundamentals_of_hardware_hacking/</guid>
       <description>Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!&#xA;The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.</description>
     </item>
     <item>
       <title>Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</title>
-      <link>//localhost:1313/technical/setting_up_remote_git_server/</link>
+      <link>/technical/setting_up_remote_git_server/</link>
       <pubDate>Sat, 10 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/setting_up_remote_git_server/</guid>
+      <guid>/technical/setting_up_remote_git_server/</guid>
       <description>Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.</description>
     </item>
     <item>
       <title>The Nature of Linux Kernel Development — Difference Between Rules of Kernel Level and User-Space Application Level</title>
-      <link>//localhost:1313/technical/nature_of_linux_kernel_development/</link>
+      <link>/technical/nature_of_linux_kernel_development/</link>
       <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/nature_of_linux_kernel_development/</guid>
+      <guid>/technical/nature_of_linux_kernel_development/</guid>
       <description>Preface: This article is intended to explain a clear distinction between the core principles of Linux Kernel Development and User-Application Level Development. The provided information is based on my research on Kernel Development through various sources and I have tried to make it as accurate as possible. Efforts have been made to explain it as simply and concisely as possible.&#xA;Introduction to the Nature of Linux Kernel Linux Kernel is the abstraction layer between the Operating System and the Hardware in the system.</description>
     </item>
     <item>
       <title>Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)</title>
-      <link>//localhost:1313/technical/linux_process_scheduling/</link>
+      <link>/technical/linux_process_scheduling/</link>
       <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/linux_process_scheduling/</guid>
+      <guid>/technical/linux_process_scheduling/</guid>
       <description>Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.</description>
     </item>
     <item>
       <title>Linux Processes — A Kernel’s Perspective Explained with Clarity and Simplicity</title>
-      <link>//localhost:1313/technical/linux_processes/</link>
+      <link>/technical/linux_processes/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/linux_processes/</guid>
+      <guid>/technical/linux_processes/</guid>
       <description>Preface: I have been going through the book “Linux Kernel Development” by Robert Love which I highly recommend for understanding the Linux Kernel in depth. I decided to write this article to explain “Linux Processes” simply and concisely. The topic itself is broad and is not explained into the deepest of it, but essential for Linux Administrators, Developers and even Linux users to appreciate the beauty of the Kernel they make use of every day.</description>
     </item>
     <item>
       <title>NGINX for Deploying Next.js Application on AWS EC2 with AWS ELB — Control and Stability of Deployments</title>
-      <link>//localhost:1313/technical/nginx_for_deploying_nextjs_application_on_aws/</link>
+      <link>/technical/nginx_for_deploying_nextjs_application_on_aws/</link>
       <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/nginx_for_deploying_nextjs_application_on_aws/</guid>
+      <guid>/technical/nginx_for_deploying_nextjs_application_on_aws/</guid>
       <description>I was looking for an article like this a few days ago, which I didn’t find at that time, so I did the deployment on my own and came up with this article to prevent other developers from saving those efforts and focusing on development. I am not explaining every single step and have provided links for references.&#xA;I prefer manual deployment of applications over automated (and even serverless) methods. Although they are convenient and require less effort by the developers, they are bound to the providers and offer less control over the underlying system.</description>
     </item>
     <item>
       <title>Configuring and Building the Linux Kernel — Absolute Guide to Compiling Your Kernel</title>
-      <link>//localhost:1313/technical/configuring_and_building_the_linux_kernel/</link>
+      <link>/technical/configuring_and_building_the_linux_kernel/</link>
       <pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/configuring_and_building_the_linux_kernel/</guid>
+      <guid>/technical/configuring_and_building_the_linux_kernel/</guid>
       <description>Linux Kernel is an Open-Source Software and the user is free to modify and customise it as per the requirements. The modification of the Kernel requires a deep understanding of the working of the Kernel, although patches are available to make the Kernel optimised for specific hardware. Linux Kernel Source Code has various options to configure the drivers, modules, preferences on hardware options, etc. This part can be studied by the user and is pretty much easy to work with.</description>
     </item>
     <item>
       <title>The Elegance of the Linux Kernel — A Concise History of Unix and the Creation of the Linux Kernel</title>
-      <link>//localhost:1313/technical/elegance_of_the_linux_kernel/</link>
+      <link>/technical/elegance_of_the_linux_kernel/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/elegance_of_the_linux_kernel/</guid>
+      <guid>/technical/elegance_of_the_linux_kernel/</guid>
       <description>Introduction and Context I was going through the book “Linux Kernel Development” by Robert Love, an absolute guide to getting started with Linux Kernel Development and a highly recommended book for understanding the core of the Linux Kernel. Linux Kernel has been one of the most important software ever written and is even considered one of the biggest projects ever undertaken by a single person. The idea of the Linux Kernel was initiated by Linus Torvalds, a student from the University of Helsinki and is maintained by him to date (while writing this article).</description>
     </item>
     <item>
       <title>Linux Shell Scripting — A Suckless and Concise Guide to the Command-line of Linux</title>
-      <link>//localhost:1313/technical/linux_shell_scripting/</link>
+      <link>/technical/linux_shell_scripting/</link>
       <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/linux_shell_scripting/</guid>
+      <guid>/technical/linux_shell_scripting/</guid>
       <description>Prior Statements: This is a concise guide on the Linux Shell Scripting while consolidating all the facts about the Linux Shell for quick developer’s reference while using Linux. I am referencing the Bash (Bourne-Again Shell) which is the default shell for Linux-based systems. I will also be providing references and external links to dive into depth and not fill the article with too much explanation about a single topic which is not universally required by all the readers.</description>
     </item>
     <item>
       <title>Suckless Utilities for Arch Linux — The Most Minimal Way Run a Computer</title>
-      <link>//localhost:1313/technical/suckless_utilities_for_arch_linux/</link>
+      <link>/technical/suckless_utilities_for_arch_linux/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/suckless_utilities_for_arch_linux/</guid>
+      <guid>/technical/suckless_utilities_for_arch_linux/</guid>
       <description>Suckless utilities have been my favourite at this time and kind of essentials for my use of the computer. I have been using Arch Linux for a fair amount of time now and I started using it with XFCE for few weeks. I would appreciate the XFCE desktop environment for it’s smoothness and light-weight nature with works really fine when newly shifting on Arch Linux. But then I learnt the suckless ecosystem and eventually shifted to it as my full-time environment.</description>
     </item>
     <item>
       <title>Installing Pacman in Arch Linux — When You Blow it Up</title>
-      <link>//localhost:1313/technical/installing_pacman_in_arch_linux/</link>
+      <link>/technical/installing_pacman_in_arch_linux/</link>
       <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/installing_pacman_in_arch_linux/</guid>
+      <guid>/technical/installing_pacman_in_arch_linux/</guid>
       <description>Let me suckless and divide the article into two parts:&#xA;My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.&#xA;The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.</description>
     </item>
     <item>
       <title>Boot Process of Computers — A Learner’s Perspective Of Exploring the Depth of Computers</title>
-      <link>//localhost:1313/technical/boot_process_of_computers/</link>
+      <link>/technical/boot_process_of_computers/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/boot_process_of_computers/</guid>
+      <guid>/technical/boot_process_of_computers/</guid>
       <description>Prior Clarifications: Here, I will be providing a philosophical explanation about the bootloaders and understanding them in a simple and as minimal way as possible. This is not supposed to be a manual for bootloader or provide any advice for experimenting over your live system. It’s my journey to understand computers (one of the most complex creations of mankind) and I will be stating my thoughts. Take it with a pinch of salt.</description>
     </item>
     <item>
       <title>Networking Fundamentals for Linux Administrators — A Suckless and Concise Explanation</title>
-      <link>//localhost:1313/technical/networking_fundamentals_for_linux_administrators/</link>
+      <link>/technical/networking_fundamentals_for_linux_administrators/</link>
       <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/networking_fundamentals_for_linux_administrators/</guid>
+      <guid>/technical/networking_fundamentals_for_linux_administrators/</guid>
       <description>Statistics are clear on the fact that 96.3% (while writing this article) of the servers use Linux as their Operating System which is no doubt what every other Linux user on this Earth expects. I believe that the Linux Administrator has to take the shot about the configuration of Networking in Linux Based Server. Some of the underlying concepts remain the same for any other distros but it is mainly intended for Linux.</description>
     </item>
     <item>
       <title>Operating Systems and Low-Level Access to the Hardware — Why should you learn it?</title>
-      <link>//localhost:1313/technical/operating_systems_and_low_level_access_to_the_hardware/</link>
+      <link>/technical/operating_systems_and_low_level_access_to_the_hardware/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/operating_systems_and_low_level_access_to_the_hardware/</guid>
+      <guid>/technical/operating_systems_and_low_level_access_to_the_hardware/</guid>
       <description>Today, I completed the whole read of the book “Linux Kernel in a Nutshell” by Greg Kroah-Hartman and I highly recommend that you go through it if you want to understand how to build your custom configuration of Linux Kernel and all you need to know about all the nuts and bolts. It’s always great to have such handbooks around the desk.&#xA;This blog is about why it’s so awesome to look into the operating system you are using with your hardware and why have a grasp on the Low-Level aspects of a computer.</description>
     </item>
     <item>
       <title>Arch Linux Custom Builds — Freedom of the Operating System</title>
-      <link>//localhost:1313/technical/arch_linux_custom_builds/</link>
+      <link>/technical/arch_linux_custom_builds/</link>
       <pubDate>Mon, 08 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/arch_linux_custom_builds/</guid>
+      <guid>/technical/arch_linux_custom_builds/</guid>
       <description>While writing this blog, I was reading the book “Linux Kernel in a Nutshell” by Greg Kroab-Hartman and as far as the pages of the book are concerned, it seems to be a two-day read (this is a handbook so reading it once and having around the desk is super useful). By the way, the author has the book left open for download http://www.kroah.com/lkn/ so check that out if you want to follow up.</description>
     </item>
     <item>
       <title>Bypassing the Linux Login to access the files (with Physical Access), even the root!</title>
-      <link>//localhost:1313/technical/bypass_the_linux_login_to_access_the_files/</link>
+      <link>/technical/bypass_the_linux_login_to_access_the_files/</link>
       <pubDate>Mon, 08 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/technical/bypass_the_linux_login_to_access_the_files/</guid>
+      <guid>/technical/bypass_the_linux_login_to_access_the_files/</guid>
       <description>Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.&#xA;This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.</description>
     </item>
   </channel>

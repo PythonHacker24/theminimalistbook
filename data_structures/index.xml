@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Structures in C&#43;&#43; on The Minimalist&#39;s Book</title>
-    <link>//localhost:1313/data_structures/</link>
+    <link>/data_structures/</link>
     <description>Recent content in Data Structures in C&#43;&#43; on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="//localhost:1313/data_structures/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/data_structures/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Binary Tree</title>
-      <link>//localhost:1313/data_structures/binary_tree/</link>
+      <link>/data_structures/binary_tree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/binary_tree/</guid>
+      <guid>/data_structures/binary_tree/</guid>
       <description>Trees A tree consists of Nodes that points to multiple nodes (In this case, binary tree has been consider where each node can point to at max 2 nodes). The Node that points to other Node is called it’s parent and the Node that is being pointed is called it’s child Node. A parent can have multiple child nodes but a child Node can’t have multiple parent Nodes. A child can also be a parent Node to other child Nodes.</description>
     </item>
     <item>
       <title>Doubly Linked List</title>
-      <link>//localhost:1313/data_structures/double_ll/</link>
+      <link>/data_structures/double_ll/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/double_ll/</guid>
+      <guid>/data_structures/double_ll/</guid>
       <description>A doubly linked list is a type of linked list where each node contains data and references to two other nodes:&#xA;One pointer to the previous node in the list. Another pointer to the next node in the list. This allows you to traverse the list in either direction, which is different from a singly linked list that only allows traversal in one direction. #include &amp;lt;iostream&amp;gt; using namespace std; // Creating the Node Class class Node { public: int value; Node *next; Node *prev; Node(int value) { this-&amp;gt;value = value; next = nullptr; prev = nullptr; } }; // Creating Double Linked List Class class DoublyLinkedList { private: Node *head; Node *tail; int length; public: // Constructor for the Doubly Linked List DoublyLinkedList(int value) { Node *newNode = new Node(value); head = newNode; tail = newNode; length = 1; } // Destructor for the Doubly Linked List ~DoublyLinkedList() { Node* temp = head; while (head) { head = head-&amp;gt;next; delete temp; temp = head; } } // printList will print the Linked List void printList() { Node *temp = head; while (temp !</description>
     </item>
     <item>
       <title>Graphs</title>
-      <link>//localhost:1313/data_structures/graph/</link>
+      <link>/data_structures/graph/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/graph/</guid>
+      <guid>/data_structures/graph/</guid>
       <description>In DSA (Data Structures and Algorithms), a graph is a collection of nodes (also called vertices) connected by edges.&#xA;Nodes represent data. Edges represent the relationships between that data. #include &amp;lt;iostream&amp;gt; #include &amp;lt;unordered_map&amp;gt;&#x9;// Similar to hash table, there are two rows where key-value pair structures are stored. #include &amp;lt;unordered_set&amp;gt;&#x9;// It&amp;#39;s like a array. Here, if same data is pushed into the array, only one instance is created. (Close enough to Hash Table concept) using namespace std; class Graph{ private: unordered_map&amp;lt;string, unordered_set&amp;lt;string&amp;gt; &amp;gt; adjList;&#x9;// unordered_map&amp;lt; data_type, data_type &amp;gt; map_name; // Here, in this case, key is s string and the value is a unordered_set with string values and this whole map is named adjList public: void printGraph(){ for (auto [vertex, edges] : adjList){&#x9;// As per the plan, the structuring is arranged.</description>
     </item>
     <item>
       <title>Hash Tables</title>
-      <link>//localhost:1313/data_structures/hash/</link>
+      <link>/data_structures/hash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/hash/</guid>
+      <guid>/data_structures/hash/</guid>
       <description>Hash tables are the tables where each piece of data is stored in a given index which is generated when the data is passed through some hash function.&#xA;For example: If {”dataset_1”:1000} would value of 4 (from the hash function), it would be stored in the index of 4. {”dataset_2”:2000} might be 8, so it would be stored in the index of 8.&#xA;It may happen in cases that data can get same index with hash function, in which case a condition on collision occurs.</description>
     </item>
     <item>
       <title>Queue</title>
-      <link>//localhost:1313/data_structures/queue/</link>
+      <link>/data_structures/queue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/queue/</guid>
+      <guid>/data_structures/queue/</guid>
       <description>Queue works as FIFO (First In First Out). The value that is added first will be the one that can be access first. Here, Linked List would be used in reverse order. A linked list will have prepend function operation complexity to be O(1) and deleteFirst also to be O(1).&#xA;#include &amp;lt;iostream&amp;gt; using namespace std; // Node Class will create a Node class Node{ public: int value; Node* next; Node(int value){ this-&amp;gt;value = value; next = nullptr; } }; // Queue Class will develop the Queue class Queue{ private: Node* first; Node* last; int length; public: // Constructor for the Queue Class Queue(int value){ Node* newNode = new Node(value); first = newNode; last = newNode; length = 1; } // printQueue will print the values in the Queue void printQueue(){ Node* temp = first; while(temp){ cout &amp;lt;&amp;lt; temp-&amp;gt;value &amp;lt;&amp;lt; endl; temp = temp-&amp;gt;next; } } // getFirst will print the value of the first element in the Queue void getFirst(){ cout &amp;lt;&amp;lt; &amp;#34;First: &amp;#34; &amp;lt;&amp;lt; first-&amp;gt;value &amp;lt;&amp;lt; endl; } // getLast will print the value of the last element in the Queue void getLast(){ cout &amp;lt;&amp;lt; &amp;#34;Last: &amp;#34; &amp;lt;&amp;lt; last-&amp;gt;value &amp;lt;&amp;lt; endl; } // getLength will print the length of the Queue void getLength(){ cout &amp;lt;&amp;lt; &amp;#34;Length: &amp;#34; &amp;lt;&amp;lt; length &amp;lt;&amp;lt; endl; } // enqueue will add a element to the Queue void enqueue(int value){ Node* newNode = new Node(value); if (length == 0){ first = newNode; last = newNode; } else{ last-&amp;gt;next = newNode; last = newNode; } length++; } // dequeue will remove a element from the Queue int dequeue(){ if (length == 0) return INT_MIN; Node* temp = first; int dequeuedValue = first-&amp;gt;value; if (length == 1){ first = nullptr; last = nullptr; } else{ first = first-&amp;gt;next; } delete temp; length--; return dequeuedValue; } }; // info function will return information about the given Queue void info(Queue* myQueue){ cout &amp;lt;&amp;lt; &amp;#34;----------------&amp;#34; &amp;lt;&amp;lt; endl &amp;lt;&amp;lt; &amp;#34;Printing the Queue&amp;#34; &amp;lt;&amp;lt; endl; myQueue-&amp;gt;printQueue(); myQueue-&amp;gt;getFirst(); myQueue-&amp;gt;getLast(); myQueue-&amp;gt;getLength(); cout &amp;lt;&amp;lt; &amp;#34;----------------&amp;#34; &amp;lt;&amp;lt; endl; } int main(){ Queue* myQueue = new Queue(4); info(myQueue); myQueue-&amp;gt;enqueue(2); myQueue-&amp;gt;enqueue(8); myQueue-&amp;gt;enqueue(4); myQueue-&amp;gt;enqueue(5); info(myQueue); } </description>
     </item>
     <item>
       <title>Singly Linked List</title>
-      <link>//localhost:1313/data_structures/linkedlist/</link>
+      <link>/data_structures/linkedlist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/linkedlist/</guid>
+      <guid>/data_structures/linkedlist/</guid>
       <description>Linked Lists and Vectors are different concepts. A Vector has index assigned to it’s elements whereas there are no index in Linked Lists. A Vector has it’s elements stored in memory address consecutively whereas Linked List have it’s elements stored in memory address that are not in any order (arbitrarily assigned). Each element points to the next elements memory address and the last elements points to null value (that means no where).</description>
     </item>
     <item>
       <title>Stack</title>
-      <link>//localhost:1313/data_structures/stacks/</link>
+      <link>/data_structures/stacks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/data_structures/stacks/</guid>
+      <guid>/data_structures/stacks/</guid>
       <description>The stack will be a vertical Linked List that will have it’s tail at the bottom (the actual tail pointer will not be present) and head at the Top (top pointer will be present instead of head pointer). Prepend like function called push will add a node at the top of the stack and pop function will return the value of the popped node and will delete the node when it will be called.</description>
     </item>
   </channel>
