@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on The Minimalist&#39;s Book</title>
-    <link>/projects/</link>
+    <link>https://minimalistbook.com/projects/</link>
     <description>Recent content in Projects on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://minimalistbook.com/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>8-bit Custom TTL Computer</title>
-      <link>/projects/design1/</link>
+      <link>https://minimalistbook.com/projects/design1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/projects/design1/</guid>
+      <guid>https://minimalistbook.com/projects/design1/</guid>
       <description>GitHub: https://github.com/PythonHacker24/8-bit_computer&#xA;A TTL (Transistor-Transistor Logic) computer is a type of computer system that uses transistors as there base components by manipulating them into gates which are then used develop logics. TTL is a family of digital logic ICs that were widely used in the early days of computing and electronics, mainly during the 1960s and 1970s.&#xA;This is a circuit prototye for the development of a custion architecture 8-bit Microprocessor.</description>
     </item>
     <item>
       <title>Fault Injector Project</title>
-      <link>/projects/design2/</link>
+      <link>https://minimalistbook.com/projects/design2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/projects/design2/</guid>
+      <guid>https://minimalistbook.com/projects/design2/</guid>
       <description>GitHub: https://github.com/PythonHacker24/fault-injector&#xA;What is Fault Injection Attack? Fault Injection Attacks is an hardware attack that glitches a hardware circuit to behave in a way which is not intended and cause uncertain behaviour that would be useful for a hacker.&#xA;This attack is useful in cases of jumping instructions inside a microprocessor or microcontrollers by gltiching the power supply to the chip. This maybe useful for escaping loops, bypassing authentication, etc. More destructive results can be obtained in cases of glitches that has undefined parameters set and may cause the whole electronic circuit to become unusuable due to deleting firmwares or bootloaders.</description>
     </item>
     <item>
       <title>SpikeX - Open Source OSINT Framework</title>
-      <link>/projects/design4/</link>
+      <link>https://minimalistbook.com/projects/design4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/projects/design4/</guid>
+      <guid>https://minimalistbook.com/projects/design4/</guid>
       <description>GitHub: https://github.com/PythonHacker24/spikex&#xA;SpikeX is an open-source OSINT framework that is designed for manual web scanning, web scraping, and gathering comprehensive information from the internet. It provides a web interface with a GUI mode for testing and is a passive reconnaissance tool for cybersecurity and penetration testers.&#xA;The tool is powered by the Shodan search engine and can gather a vast amount of data that will expand the attack surface of the penetration testers and provide fast threat intel.</description>
     </item>
     <item>
       <title>The Minimalist&#39;s Book</title>
-      <link>/projects/design3/</link>
+      <link>https://minimalistbook.com/projects/design3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/projects/design3/</guid>
+      <guid>https://minimalistbook.com/projects/design3/</guid>
       <description>GitHub: https://github.com/PythonHacker24/theminimalistbook&#xA;The Minimalist&amp;rsquo;s Book is a free and open-source platfrom for my articles about computers, electronics, philosophy and my thinkings. This place is mostly about passion for computers and electronics, focusing on security and the way I think about them. It&amp;rsquo;s a geek&amp;rsquo;s book, for people with curiosity about things reaching at a level where it becomes a lifestyle.&#xA;You can find a lot of things here, especially if you are a Linux Power User and love low level computing.</description>
     </item>
   </channel>

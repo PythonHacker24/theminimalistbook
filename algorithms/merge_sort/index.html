@@ -14,12 +14,12 @@
   <meta name="description" content="Merge Sort is a stable, comparison-based sorting algorithm that uses the divide-and-conquer strategy. It works by recursively dividing the array into halves until each sub-array contains a single element, then merges the sub-arrays back together in sorted order. This algorithm is efficient with a consistent time complexity of O(nlogn) and is particularly useful for sorting linked lists and large datasets.
 # include &lt;iostream&gt; using namespace std; void merge(int array[], int leftIndex, int midIndex, int rightIndex){ // Calculating size of the two arrays that are derived from splitting the array int leftArraySize = midIndex - leftIndex &#43; 1; int rightArraySize = rightIndex - midIndex; // Declaring new arrays where these splitted arrays are going to be defined int leftArray[leftArraySize]; int rightArray[rightArraySize]; // Loading new arrays with right and left elements of the array for (int i = 0; i &lt; leftArraySize; i&#43;&#43;){ leftArray[i] = array[leftIndex &#43; i]; } for (int j = 0; j &lt; rightArraySize; j&#43;&#43;){ rightArray[j] = array[midIndex &#43; 1 &#43; j]; } // initializing variables int index = leftIndex; int i = 0; int j = 0; // Arranging the main array with elements in order of small to large size from the leftArray and rightArray while (i &lt; leftArraySize &amp;&amp; j &lt; rightArraySize){ if (leftArray[i] &lt;= rightArray[j]){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } else{ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } // If leftArray elements are left over, add them at the end of the main array while (i &lt; leftArraySize){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } // If rightArray elements are left over, add them at the end of the main array while (j &lt; rightArraySize){ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } void mergeSort(int array[], int leftIndex, int rightIndex){ if (leftIndex &gt;= rightIndex) return; int midIndex = leftIndex &#43; (rightIndex - leftIndex) / 2; mergeSort(array, leftIndex, midIndex); mergeSort(array, midIndex &#43; 1, rightIndex); merge(array, leftIndex, midIndex, rightIndex); } int main(){ int myArray[] = {3, 1, 4, 2}; int size = sizeof(myArray) / sizeof(myArray[0]); int leftIndex = 0; int rightIndex = size - 1; mergeSort(myArray, leftIndex, rightIndex); for(auto value : myArray){ cout &lt;&lt; value &lt;&lt; &#34; &#34;; } } " /><meta name="generator" content="Hugo 0.126.1">
 
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="https://minimalistbook.com/css/main.css" />
 
   
   
 
-  <meta property="og:url" content="/algorithms/merge_sort/">
+  <meta property="og:url" content="https://minimalistbook.com/algorithms/merge_sort/">
   <meta property="og:site_name" content="The Minimalist&#39;s Book">
   <meta property="og:title" content="Merge Sort">
   <meta property="og:description" content="Merge Sort is a stable, comparison-based sorting algorithm that uses the divide-and-conquer strategy. It works by recursively dividing the array into halves until each sub-array contains a single element, then merges the sub-arrays back together in sorted order. This algorithm is efficient with a consistent time complexity of O(nlogn) and is particularly useful for sorting linked lists and large datasets.
@@ -27,12 +27,12 @@
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="algorithms">
-    <meta property="og:image" content="/digital-garden-logo.png">
+    <meta property="og:image" content="https://minimalistbook.com/digital-garden-logo.png">
 
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/digital-garden-logo.png">
+  <meta name="twitter:image" content="https://minimalistbook.com/digital-garden-logo.png">
   <meta name="twitter:title" content="Merge Sort">
   <meta name="twitter:description" content="Merge Sort is a stable, comparison-based sorting algorithm that uses the divide-and-conquer strategy. It works by recursively dividing the array into halves until each sub-array contains a single element, then merges the sub-arrays back together in sorted order. This algorithm is efficient with a consistent time complexity of O(nlogn) and is particularly useful for sorting linked lists and large datasets.
 # include &lt;iostream&gt; using namespace std; void merge(int array[], int leftIndex, int midIndex, int rightIndex){ // Calculating size of the two arrays that are derived from splitting the array int leftArraySize = midIndex - leftIndex &#43; 1; int rightArraySize = rightIndex - midIndex; // Declaring new arrays where these splitted arrays are going to be defined int leftArray[leftArraySize]; int rightArray[rightArraySize]; // Loading new arrays with right and left elements of the array for (int i = 0; i &lt; leftArraySize; i&#43;&#43;){ leftArray[i] = array[leftIndex &#43; i]; } for (int j = 0; j &lt; rightArraySize; j&#43;&#43;){ rightArray[j] = array[midIndex &#43; 1 &#43; j]; } // initializing variables int index = leftIndex; int i = 0; int j = 0; // Arranging the main array with elements in order of small to large size from the leftArray and rightArray while (i &lt; leftArraySize &amp;&amp; j &lt; rightArraySize){ if (leftArray[i] &lt;= rightArray[j]){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } else{ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } // If leftArray elements are left over, add them at the end of the main array while (i &lt; leftArraySize){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } // If rightArray elements are left over, add them at the end of the main array while (j &lt; rightArraySize){ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } void mergeSort(int array[], int leftIndex, int rightIndex){ if (leftIndex &gt;= rightIndex) return; int midIndex = leftIndex &#43; (rightIndex - leftIndex) / 2; mergeSort(array, leftIndex, midIndex); mergeSort(array, midIndex &#43; 1, rightIndex); merge(array, leftIndex, midIndex, rightIndex); } int main(){ int myArray[] = {3, 1, 4, 2}; int size = sizeof(myArray) / sizeof(myArray[0]); int leftIndex = 0; int rightIndex = size - 1; mergeSort(myArray, leftIndex, rightIndex); for(auto value : myArray){ cout &lt;&lt; value &lt;&lt; &#34; &#34;; } } ">
@@ -43,14 +43,14 @@
   <meta itemprop="description" content="Merge Sort is a stable, comparison-based sorting algorithm that uses the divide-and-conquer strategy. It works by recursively dividing the array into halves until each sub-array contains a single element, then merges the sub-arrays back together in sorted order. This algorithm is efficient with a consistent time complexity of O(nlogn) and is particularly useful for sorting linked lists and large datasets.
 # include &lt;iostream&gt; using namespace std; void merge(int array[], int leftIndex, int midIndex, int rightIndex){ // Calculating size of the two arrays that are derived from splitting the array int leftArraySize = midIndex - leftIndex &#43; 1; int rightArraySize = rightIndex - midIndex; // Declaring new arrays where these splitted arrays are going to be defined int leftArray[leftArraySize]; int rightArray[rightArraySize]; // Loading new arrays with right and left elements of the array for (int i = 0; i &lt; leftArraySize; i&#43;&#43;){ leftArray[i] = array[leftIndex &#43; i]; } for (int j = 0; j &lt; rightArraySize; j&#43;&#43;){ rightArray[j] = array[midIndex &#43; 1 &#43; j]; } // initializing variables int index = leftIndex; int i = 0; int j = 0; // Arranging the main array with elements in order of small to large size from the leftArray and rightArray while (i &lt; leftArraySize &amp;&amp; j &lt; rightArraySize){ if (leftArray[i] &lt;= rightArray[j]){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } else{ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } // If leftArray elements are left over, add them at the end of the main array while (i &lt; leftArraySize){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } // If rightArray elements are left over, add them at the end of the main array while (j &lt; rightArraySize){ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } void mergeSort(int array[], int leftIndex, int rightIndex){ if (leftIndex &gt;= rightIndex) return; int midIndex = leftIndex &#43; (rightIndex - leftIndex) / 2; mergeSort(array, leftIndex, midIndex); mergeSort(array, midIndex &#43; 1, rightIndex); merge(array, leftIndex, midIndex, rightIndex); } int main(){ int myArray[] = {3, 1, 4, 2}; int size = sizeof(myArray) / sizeof(myArray[0]); int leftIndex = 0; int rightIndex = size - 1; mergeSort(myArray, leftIndex, rightIndex); for(auto value : myArray){ cout &lt;&lt; value &lt;&lt; &#34; &#34;; } } ">
   <meta itemprop="wordCount" content="352">
-  <meta itemprop="image" content="/digital-garden-logo.png">
+  <meta itemprop="image" content="https://minimalistbook.com/digital-garden-logo.png">
 
   
   <meta itemprop="name" content="Merge Sort">
   <meta itemprop="description" content="Merge Sort is a stable, comparison-based sorting algorithm that uses the divide-and-conquer strategy. It works by recursively dividing the array into halves until each sub-array contains a single element, then merges the sub-arrays back together in sorted order. This algorithm is efficient with a consistent time complexity of O(nlogn) and is particularly useful for sorting linked lists and large datasets.
 # include &lt;iostream&gt; using namespace std; void merge(int array[], int leftIndex, int midIndex, int rightIndex){ // Calculating size of the two arrays that are derived from splitting the array int leftArraySize = midIndex - leftIndex &#43; 1; int rightArraySize = rightIndex - midIndex; // Declaring new arrays where these splitted arrays are going to be defined int leftArray[leftArraySize]; int rightArray[rightArraySize]; // Loading new arrays with right and left elements of the array for (int i = 0; i &lt; leftArraySize; i&#43;&#43;){ leftArray[i] = array[leftIndex &#43; i]; } for (int j = 0; j &lt; rightArraySize; j&#43;&#43;){ rightArray[j] = array[midIndex &#43; 1 &#43; j]; } // initializing variables int index = leftIndex; int i = 0; int j = 0; // Arranging the main array with elements in order of small to large size from the leftArray and rightArray while (i &lt; leftArraySize &amp;&amp; j &lt; rightArraySize){ if (leftArray[i] &lt;= rightArray[j]){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } else{ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } // If leftArray elements are left over, add them at the end of the main array while (i &lt; leftArraySize){ array[index] = leftArray[i]; index&#43;&#43;; i&#43;&#43;; } // If rightArray elements are left over, add them at the end of the main array while (j &lt; rightArraySize){ array[index] = rightArray[j]; index&#43;&#43;; j&#43;&#43;; } } void mergeSort(int array[], int leftIndex, int rightIndex){ if (leftIndex &gt;= rightIndex) return; int midIndex = leftIndex &#43; (rightIndex - leftIndex) / 2; mergeSort(array, leftIndex, midIndex); mergeSort(array, midIndex &#43; 1, rightIndex); merge(array, leftIndex, midIndex, rightIndex); } int main(){ int myArray[] = {3, 1, 4, 2}; int size = sizeof(myArray) / sizeof(myArray[0]); int leftIndex = 0; int rightIndex = size - 1; mergeSort(myArray, leftIndex, rightIndex); for(auto value : myArray){ cout &lt;&lt; value &lt;&lt; &#34; &#34;; } } ">
   <meta itemprop="wordCount" content="352">
-  <meta itemprop="image" content="/digital-garden-logo.png">
+  <meta itemprop="image" content="https://minimalistbook.com/digital-garden-logo.png">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
@@ -61,7 +61,7 @@
   <line x1="18" y1="6" x2="6" y2="18" />
   <line x1="6" y1="6" x2="18" y2="18" />
 </svg></button>
-    <a href="/" class="px-2">
+    <a href="https://minimalistbook.com/" class="px-2">
       <span>The Minimalist&#39;s Book</span>
     </a>
     <button aria-label="Toggle dark mode"
@@ -295,7 +295,7 @@
   lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
     
     
-    <a href="/algorithms/">
+    <a href="https://minimalistbook.com/algorithms/">
       <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Algorithms in C&#43;&#43;</h2>
     </a>
 <label class="mb-2 block px-2">

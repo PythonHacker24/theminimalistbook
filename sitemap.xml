@@ -2,155 +2,155 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>https://minimalistbook.com/</loc>
     <lastmod>2024-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/</loc>
+    <loc>https://minimalistbook.com/thinkings/</loc>
     <lastmod>2024-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/you_need_to_do_this_to_get_an_unfair_advantage_in_the_software_engineering_market/</loc>
+    <loc>https://minimalistbook.com/thinkings/you_need_to_do_this_to_get_an_unfair_advantage_in_the_software_engineering_market/</loc>
     <lastmod>2024-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/</loc>
+    <loc>https://minimalistbook.com/technical/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/how_to_learn_a_new_programming_language/</loc>
+    <loc>https://minimalistbook.com/technical/how_to_learn_a_new_programming_language/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/why_more_is_not_always_good/</loc>
+    <loc>https://minimalistbook.com/technical/why_more_is_not_always_good/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/why_i_shifted_from_arch_to_debian/</loc>
+    <loc>https://minimalistbook.com/technical/why_i_shifted_from_arch_to_debian/</loc>
     <lastmod>2024-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/tmux_is_the_ultimate_choice_for_power_users/</loc>
+    <loc>https://minimalistbook.com/technical/tmux_is_the_ultimate_choice_for_power_users/</loc>
     <lastmod>2024-05-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/the_future_of_work_and_lifestyle/</loc>
+    <loc>https://minimalistbook.com/thinkings/the_future_of_work_and_lifestyle/</loc>
     <lastmod>2024-05-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/concept_of_rss_feed/</loc>
+    <loc>https://minimalistbook.com/technical/concept_of_rss_feed/</loc>
     <lastmod>2024-05-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</loc>
+    <loc>https://minimalistbook.com/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/</loc>
     <lastmod>2024-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/</loc>
+    <loc>https://minimalistbook.com/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/</loc>
     <lastmod>2024-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/fundamentals_of_hardware_hacking/</loc>
+    <loc>https://minimalistbook.com/technical/fundamentals_of_hardware_hacking/</loc>
     <lastmod>2024-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/setting_up_remote_git_server/</loc>
+    <loc>https://minimalistbook.com/technical/setting_up_remote_git_server/</loc>
     <lastmod>2024-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/nature_of_linux_kernel_development/</loc>
+    <loc>https://minimalistbook.com/technical/nature_of_linux_kernel_development/</loc>
     <lastmod>2024-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/linux_process_scheduling/</loc>
+    <loc>https://minimalistbook.com/technical/linux_process_scheduling/</loc>
     <lastmod>2024-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/linux_processes/</loc>
+    <loc>https://minimalistbook.com/technical/linux_processes/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/nginx_for_deploying_nextjs_application_on_aws/</loc>
+    <loc>https://minimalistbook.com/technical/nginx_for_deploying_nextjs_application_on_aws/</loc>
     <lastmod>2024-01-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/configuring_and_building_the_linux_kernel/</loc>
+    <loc>https://minimalistbook.com/technical/configuring_and_building_the_linux_kernel/</loc>
     <lastmod>2024-01-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/elegance_of_the_linux_kernel/</loc>
+    <loc>https://minimalistbook.com/technical/elegance_of_the_linux_kernel/</loc>
     <lastmod>2024-01-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/there_are_always_flaws/</loc>
+    <loc>https://minimalistbook.com/thinkings/there_are_always_flaws/</loc>
     <lastmod>2024-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/linux_shell_scripting/</loc>
+    <loc>https://minimalistbook.com/technical/linux_shell_scripting/</loc>
     <lastmod>2024-01-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/suckless_utilities_for_arch_linux/</loc>
+    <loc>https://minimalistbook.com/technical/suckless_utilities_for_arch_linux/</loc>
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/installing_pacman_in_arch_linux/</loc>
+    <loc>https://minimalistbook.com/technical/installing_pacman_in_arch_linux/</loc>
     <lastmod>2024-01-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/an_old_computers_teachings/</loc>
+    <loc>https://minimalistbook.com/thinkings/an_old_computers_teachings/</loc>
     <lastmod>2024-01-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/boot_process_of_computers/</loc>
+    <loc>https://minimalistbook.com/technical/boot_process_of_computers/</loc>
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/a_minimilist_system/</loc>
+    <loc>https://minimalistbook.com/thinkings/a_minimilist_system/</loc>
     <lastmod>2024-01-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/alchemcy_of_open_source_software/</loc>
+    <loc>https://minimalistbook.com/thinkings/alchemcy_of_open_source_software/</loc>
     <lastmod>2024-01-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/networking_fundamentals_for_linux_administrators/</loc>
+    <loc>https://minimalistbook.com/technical/networking_fundamentals_for_linux_administrators/</loc>
     <lastmod>2024-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/operating_systems_and_low_level_access_to_the_hardware/</loc>
+    <loc>https://minimalistbook.com/technical/operating_systems_and_low_level_access_to_the_hardware/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/arch_linux_custom_builds/</loc>
+    <loc>https://minimalistbook.com/technical/arch_linux_custom_builds/</loc>
     <lastmod>2024-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/technical/bypass_the_linux_login_to_access_the_files/</loc>
+    <loc>https://minimalistbook.com/technical/bypass_the_linux_login_to_access_the_files/</loc>
     <lastmod>2024-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/thinkings/arch_linux_tales/</loc>
+    <loc>https://minimalistbook.com/thinkings/arch_linux_tales/</loc>
     <lastmod>2024-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/design1/</loc>
+    <loc>https://minimalistbook.com/projects/design1/</loc>
   </url><url>
-    <loc>/algorithms/</loc>
+    <loc>https://minimalistbook.com/algorithms/</loc>
   </url><url>
-    <loc>/data_structures/binary_tree/</loc>
+    <loc>https://minimalistbook.com/data_structures/binary_tree/</loc>
   </url><url>
-    <loc>/algorithms/bubble_sort/</loc>
+    <loc>https://minimalistbook.com/algorithms/bubble_sort/</loc>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://minimalistbook.com/categories/</loc>
   </url><url>
-    <loc>/data_structures/</loc>
+    <loc>https://minimalistbook.com/data_structures/</loc>
   </url><url>
-    <loc>/data_structures/double_ll/</loc>
+    <loc>https://minimalistbook.com/data_structures/double_ll/</loc>
   </url><url>
-    <loc>/projects/design2/</loc>
+    <loc>https://minimalistbook.com/projects/design2/</loc>
   </url><url>
-    <loc>/data_structures/graph/</loc>
+    <loc>https://minimalistbook.com/data_structures/graph/</loc>
   </url><url>
-    <loc>/data_structures/hash/</loc>
+    <loc>https://minimalistbook.com/data_structures/hash/</loc>
   </url><url>
-    <loc>/algorithms/insertion_sort/</loc>
+    <loc>https://minimalistbook.com/algorithms/insertion_sort/</loc>
   </url><url>
-    <loc>/algorithms/merge_sort/</loc>
+    <loc>https://minimalistbook.com/algorithms/merge_sort/</loc>
   </url><url>
-    <loc>/backpack/</loc>
+    <loc>https://minimalistbook.com/backpack/</loc>
   </url><url>
-    <loc>/projects/</loc>
+    <loc>https://minimalistbook.com/projects/</loc>
   </url><url>
-    <loc>/data_structures/queue/</loc>
+    <loc>https://minimalistbook.com/data_structures/queue/</loc>
   </url><url>
-    <loc>/algorithms/quick_sort/</loc>
+    <loc>https://minimalistbook.com/algorithms/quick_sort/</loc>
   </url><url>
-    <loc>/algorithms/selection_sort/</loc>
+    <loc>https://minimalistbook.com/algorithms/selection_sort/</loc>
   </url><url>
-    <loc>/data_structures/linkedlist/</loc>
+    <loc>https://minimalistbook.com/data_structures/linkedlist/</loc>
   </url><url>
-    <loc>/projects/design4/</loc>
+    <loc>https://minimalistbook.com/projects/design4/</loc>
   </url><url>
-    <loc>/data_structures/stacks/</loc>
+    <loc>https://minimalistbook.com/data_structures/stacks/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://minimalistbook.com/tags/</loc>
   </url><url>
-    <loc>/projects/design3/</loc>
+    <loc>https://minimalistbook.com/projects/design3/</loc>
   </url><url>
-    <loc>/algorithms/tree_traversal_breath_first_search/</loc>
+    <loc>https://minimalistbook.com/algorithms/tree_traversal_breath_first_search/</loc>
   </url><url>
-    <loc>/algorithms/tree_traversal_depth_first_search_in_order_search/</loc>
+    <loc>https://minimalistbook.com/algorithms/tree_traversal_depth_first_search_in_order_search/</loc>
   </url><url>
-    <loc>/algorithms/tree_traversal_depth_first_search_post_order/</loc>
+    <loc>https://minimalistbook.com/algorithms/tree_traversal_depth_first_search_post_order/</loc>
   </url><url>
-    <loc>/algorithms/tree_traversal_depth_first_search_pre_order/</loc>
+    <loc>https://minimalistbook.com/algorithms/tree_traversal_depth_first_search_pre_order/</loc>
   </url>
 </urlset>
