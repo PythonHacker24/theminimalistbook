@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My Productivity Workflow on The Minimalist&#39;s Book</title>
-    <link>http://localhost:1313/backpack/</link>
+    <link>https://minimalistbook.com/backpack/</link>
     <description>Recent content in My Productivity Workflow on The Minimalist&#39;s Book</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/backpack/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://minimalistbook.com/backpack/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
