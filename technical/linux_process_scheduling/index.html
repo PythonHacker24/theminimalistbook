@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+
+  <title>
+    Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective) - The Minimalist&#39;s Book
+  </title>
+
+  <meta name="description" content="Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article." /><meta name="generator" content="Hugo 0.126.1">
+
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
+
+  
+  
+
+  <meta property="og:url" content="http://localhost:1313/technical/linux_process_scheduling/">
+  <meta property="og:site_name" content="The Minimalist&#39;s Book">
+  <meta property="og:title" content="Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)">
+  <meta property="og:description" content="Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="technical">
+    <meta property="article:published_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/digital-garden-logo.png">
+
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/digital-garden-logo.png">
+  <meta name="twitter:title" content="Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)">
+  <meta name="twitter:description" content="Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.">
+
+
+  
+  <meta itemprop="name" content="Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)">
+  <meta itemprop="description" content="Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.">
+  <meta itemprop="datePublished" content="2024-02-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-02-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1519">
+  <meta itemprop="image" content="http://localhost:1313/digital-garden-logo.png">
+
+  
+  <meta itemprop="name" content="Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)">
+  <meta itemprop="description" content="Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.">
+  <meta itemprop="datePublished" content="2024-02-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-02-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1519">
+  <meta itemprop="image" content="http://localhost:1313/digital-garden-logo.png">
+</head><body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="http://localhost:1313/" class="px-2">
+      <span>The Minimalist&#39;s Book</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Explore</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical" >
+        <span>Technical Writings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/thinkings" >
+        <span>Thinkings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/projects" >
+        <span>Projects</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/backpack" >
+        <span>Backpack</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>DSA for Devs</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures" >
+        <span>Data Structures in C&#43;&#43;</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/algorithms" >
+        <span>Algorithms in C&#43;&#43;</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Documents for Devs</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/documents/linux_device_drivers_101.pdf" >
+        <span>Linux Device Drivers 101</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Links</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://medium.com/@adityapatil24680"  target="_blank"
+        rel="noopener" >
+        <span>Medium</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  <div class="newsletter-widget">
+  <div class="text-bold text-sm">The Minimalist Newsletter</div>
+  
+  <p class="text-xs my-1 text-slate-500">A minimal newsletter with summaries of my latest writings and updates to your mailbox</p>
+  
+
+  
+  
+  
+  
+
+  
+
+  <form action="https://minimalist-newsletter.beehiiv.com/subscribe" method="post" id="newsletter_form" name="revue-form" target="_blank">
+    <div class="mt-2">
+      
+      
+      <button onclick="window.open('https://minimalist-newsletter.beehiiv.com/subscribe', '_blank')" class="mt-2 w-full text-center text-sm bg-slate-800 text-white dark:bg-slate-50 dark:text-slate-800 py-1 rounded cursor-pointer">Subscribe</button>
+    </div>
+  </form>
+
+  
+</div>
+
+
+  
+  <a href="https://www.producthunt.com/posts/the-minimalist-book?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-the&#0045;minimalist&#0045;book" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=461338&theme=light" alt="The&#0032;Minimalist&#0032;Book - A&#0032;Minimalist&#0032;Platform&#0032;for&#0032;Minimalist&#0032;Engineers | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/PythonHacker24" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/aditya-patil-260a631b2/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="adityapatil24680@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/index.xml" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">RSS</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="http://localhost:1313/technical/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Deep Dive Articles</h2>
+    </a>
+<label class="mb-2 block px-2">
+  <span></span>
+  <input type="text" placeholder="Search articles" class="searchInput bg-white rounded px-2 py-1 w-full border" />
+</label>
+<script>
+  const searchElt = document.querySelector('.searchInput')
+  if (searchElt) {
+    searchElt.addEventListener('input', evt => {
+      const value = evt.target.value || '';
+
+      const articles = document.querySelectorAll('.article')
+      if (!value) {
+        articles.forEach(article => article.classList.remove('hidden'))
+      } else {
+        articles.forEach(article => article.classList.add('hidden'))
+        Array.from(articles).filter(article => {
+          const title = article.querySelector('h3')
+          if (!title) return false;
+
+          return title.textContent.toLowerCase().includes(value.toLowerCase())
+        }).forEach(article => article.classList.remove('hidden'))
+      }
+    })
+  }
+</script>
+<div class="space-y-2.5">
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/how_to_learn_a_new_programming_language/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Best Way to Learn a New Programming Language from Scratch - How I Approach and Learn Any Programming Language Efficiently</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: The following article is based on my experiences and opinions on learning programming languages. I have been learning about computers in-depth and find learning languages with specific purposes useful. For example, Python was for beginning, C is for memory management and Rust is for learning to write memory-safe code in my case. This time, I started learning Golang which is known for its simple syntax and powerful performance, and widely known for its awesome concurrency.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/why_more_is_not_always_good/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/why_i_shifted_from_arch_to_debian/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Why I Shifted From Arch Linux to Debian Linux?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: The following article is based on my personal experience with Arch Linux and Debian Linux. While I appreciate both distributions for their unique strengths and different use cases, the information provided reflects my own opinions and experiences. Your experiences may vary.
+What was I going for Initially? Bit of my Story as a Beginner Linux User When I started using Linux, I was going through security stuff and learning computer security when I was in my High School.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/tmux_is_the_ultimate_choice_for_power_users/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/concept_of_rss_feed/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Concept of RSS Feed - A Reliable Way for Publishers and Subscribers Model</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been looking for simple solutions in nearly everything related to computing. A lot of software designed these days is not designed per your requirements but as per companies&rsquo; profit. Hence, most of these solutions end up sucking your time and energy and need to be replaced by more optimised solutions that would boost your productivity in the right way. RSS Feed is something that I found after searching for solutions related to subscribing to websites or creators without sucking much resources and design that is reliable to the user itself.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Serious Reconnaissance with Unmanned Aerial Vehicles — Mapping Out Devices in an Area with Drones</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction: The following content is for educational purposes and for hackers living in basements knowing enough ethics. The author is not responsible for any damage caused by the knowledge provided here and does not support anything like that. It’s essential to check out the rules in the area of reconnaissance about the tactics provided here and the use of materials (unless and until there is any apocalypse and a solid recon is required).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/fundamentals_of_hardware_hacking/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/setting_up_remote_git_server/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nature_of_linux_kernel_development/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Nature of Linux Kernel Development — Difference Between Rules of Kernel Level and User-Space Application Level</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is intended to explain a clear distinction between the core principles of Linux Kernel Development and User-Application Level Development. The provided information is based on my research on Kernel Development through various sources and I have tried to make it as accurate as possible. Efforts have been made to explain it as simply and concisely as possible.
+Introduction to the Nature of Linux Kernel Linux Kernel is the abstraction layer between the Operating System and the Hardware in the system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/technical/linux_process_scheduling/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_processes/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Processes — A Kernel’s Perspective Explained with Clarity and Simplicity</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been going through the book “Linux Kernel Development” by Robert Love which I highly recommend for understanding the Linux Kernel in depth. I decided to write this article to explain “Linux Processes” simply and concisely. The topic itself is broad and is not explained into the deepest of it, but essential for Linux Administrators, Developers and even Linux users to appreciate the beauty of the Kernel they make use of every day.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nginx_for_deploying_nextjs_application_on_aws/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">NGINX for Deploying Next.js Application on AWS EC2 with AWS ELB — Control and Stability of Deployments</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          I was looking for an article like this a few days ago, which I didn’t find at that time, so I did the deployment on my own and came up with this article to prevent other developers from saving those efforts and focusing on development. I am not explaining every single step and have provided links for references.
+I prefer manual deployment of applications over automated (and even serverless) methods. Although they are convenient and require less effort by the developers, they are bound to the providers and offer less control over the underlying system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/configuring_and_building_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Configuring and Building the Linux Kernel — Absolute Guide to Compiling Your Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Linux Kernel is an Open-Source Software and the user is free to modify and customise it as per the requirements. The modification of the Kernel requires a deep understanding of the working of the Kernel, although patches are available to make the Kernel optimised for specific hardware. Linux Kernel Source Code has various options to configure the drivers, modules, preferences on hardware options, etc. This part can be studied by the user and is pretty much easy to work with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/elegance_of_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Elegance of the Linux Kernel — A Concise History of Unix and the Creation of the Linux Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction and Context I was going through the book “Linux Kernel Development” by Robert Love, an absolute guide to getting started with Linux Kernel Development and a highly recommended book for understanding the core of the Linux Kernel. Linux Kernel has been one of the most important software ever written and is even considered one of the biggest projects ever undertaken by a single person. The idea of the Linux Kernel was initiated by Linus Torvalds, a student from the University of Helsinki and is maintained by him to date (while writing this article).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_shell_scripting/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Shell Scripting — A Suckless and Concise Guide to the Command-line of Linux</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Statements: This is a concise guide on the Linux Shell Scripting while consolidating all the facts about the Linux Shell for quick developer’s reference while using Linux. I am referencing the Bash (Bourne-Again Shell) which is the default shell for Linux-based systems. I will also be providing references and external links to dive into depth and not fill the article with too much explanation about a single topic which is not universally required by all the readers.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/suckless_utilities_for_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Suckless Utilities for Arch Linux — The Most Minimal Way Run a Computer</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Suckless utilities have been my favourite at this time and kind of essentials for my use of the computer. I have been using Arch Linux for a fair amount of time now and I started using it with XFCE for few weeks. I would appreciate the XFCE desktop environment for it’s smoothness and light-weight nature with works really fine when newly shifting on Arch Linux. But then I learnt the suckless ecosystem and eventually shifted to it as my full-time environment.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/installing_pacman_in_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Installing Pacman in Arch Linux — When You Blow it Up</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Let me suckless and divide the article into two parts:
+My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
+The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/boot_process_of_computers/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Boot Process of Computers — A Learner’s Perspective Of Exploring the Depth of Computers</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Clarifications: Here, I will be providing a philosophical explanation about the bootloaders and understanding them in a simple and as minimal way as possible. This is not supposed to be a manual for bootloader or provide any advice for experimenting over your live system. It’s my journey to understand computers (one of the most complex creations of mankind) and I will be stating my thoughts. Take it with a pinch of salt.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/networking_fundamentals_for_linux_administrators/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Networking Fundamentals for Linux Administrators — A Suckless and Concise Explanation</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Statistics are clear on the fact that 96.3% (while writing this article) of the servers use Linux as their Operating System which is no doubt what every other Linux user on this Earth expects. I believe that the Linux Administrator has to take the shot about the configuration of Networking in Linux Based Server. Some of the underlying concepts remain the same for any other distros but it is mainly intended for Linux.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/operating_systems_and_low_level_access_to_the_hardware/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Operating Systems and Low-Level Access to the Hardware — Why should you learn it?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Today, I completed the whole read of the book “Linux Kernel in a Nutshell” by Greg Kroah-Hartman and I highly recommend that you go through it if you want to understand how to build your custom configuration of Linux Kernel and all you need to know about all the nuts and bolts. It’s always great to have such handbooks around the desk.
+This blog is about why it’s so awesome to look into the operating system you are using with your hardware and why have a grasp on the Low-Level aspects of a computer.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/arch_linux_custom_builds/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Arch Linux Custom Builds — Freedom of the Operating System</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          While writing this blog, I was reading the book “Linux Kernel in a Nutshell” by Greg Kroab-Hartman and as far as the pages of the book are concerned, it seems to be a two-day read (this is a handbook so reading it once and having around the desk is super useful). By the way, the author has the book left open for download http://www.kroah.com/lkn/ so check that out if you want to follow up.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/bypass_the_linux_login_to_access_the_files/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Bypassing the Linux Login to access the files (with Physical Access), even the root!</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.
+        </div>
+      </a>
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)</h1>
+
+	  
+      <p class="text-sm text-slate-500 !mb-8"> Planted February 2, 2024
+		
+	  </p>
+      
+
+      
+
+      <p><em>Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article. It’s to let you know the topic in more depth than a summary can provide and create a pathway you need to go to learn the topic.</em></p>
+<h2 id="a-quick-introduction-to-the-topic">A Quick Introduction to the Topic</h2>
+<p>The handling of processes in an Operating System like Linux is a vital topic for understanding the working of the Kernel. The logic behind scheduling processes in the system and prioritising them in a manner that is the most optimised and efficient, while considering some trade-off gives an insight on real-life engineering behind low-level computer stuff.</p>
+<p>To understand what a process is, I highly recommend you go through my previous article, “Linux Processes — A Kernel’s Perspective Explained with Clarity and Simplicity” where I explain the processes and threads simply and concisely.</p>
+<p>To understand the topic, appreciating the concept and then moving towards understanding the code structure is important. Here, the code part would not be covered as explaining the chain of concepts is taken to the priority.</p>
+<h2 id="the-significance-of-process-scheduling">The Significance of Process Scheduling</h2>
+<p>A Kernel by definition is the abstraction layer between the Operating System and the Hardware. An Operating System has a lot of tasks running simultaneously to make things happen in the way they are intended to be. Even an idle system has a lot going under the hood and the Kernel needs to interact with the hardware in a way that each task is carried out in the most appropriate way possible.</p>
+<p>Since an Operating Systems have multiple processes running (definitely more than the processors on the system), the Kernel has to decide which process to consider at the given time. Modern hardware has multiple processors (multiple cores) and the Kernel needs to make use of them in the most reliable way possible. This whole work of decision-making is made by the process scheduler in the Linux Kernel.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xuhuHRLCeeVghN8BDEEdcQ.png" alt="diagram"></p>
+<p>If there are any processes that too in a runnable state, the processor should be always running. In the case of multiple, time-consuming processes, some processes must be paused or kept waiting in a way that the system functions in the way it is intended to work. This happens with the mechanism of prioritisation of tasks, which the process scheduler in Linux Kernel handles.</p>
+<h2 id="the-concept-of-multitasking">The Concept of Multitasking</h2>
+<p>A <em>Multitasking Operating System</em> by definition has the ability to execute multiple processes on the system simultaneously. On a single processor machine, it can give an illusion that all the processes are running simultaneously at the same time (actually the processor can focus on one process at any time, but the execution is not only the definition of the process, it is the whole thing from memory allocation and multiple processes spawning. Hence, the system seems to be having multiple processes running at the same time. A task which is marked as sleeping is also a process, it’s just the processor is busy with something else). On a multiprocessor machine, these processes are running simultaneously in parallel while some more processes are blocked or sleeping, waiting to get executed when a processor is free. A lot of processes might be residing in the memory, they might just be waiting for some input from an external device, and at that time, it might also be the case that only one process is in a runnable state. The Linux Scheduler manages all this with precise mechanisms to make the system smooth and interactive.</p>
+<p>There are two types of multitasking in operating systems: <em>cooperative multitasking</em> and <em>preemptive multitasking</em>. A very concise definition of them is that <em>cooperative multitasking</em> operating systems have no right to stop the process during the execution and the process has to exit on its own. On the other hand, a <em>preemptive multitasking operating system</em> has the right to stop the execution of the process at any time. Unix, at its core, has been implementing <em>preemptive multitasking</em> and Linux Kernel has been implementing <em>preemptive multitasking</em> (it’s obvious that if <em>cooperative multitasking</em> is used and a process hangs and does not exit due to any reason, it can potentially bring down the whole system).</p>
+<p>The Implementation of Policy
+Policy is the behaviour of the scheduler that determines what runs when. To optimally use the processor time, Linux Process Scheduler implements some policy that determines which process to run at a given time and what process to keep waiting to make the most out of system resources.</p>
+<p>There are a few terms that are considered while following a policy. They are:</p>
+<ol>
+<li><strong>I/O-Bound Versus Processor-Bound Processes</strong></li>
+<li><strong>Process Priority</strong></li>
+<li><strong>Timeslice</strong></li>
+</ol>
+<h2 id="io-bound-versus-processor-bound-processes">I/O-Bound Versus Processor-Bound Processes</h2>
+<p>Processes can be divided into two types, the processes which are controlled by external devices (like keyboard, mouse, drives, etc.) are <em>I/O-Bound Processes</em>. These processes are most of the time idle and consume less processor time. But these are the ones that are responsible for making the system responsive to the user. For example, keyboard input must be processed at each stroke or else the system will not feel responsive. No matter how fast the user types (it’s not going to be that fast for the computer), this process is idle most of the time and resides in the memory. Hence, this process takes less processor time but needs to run as soon as it needs to be. On the other hand, <em>Processor-Bound Processes</em> consume significantly more processor time but do not need to be processed at a particular stroke of time. They can be kept in the memory and processed as per the processor’s state. For example, video rendering takes significant processor time but does not care the amount of time is taken to render the whole video (of course fast rendering would be great but a small latency in video rendering can be accepted than latency in typing in a text editor).</p>
+<p>The <em>Process Scheduler</em> is responsible for deciding when to process an <em>I/O-Bound Process</em> and when to pause/resume the execution of a <em>Processor-Bound Process</em>.</p>
+<p>Note that a process can be both, an <em>I/O-Bound Process</em> and a <em>Processor-Bound Process</em>. For example, Word-Processor, which requires quick processing of keyboard input and also does a spell-check simultaneously or some macro calculations).</p>
+<h2 id="process-priority">Process Priority</h2>
+<p>Setting up a priority value for a process helps the Linux Scheduler to measure the weight of the process and its requirements to the system. A term called <em>nice value</em> is used which ranges from -20 to 19. A lower nice value corresponds to higher priority and vice versa (a less nice value means the process is less nice to other processes and requires more processor attention).</p>
+<p>A very important point to be mentioned here: Unix allocates timeslices <em>proportionally</em> and not <em>absolutely</em> unlike some other operating systems and the same goes with Linux. This means that having a lower <em>nice value</em> (higher priority) will give a process relatively more time than a process with a higher nice value (lower priority). This depends upon the number of processes in the system and certain parameters in the Operating System. More discussion on this topic is out of the scope as this is a huge topic about why this is implemented and the approach towards <em>perfect multitasking</em>.</p>
+<p>A second range is <em>real-time</em> priority which is on a different track with <em>nice value</em>. Opposite from nice value, higher <em>real-time priority</em> refers to more priority and vice versa. Linux implements real-time priority as per Unix standards specifically POSIX.1b standards. All real-time processes have higher priority than the normal processes.</p>
+<h2 id="timeslice">Timeslice</h2>
+<p>A <em>timeslice</em> is a numerical value that represents how long a task can run until it is preempted. The policy of the scheduler dictates the default timeslice. Too long <em>timeslice</em> reduce the responsiveness of the system as more processor time will be allocated to individual processes, reducing the speed of the queue of processes. If too little <em>timeslice</em> is provided, then the switching will happen so fast that the process of switching itself will take most of the time (this is called the switching overhead and occurs when a process is preempted and switched to the next one consuming some time) which further decreases the throughput of the processor (the processor wastes time in switching more than it processes). Hence, an optimal value is set to overcome this.</p>
+<h2 id="concluding-with-more-to-explore">Concluding with More to Explore</h2>
+<p>The <em>timeslice</em> allocation is done by the process scheduler in a relative way proportional to the number of processes running in the system. This has a bit deeper explanation of why this has been implemented and why this optimises the resource allocation. Explaining that would take another article and is out of the scope of this one.</p>
+<p>Understanding <em>Process Scheduling</em> in the Linux Kernel is an important path to understanding the working and philosophies of it.</p>
+
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+  
+
+
+</body>
+
+</html>

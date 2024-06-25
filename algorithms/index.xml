@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms in C&#43;&#43; on The Minimalist&#39;s Book</title>
+    <link>http://localhost:1313/algorithms/</link>
+    <description>Recent content in Algorithms in C&#43;&#43; on The Minimalist&#39;s Book</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bubble Sort</title>
+      <link>http://localhost:1313/algorithms/bubble_sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/bubble_sort/</guid>
+      <description>Bubble Sort is a simple, comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process is repeated until the list is sorted. While easy to understand and implement, Bubble Sort is inefficient for large lists, with a worst-case and average-case time complexity of O(n^2).&#xA;#include &amp;lt;iostream&amp;gt; #include &amp;lt;array&amp;gt; using namespace std; // This function will carry out the operations in the algorithm of Bubble Sort Method int bubbleSort(int array[], int size){ for (int i = size - 1; i &amp;gt; 0; i--){ for (int j = 0; j &amp;lt; i; j++){ if (array[j] &amp;gt; array[j+1]){ int temp = array[j]; array[j] = array[j+1]; array[j+1] = temp; } } } } int main(){ int myArray[] = {6, 4, 3, 6, 7, 8, 1, 4, 5, 3}; int size = sizeof(myArray) / sizeof(myArray[0]); // This is the method for calculating the length of an array bubbleSort(myArray, size); for (auto value: myArray){ cout &amp;lt;&amp;lt; value &amp;lt;&amp;lt; endl; } } // Operational Complexity for Bubble Sort is O(n^2) </description>
+    </item>
+    <item>
+      <title>Insertion Sort</title>
+      <link>http://localhost:1313/algorithms/insertion_sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/insertion_sort/</guid>
+      <description>Insertion Sort is a simple, comparison-based sorting algorithm that builds the final sorted array one element at a time. It works by repeatedly picking the next element from the unsorted portion and inserting it into the correct position within the sorted portion, effectively shifting elements as necessary to make space. This algorithm is efficient for small data sets or nearly sorted arrays but has a quadratic time complexity of O(n^2) for larger, unordered lists.</description>
+    </item>
+    <item>
+      <title>Merge Sort</title>
+      <link>http://localhost:1313/algorithms/merge_sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/merge_sort/</guid>
+      <description>Merge Sort is a stable, comparison-based sorting algorithm that uses the divide-and-conquer strategy. It works by recursively dividing the array into halves until each sub-array contains a single element, then merges the sub-arrays back together in sorted order. This algorithm is efficient with a consistent time complexity of O(nlogn) and is particularly useful for sorting linked lists and large datasets.&#xA;# include &amp;lt;iostream&amp;gt; using namespace std; void merge(int array[], int leftIndex, int midIndex, int rightIndex){ // Calculating size of the two arrays that are derived from splitting the array int leftArraySize = midIndex - leftIndex + 1; int rightArraySize = rightIndex - midIndex; // Declaring new arrays where these splitted arrays are going to be defined int leftArray[leftArraySize]; int rightArray[rightArraySize]; // Loading new arrays with right and left elements of the array for (int i = 0; i &amp;lt; leftArraySize; i++){ leftArray[i] = array[leftIndex + i]; } for (int j = 0; j &amp;lt; rightArraySize; j++){ rightArray[j] = array[midIndex + 1 + j]; } // initializing variables int index = leftIndex; int i = 0; int j = 0; // Arranging the main array with elements in order of small to large size from the leftArray and rightArray while (i &amp;lt; leftArraySize &amp;amp;&amp;amp; j &amp;lt; rightArraySize){ if (leftArray[i] &amp;lt;= rightArray[j]){ array[index] = leftArray[i]; index++; i++; } else{ array[index] = rightArray[j]; index++; j++; } } // If leftArray elements are left over, add them at the end of the main array while (i &amp;lt; leftArraySize){ array[index] = leftArray[i]; index++; i++; } // If rightArray elements are left over, add them at the end of the main array while (j &amp;lt; rightArraySize){ array[index] = rightArray[j]; index++; j++; } } void mergeSort(int array[], int leftIndex, int rightIndex){ if (leftIndex &amp;gt;= rightIndex) return; int midIndex = leftIndex + (rightIndex - leftIndex) / 2; mergeSort(array, leftIndex, midIndex); mergeSort(array, midIndex + 1, rightIndex); merge(array, leftIndex, midIndex, rightIndex); } int main(){ int myArray[] = {3, 1, 4, 2}; int size = sizeof(myArray) / sizeof(myArray[0]); int leftIndex = 0; int rightIndex = size - 1; mergeSort(myArray, leftIndex, rightIndex); for(auto value : myArray){ cout &amp;lt;&amp;lt; value &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } } </description>
+    </item>
+    <item>
+      <title>Quick Sort</title>
+      <link>http://localhost:1313/algorithms/quick_sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/quick_sort/</guid>
+      <description>Quick Sort is a highly efficient, comparison-based sorting algorithm that uses the divide-and-conquer strategy to sort elements. It works by selecting a &amp;lsquo;pivot&amp;rsquo; element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted. Quick Sort has an average-case time complexity of O(nlogn) and is generally faster in practice compared to other O(nlogn) algorithms like Merge Sort, though its worst-case complexity is O(n^2).</description>
+    </item>
+    <item>
+      <title>Selection Sort</title>
+      <link>http://localhost:1313/algorithms/selection_sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/selection_sort/</guid>
+      <description>Selection Sort is a simple, comparison-based sorting algorithm that sorts an array by repeatedly finding the minimum element from the unsorted portion and swapping it with the first unsorted element. This process continues moving the boundary of the sorted and unsorted subarrays. While easy to understand and implement, Selection Sort is inefficient for large datasets, with a time complexity of O(n^2).&#xA;# include &amp;lt;iostream&amp;gt; # include &amp;lt;array&amp;gt; using namespace std; // This function will carry out the operations in the algorithm of Selection Sort Method int selectionSort(int array[], int size){ for (int i = 0; i &amp;lt; size; i++){ int minIndex = i; for (int j = i + 1; j &amp;lt; size; j++){ if (array[j] &amp;lt; array[minIndex]){ minIndex = j; } } if (i !</description>
+    </item>
+    <item>
+      <title>Tree Traversal - Breath First Search</title>
+      <link>http://localhost:1313/algorithms/tree_traversal_breath_first_search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/tree_traversal_breath_first_search/</guid>
+      <description>Breadth-First Search is a tree traversal algorithm that explores nodes level by level. Starting from the root, it visits all nodes at the current level before moving on to the nodes at the next level. BFS uses a queue to keep track of the nodes to be explored, ensuring that nodes are processed in the order they are discovered. This method is effective for finding the shortest path in unweighted graphs and has a time complexity of O(V+E), where V is the number of vertices and E is the number of edges.</description>
+    </item>
+    <item>
+      <title>Tree Traversal - Depth First Search - In Order Search</title>
+      <link>http://localhost:1313/algorithms/tree_traversal_depth_first_search_in_order_search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/tree_traversal_depth_first_search_in_order_search/</guid>
+      <description>In-Order Traversal is a type of depth-first search used primarily with binary trees. It visits nodes in a left-root-right sequence: it first recursively visits the left subtree, then processes the current node, and finally recursively visits the right subtree. This traversal method is particularly useful for binary search trees (BSTs) because it visits nodes in ascending order, producing a sorted sequence of values from the tree. The time complexity is O(n), where n is the number of nodes in the tree.</description>
+    </item>
+    <item>
+      <title>Tree Traversal - Depth First Search - Post Order</title>
+      <link>http://localhost:1313/algorithms/tree_traversal_depth_first_search_post_order/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/tree_traversal_depth_first_search_post_order/</guid>
+      <description>Post-Order Traversal is a type of depth-first search that visits nodes in a left-right-root sequence: it first recursively visits the left subtree, then the right subtree, and finally processes the current node. This traversal is useful for operations where a node must be processed only after all its children have been processed, such as deleting nodes in a tree or evaluating expressions in a syntax tree. The time complexity is O(n), where n is the number of nodes in the tree.</description>
+    </item>
+    <item>
+      <title>Tree Traversal - Depth First Search - Pre Order</title>
+      <link>http://localhost:1313/algorithms/tree_traversal_depth_first_search_pre_order/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/algorithms/tree_traversal_depth_first_search_pre_order/</guid>
+      <description>Pre-Order Traversal is a type of depth-first search that visits nodes in a root-left-right sequence: it processes the current node first, then recursively visits the left subtree, followed by the right subtree. This traversal is useful for creating a copy of the tree, prefix expression evaluations, and hierarchical structures where the root node is processed before its subtrees. The time complexity is O(n), where n is the number of nodes in the tree.</description>
+    </item>
+  </channel>
+</rss>

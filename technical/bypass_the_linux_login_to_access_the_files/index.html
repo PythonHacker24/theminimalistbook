@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+
+  <title>
+    Bypassing the Linux Login to access the files (with Physical Access), even the root! - The Minimalist&#39;s Book
+  </title>
+
+  <meta name="description" content="Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog." /><meta name="generator" content="Hugo 0.126.1">
+
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
+
+  
+  
+
+  <meta property="og:url" content="http://localhost:1313/technical/bypass_the_linux_login_to_access_the_files/">
+  <meta property="og:site_name" content="The Minimalist&#39;s Book">
+  <meta property="og:title" content="Bypassing the Linux Login to access the files (with Physical Access), even the root!">
+  <meta property="og:description" content="Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="technical">
+    <meta property="article:published_time" content="2024-01-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-08T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/digital-garden-logo.png">
+
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/digital-garden-logo.png">
+  <meta name="twitter:title" content="Bypassing the Linux Login to access the files (with Physical Access), even the root!">
+  <meta name="twitter:description" content="Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.">
+
+
+  
+  <meta itemprop="name" content="Bypassing the Linux Login to access the files (with Physical Access), even the root!">
+  <meta itemprop="description" content="Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.">
+  <meta itemprop="datePublished" content="2024-01-08T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-01-08T00:00:00+00:00">
+  <meta itemprop="wordCount" content="950">
+  <meta itemprop="image" content="http://localhost:1313/digital-garden-logo.png">
+
+  
+  <meta itemprop="name" content="Bypassing the Linux Login to access the files (with Physical Access), even the root!">
+  <meta itemprop="description" content="Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.">
+  <meta itemprop="datePublished" content="2024-01-08T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-01-08T00:00:00+00:00">
+  <meta itemprop="wordCount" content="950">
+  <meta itemprop="image" content="http://localhost:1313/digital-garden-logo.png">
+</head><body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="http://localhost:1313/" class="px-2">
+      <span>The Minimalist&#39;s Book</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Explore</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical" >
+        <span>Technical Writings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/thinkings" >
+        <span>Thinkings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/projects" >
+        <span>Projects</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/backpack" >
+        <span>Backpack</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>DSA for Devs</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures" >
+        <span>Data Structures in C&#43;&#43;</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/algorithms" >
+        <span>Algorithms in C&#43;&#43;</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Documents for Devs</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/documents/linux_device_drivers_101.pdf" >
+        <span>Linux Device Drivers 101</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Links</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://medium.com/@adityapatil24680"  target="_blank"
+        rel="noopener" >
+        <span>Medium</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  <div class="newsletter-widget">
+  <div class="text-bold text-sm">The Minimalist Newsletter</div>
+  
+  <p class="text-xs my-1 text-slate-500">A minimal newsletter with summaries of my latest writings and updates to your mailbox</p>
+  
+
+  
+  
+  
+  
+
+  
+
+  <form action="https://minimalist-newsletter.beehiiv.com/subscribe" method="post" id="newsletter_form" name="revue-form" target="_blank">
+    <div class="mt-2">
+      
+      
+      <button onclick="window.open('https://minimalist-newsletter.beehiiv.com/subscribe', '_blank')" class="mt-2 w-full text-center text-sm bg-slate-800 text-white dark:bg-slate-50 dark:text-slate-800 py-1 rounded cursor-pointer">Subscribe</button>
+    </div>
+  </form>
+
+  
+</div>
+
+
+  
+  <a href="https://www.producthunt.com/posts/the-minimalist-book?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-the&#0045;minimalist&#0045;book" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=461338&theme=light" alt="The&#0032;Minimalist&#0032;Book - A&#0032;Minimalist&#0032;Platform&#0032;for&#0032;Minimalist&#0032;Engineers | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/PythonHacker24" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/aditya-patil-260a631b2/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="adityapatil24680@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/index.xml" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">RSS</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="http://localhost:1313/technical/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Deep Dive Articles</h2>
+    </a>
+<label class="mb-2 block px-2">
+  <span></span>
+  <input type="text" placeholder="Search articles" class="searchInput bg-white rounded px-2 py-1 w-full border" />
+</label>
+<script>
+  const searchElt = document.querySelector('.searchInput')
+  if (searchElt) {
+    searchElt.addEventListener('input', evt => {
+      const value = evt.target.value || '';
+
+      const articles = document.querySelectorAll('.article')
+      if (!value) {
+        articles.forEach(article => article.classList.remove('hidden'))
+      } else {
+        articles.forEach(article => article.classList.add('hidden'))
+        Array.from(articles).filter(article => {
+          const title = article.querySelector('h3')
+          if (!title) return false;
+
+          return title.textContent.toLowerCase().includes(value.toLowerCase())
+        }).forEach(article => article.classList.remove('hidden'))
+      }
+    })
+  }
+</script>
+<div class="space-y-2.5">
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/how_to_learn_a_new_programming_language/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Best Way to Learn a New Programming Language from Scratch - How I Approach and Learn Any Programming Language Efficiently</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: The following article is based on my experiences and opinions on learning programming languages. I have been learning about computers in-depth and find learning languages with specific purposes useful. For example, Python was for beginning, C is for memory management and Rust is for learning to write memory-safe code in my case. This time, I started learning Golang which is known for its simple syntax and powerful performance, and widely known for its awesome concurrency.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/why_more_is_not_always_good/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/why_i_shifted_from_arch_to_debian/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Why I Shifted From Arch Linux to Debian Linux?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: The following article is based on my personal experience with Arch Linux and Debian Linux. While I appreciate both distributions for their unique strengths and different use cases, the information provided reflects my own opinions and experiences. Your experiences may vary.
+What was I going for Initially? Bit of my Story as a Beginner Linux User When I started using Linux, I was going through security stuff and learning computer security when I was in my High School.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/tmux_is_the_ultimate_choice_for_power_users/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/concept_of_rss_feed/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Concept of RSS Feed - A Reliable Way for Publishers and Subscribers Model</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been looking for simple solutions in nearly everything related to computing. A lot of software designed these days is not designed per your requirements but as per companies&rsquo; profit. Hence, most of these solutions end up sucking your time and energy and need to be replaced by more optimised solutions that would boost your productivity in the right way. RSS Feed is something that I found after searching for solutions related to subscribing to websites or creators without sucking much resources and design that is reliable to the user itself.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Serious Reconnaissance with Unmanned Aerial Vehicles — Mapping Out Devices in an Area with Drones</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction: The following content is for educational purposes and for hackers living in basements knowing enough ethics. The author is not responsible for any damage caused by the knowledge provided here and does not support anything like that. It’s essential to check out the rules in the area of reconnaissance about the tactics provided here and the use of materials (unless and until there is any apocalypse and a solid recon is required).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/fundamentals_of_hardware_hacking/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/setting_up_remote_git_server/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nature_of_linux_kernel_development/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Nature of Linux Kernel Development — Difference Between Rules of Kernel Level and User-Space Application Level</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is intended to explain a clear distinction between the core principles of Linux Kernel Development and User-Application Level Development. The provided information is based on my research on Kernel Development through various sources and I have tried to make it as accurate as possible. Efforts have been made to explain it as simply and concisely as possible.
+Introduction to the Nature of Linux Kernel Linux Kernel is the abstraction layer between the Operating System and the Hardware in the system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_process_scheduling/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_processes/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Processes — A Kernel’s Perspective Explained with Clarity and Simplicity</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been going through the book “Linux Kernel Development” by Robert Love which I highly recommend for understanding the Linux Kernel in depth. I decided to write this article to explain “Linux Processes” simply and concisely. The topic itself is broad and is not explained into the deepest of it, but essential for Linux Administrators, Developers and even Linux users to appreciate the beauty of the Kernel they make use of every day.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nginx_for_deploying_nextjs_application_on_aws/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">NGINX for Deploying Next.js Application on AWS EC2 with AWS ELB — Control and Stability of Deployments</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          I was looking for an article like this a few days ago, which I didn’t find at that time, so I did the deployment on my own and came up with this article to prevent other developers from saving those efforts and focusing on development. I am not explaining every single step and have provided links for references.
+I prefer manual deployment of applications over automated (and even serverless) methods. Although they are convenient and require less effort by the developers, they are bound to the providers and offer less control over the underlying system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/configuring_and_building_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Configuring and Building the Linux Kernel — Absolute Guide to Compiling Your Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Linux Kernel is an Open-Source Software and the user is free to modify and customise it as per the requirements. The modification of the Kernel requires a deep understanding of the working of the Kernel, although patches are available to make the Kernel optimised for specific hardware. Linux Kernel Source Code has various options to configure the drivers, modules, preferences on hardware options, etc. This part can be studied by the user and is pretty much easy to work with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/elegance_of_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Elegance of the Linux Kernel — A Concise History of Unix and the Creation of the Linux Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction and Context I was going through the book “Linux Kernel Development” by Robert Love, an absolute guide to getting started with Linux Kernel Development and a highly recommended book for understanding the core of the Linux Kernel. Linux Kernel has been one of the most important software ever written and is even considered one of the biggest projects ever undertaken by a single person. The idea of the Linux Kernel was initiated by Linus Torvalds, a student from the University of Helsinki and is maintained by him to date (while writing this article).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_shell_scripting/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Shell Scripting — A Suckless and Concise Guide to the Command-line of Linux</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Statements: This is a concise guide on the Linux Shell Scripting while consolidating all the facts about the Linux Shell for quick developer’s reference while using Linux. I am referencing the Bash (Bourne-Again Shell) which is the default shell for Linux-based systems. I will also be providing references and external links to dive into depth and not fill the article with too much explanation about a single topic which is not universally required by all the readers.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/suckless_utilities_for_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Suckless Utilities for Arch Linux — The Most Minimal Way Run a Computer</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Suckless utilities have been my favourite at this time and kind of essentials for my use of the computer. I have been using Arch Linux for a fair amount of time now and I started using it with XFCE for few weeks. I would appreciate the XFCE desktop environment for it’s smoothness and light-weight nature with works really fine when newly shifting on Arch Linux. But then I learnt the suckless ecosystem and eventually shifted to it as my full-time environment.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/installing_pacman_in_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Installing Pacman in Arch Linux — When You Blow it Up</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Let me suckless and divide the article into two parts:
+My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
+The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/boot_process_of_computers/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Boot Process of Computers — A Learner’s Perspective Of Exploring the Depth of Computers</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Clarifications: Here, I will be providing a philosophical explanation about the bootloaders and understanding them in a simple and as minimal way as possible. This is not supposed to be a manual for bootloader or provide any advice for experimenting over your live system. It’s my journey to understand computers (one of the most complex creations of mankind) and I will be stating my thoughts. Take it with a pinch of salt.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/networking_fundamentals_for_linux_administrators/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Networking Fundamentals for Linux Administrators — A Suckless and Concise Explanation</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Statistics are clear on the fact that 96.3% (while writing this article) of the servers use Linux as their Operating System which is no doubt what every other Linux user on this Earth expects. I believe that the Linux Administrator has to take the shot about the configuration of Networking in Linux Based Server. Some of the underlying concepts remain the same for any other distros but it is mainly intended for Linux.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/operating_systems_and_low_level_access_to_the_hardware/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Operating Systems and Low-Level Access to the Hardware — Why should you learn it?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Today, I completed the whole read of the book “Linux Kernel in a Nutshell” by Greg Kroah-Hartman and I highly recommend that you go through it if you want to understand how to build your custom configuration of Linux Kernel and all you need to know about all the nuts and bolts. It’s always great to have such handbooks around the desk.
+This blog is about why it’s so awesome to look into the operating system you are using with your hardware and why have a grasp on the Low-Level aspects of a computer.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/arch_linux_custom_builds/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Arch Linux Custom Builds — Freedom of the Operating System</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          While writing this blog, I was reading the book “Linux Kernel in a Nutshell” by Greg Kroab-Hartman and as far as the pages of the book are concerned, it seems to be a two-day read (this is a handbook so reading it once and having around the desk is super useful). By the way, the author has the book left open for download http://www.kroah.com/lkn/ so check that out if you want to follow up.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/technical/bypass_the_linux_login_to_access_the_files/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Bypassing the Linux Login to access the files (with Physical Access), even the root!</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.
+        </div>
+      </a>
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">Bypassing the Linux Login to access the files (with Physical Access), even the root!</h1>
+
+	  
+      <p class="text-sm text-slate-500 !mb-8"> Planted January 8, 2024
+		
+	  </p>
+      
+
+      
+
+      <p>Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.</p>
+<p>This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog. By the way, I got the Wi-Fi working). I used an Arch Installation medium to get into the system and extract all my backup data into a USB.</p>
+<p>Doing this is simple given that some physical access to the device is granted. By automating this process with a key-strokes injector, the process can be streamlined to most extent. Even backdoors can be planted in the system and run as background processes.</p>
+<p>Now first, let me get the expectations of the line. This is not something very new thing that I have found. It’s just I found it with my way of exploring the computers and troubleshooting a Custom Arch Linux Build. So if the technique exists, great! the world remains as it is.</p>
+<h2 id="getting-the-tools-for-the-action">Getting the Tools for the Action</h2>
+<p>What you need for a basic purpose is just a USB drive with some standard space on it (I expect that it is more than 8GB or something, would be good to have one). Just install Arch Installation medium into it.</p>
+<ul>
+<li>Get the image from the Arch Official Website</li>
+<li>Use Balena Etcher or anything you like to flash the image</li>
+</ul>
+<p>Now you have an Arch Installation Medium, get to the system want to get access to.</p>
+<p>For super fast action, get a USB Ducky or some microcontroller that you can manage to program for keystroke injections. You just have to record the exact command you want and you can pair them for maximum speed and avoid typing on the keyboard while the attack happens (be legit, only on devices you have permission).</p>
+<h2 id="hack-the-world--action-phase">Hack the World! — Action Phase</h2>
+<p>Let’s call the Arch Installation Medium as Attacker USB for the sake of making this blog look cooler.</p>
+<p>Plug that Attacker USB into the system and get the command line ready after login (the Attacker USB login, default ones)
+At this point, you might need you connect the system to the internet in case you need to access the internet for uploading or downloading. [Command: iwctl station <interface> connect <SSID> ] and then Enter the Password for the internet.
+Now mount the drives of the system to the Attacker USB. There are several steps for this so I am listing this after these bullet points (I am new to Medium while writing this so spare with me) [TAG: MOUNT_SECTION]
+Now you can go to the /mnt and get access to all the files in it. I recommend chrooting into it and then exploring the files if there is enough time. This way, you can use the installed binaries and get things from the internet into the system. [Chrooting Command: arch-chroot /mnt /bin/bash]
+[MOUNT_SECTION]: Here, I will show how to mount the drive to the USB Medium</p>
+<p>Do lsblk and you will get the drives listed
+They would be like /sda, /sdb and would have sub-drives like /sda1 and /sda2. Something like that (trust me, I am an Engineer)
+With some common sense, I can safely say that the disk might be big enough like hundreds of GB, bigger than the USB I think so for most of the time.
+Let’s say it’s sda for the drive you want to access.
+First, make a boot file in the /mnt folder in the Attacker USB</p>
+<ul>
+<li><code>mkdir /mnt/boot</code></li>
+<li><code>mount /dev/sda1 /mnt/boot</code></li>
+<li><code>mount /dev/sda2 /mnt</code>
+Quick Disclaimer, it depends on the partition of the filesystem into the drive. The cases I have provided here are the most common ones found (by my experience)</li>
+</ul>
+<h2 id="post-exploitation">Post Exploitation</h2>
+<p>If you manage to get into the drives or chroot into it (would be awesome if this works), then that’s it. This is what it was all about. You got the files without any Login Screen asking for passwords. The files are compromised.</p>
+<p>What I did in the case was, I looked for /etc/passwd and /etc/shadow files which I would have used with Hashcat to crack the login passwords. Now a remote backdoor can be set up by planting it to files that autostart and even trying to hide it to prevent the user from suspecting it.</p>
+<p>Having an Access Point handy with a Keystroke Injector and Attacker USB can prove to have a very fast execution of the task given that the system is studied for automated attacks. Manual procedures work the best but take time.</p>
+<p>This was it, my story of debugging the Wi-Fi and finding this technique to get access to my files. This methodology can be used for physical penetration tests or even to get out the files from a crashed system (like if the user deletes the /boot file and reboots)</p>
+<p><strong>Disclaimer:</strong> I am a very simple person studying computers and have some knowledge about them. Everything here is just for learning purposes and not for some shady purposes. Do it on your systems and systems you have permission to do this. Be careful, you may end up wiping the disk, so I as a simple author take no responsibility for any loss. I have a lot of things and problems to solve so would likely not engage in something like resolving issues. Have a good time learning!</p>
+
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+  
+
+
+</body>
+
+</html>

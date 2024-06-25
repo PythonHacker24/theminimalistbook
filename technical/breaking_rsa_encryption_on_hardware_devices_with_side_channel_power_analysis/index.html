@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+
+  <title>
+    Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm - The Minimalist&#39;s Book
+  </title>
+
+  <meta name="description" content="Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc." /><meta name="generator" content="Hugo 0.126.1">
+
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
+
+  
+  
+
+  <meta property="og:url" content="http://localhost:1313/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/">
+  <meta property="og:site_name" content="The Minimalist&#39;s Book">
+  <meta property="og:title" content="Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm">
+  <meta property="og:description" content="Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="technical">
+    <meta property="article:published_time" content="2024-04-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-18T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/digital-garden-logo.png">
+
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/digital-garden-logo.png">
+  <meta name="twitter:title" content="Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm">
+  <meta name="twitter:description" content="Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.">
+
+
+  
+  <meta itemprop="name" content="Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm">
+  <meta itemprop="description" content="Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.">
+  <meta itemprop="datePublished" content="2024-04-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-04-18T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1908">
+  <meta itemprop="image" content="http://localhost:1313/digital-garden-logo.png">
+
+  
+  <meta itemprop="name" content="Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm">
+  <meta itemprop="description" content="Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.">
+  <meta itemprop="datePublished" content="2024-04-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-04-18T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1908">
+  <meta itemprop="image" content="http://localhost:1313/digital-garden-logo.png">
+</head><body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="http://localhost:1313/" class="px-2">
+      <span>The Minimalist&#39;s Book</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Explore</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical" >
+        <span>Technical Writings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/thinkings" >
+        <span>Thinkings</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/projects" >
+        <span>Projects</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/backpack" >
+        <span>Backpack</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>DSA for Devs</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/data_structures" >
+        <span>Data Structures in C&#43;&#43;</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/algorithms" >
+        <span>Algorithms in C&#43;&#43;</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Documents for Devs</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/documents/linux_device_drivers_101.pdf" >
+        <span>Linux Device Drivers 101</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Links</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://medium.com/@adityapatil24680"  target="_blank"
+        rel="noopener" >
+        <span>Medium</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+  <line x1="10" y1="14" x2="20" y2="4" />
+  <polyline points="15 4 20 4 20 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  <div class="newsletter-widget">
+  <div class="text-bold text-sm">The Minimalist Newsletter</div>
+  
+  <p class="text-xs my-1 text-slate-500">A minimal newsletter with summaries of my latest writings and updates to your mailbox</p>
+  
+
+  
+  
+  
+  
+
+  
+
+  <form action="https://minimalist-newsletter.beehiiv.com/subscribe" method="post" id="newsletter_form" name="revue-form" target="_blank">
+    <div class="mt-2">
+      
+      
+      <button onclick="window.open('https://minimalist-newsletter.beehiiv.com/subscribe', '_blank')" class="mt-2 w-full text-center text-sm bg-slate-800 text-white dark:bg-slate-50 dark:text-slate-800 py-1 rounded cursor-pointer">Subscribe</button>
+    </div>
+  </form>
+
+  
+</div>
+
+
+  
+  <a href="https://www.producthunt.com/posts/the-minimalist-book?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-the&#0045;minimalist&#0045;book" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=461338&theme=light" alt="The&#0032;Minimalist&#0032;Book - A&#0032;Minimalist&#0032;Platform&#0032;for&#0032;Minimalist&#0032;Engineers | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/PythonHacker24" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/aditya-patil-260a631b2/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="adityapatil24680@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/index.xml" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">RSS</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="http://localhost:1313/technical/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Deep Dive Articles</h2>
+    </a>
+<label class="mb-2 block px-2">
+  <span></span>
+  <input type="text" placeholder="Search articles" class="searchInput bg-white rounded px-2 py-1 w-full border" />
+</label>
+<script>
+  const searchElt = document.querySelector('.searchInput')
+  if (searchElt) {
+    searchElt.addEventListener('input', evt => {
+      const value = evt.target.value || '';
+
+      const articles = document.querySelectorAll('.article')
+      if (!value) {
+        articles.forEach(article => article.classList.remove('hidden'))
+      } else {
+        articles.forEach(article => article.classList.add('hidden'))
+        Array.from(articles).filter(article => {
+          const title = article.querySelector('h3')
+          if (!title) return false;
+
+          return title.textContent.toLowerCase().includes(value.toLowerCase())
+        }).forEach(article => article.classList.remove('hidden'))
+      }
+    })
+  }
+</script>
+<div class="space-y-2.5">
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/how_to_learn_a_new_programming_language/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Best Way to Learn a New Programming Language from Scratch - How I Approach and Learn Any Programming Language Efficiently</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: The following article is based on my experiences and opinions on learning programming languages. I have been learning about computers in-depth and find learning languages with specific purposes useful. For example, Python was for beginning, C is for memory management and Rust is for learning to write memory-safe code in my case. This time, I started learning Golang which is known for its simple syntax and powerful performance, and widely known for its awesome concurrency.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/why_more_is_not_always_good/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Why More is Not Always Good in Terms of Software - Words on Cross Platform Utilities, Bash-ism, and POSIX Compliance. </h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is about my views on software compliance and cross-platform support, and reflects my opinions and experience with the subject. Your experience and opinions may vary, which I respect.
+What I am Specifically Talking About? I am going to talk about the issues caused by non-compliant software and why more features are not always good, especially in the case of the upgrade of tools on a single platform.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/why_i_shifted_from_arch_to_debian/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Why I Shifted From Arch Linux to Debian Linux?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: The following article is based on my personal experience with Arch Linux and Debian Linux. While I appreciate both distributions for their unique strengths and different use cases, the information provided reflects my own opinions and experiences. Your experiences may vary.
+What was I going for Initially? Bit of my Story as a Beginner Linux User When I started using Linux, I was going through security stuff and learning computer security when I was in my High School.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/tmux_is_the_ultimate_choice_for_power_users/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Tmux is the Ultimate Choice for Power Users - An Awesome Terminal Multiplexer for Managing Persistent Sessions</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          What is Tmux? Tmux is a Terminal Multiplexer Application for Linux and MacOS for managing terminal sessions and Windows. It is to be mentioned that Tmux is not a terminal emulator, instead, it’s a terminal application, a binary that allows you to stay productive over your terminal. It doesn’t matter which terminal emulator you are using (although I recommend the Suckless Terminal). The functionality of managing Windows and the session doesn’t happen on the desktop GUI side but on the terminal session, you are working with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/concept_of_rss_feed/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Concept of RSS Feed - A Reliable Way for Publishers and Subscribers Model</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been looking for simple solutions in nearly everything related to computing. A lot of software designed these days is not designed per your requirements but as per companies&rsquo; profit. Hence, most of these solutions end up sucking your time and energy and need to be replaced by more optimised solutions that would boost your productivity in the right way. RSS Feed is something that I found after searching for solutions related to subscribing to websites or creators without sucking much resources and design that is reliable to the user itself.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/technical/breaking_rsa_encryption_on_hardware_devices_with_side_channel_power_analysis/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          Preface: This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/serious_reconnaissance_with_unmaned_aerial_vechiles/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Serious Reconnaissance with Unmanned Aerial Vehicles — Mapping Out Devices in an Area with Drones</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction: The following content is for educational purposes and for hackers living in basements knowing enough ethics. The author is not responsible for any damage caused by the knowledge provided here and does not support anything like that. It’s essential to check out the rules in the area of reconnaissance about the tactics provided here and the use of materials (unless and until there is any apocalypse and a solid recon is required).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/fundamentals_of_hardware_hacking/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Fundamentals of Hardware Hacking — Breaking and Reverse Engineering Smart IoT Devices</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Disclaimer — This is an introductory article about Hardware Hacking and Security of IoT Devices. None of the mentioned information or techniques are intended for any illegal purposes and the author is not responsible for any damage. It’s advisable to experiment on devices that you own or have explicit permission to do so. Rest of all, hardware hacking is fun!
+The Beauty of Electronic Devices In the ever-growing world of smart devices and the connectivity of things to the internet, life has become more convenient than ever.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/setting_up_remote_git_server/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Setting Up a Remote Git Server — A Simple and Concise Step-by-Step Guide to Host a Private Git Server</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This is a concise and simple guide to hosting a remote git server. I have been researching this topic for a while and came up with the idea of writing an article with a step-by-step guide for hosting a private git server. Covering all the aspects of git is not possible in a single article, so it’s assumed that the reader has prior knowledge of git and version control.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nature_of_linux_kernel_development/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Nature of Linux Kernel Development — Difference Between Rules of Kernel Level and User-Space Application Level</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: This article is intended to explain a clear distinction between the core principles of Linux Kernel Development and User-Application Level Development. The provided information is based on my research on Kernel Development through various sources and I have tried to make it as accurate as possible. Efforts have been made to explain it as simply and concisely as possible.
+Introduction to the Nature of Linux Kernel Linux Kernel is the abstraction layer between the Operating System and the Hardware in the system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_process_scheduling/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Process Scheduling — The Reason your Linux System Processes so Efficiently (Kernel Perspective)</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I was going through the book “Linux Kernel Development” by Robert Love, one of the best books I have referred to for low-level stuff and understanding the workings of Linux. I study this book with intensity, simplify the concepts and write it down here so that the readers can get a straightforward description and all they need to know about the topic. Covering the whole Linux Process Scheduling is not possible and is not the goal of this article.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_processes/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Processes — A Kernel’s Perspective Explained with Clarity and Simplicity</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Preface: I have been going through the book “Linux Kernel Development” by Robert Love which I highly recommend for understanding the Linux Kernel in depth. I decided to write this article to explain “Linux Processes” simply and concisely. The topic itself is broad and is not explained into the deepest of it, but essential for Linux Administrators, Developers and even Linux users to appreciate the beauty of the Kernel they make use of every day.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/nginx_for_deploying_nextjs_application_on_aws/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">NGINX for Deploying Next.js Application on AWS EC2 with AWS ELB — Control and Stability of Deployments</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          I was looking for an article like this a few days ago, which I didn’t find at that time, so I did the deployment on my own and came up with this article to prevent other developers from saving those efforts and focusing on development. I am not explaining every single step and have provided links for references.
+I prefer manual deployment of applications over automated (and even serverless) methods. Although they are convenient and require less effort by the developers, they are bound to the providers and offer less control over the underlying system.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/configuring_and_building_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Configuring and Building the Linux Kernel — Absolute Guide to Compiling Your Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Linux Kernel is an Open-Source Software and the user is free to modify and customise it as per the requirements. The modification of the Kernel requires a deep understanding of the working of the Kernel, although patches are available to make the Kernel optimised for specific hardware. Linux Kernel Source Code has various options to configure the drivers, modules, preferences on hardware options, etc. This part can be studied by the user and is pretty much easy to work with.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/elegance_of_the_linux_kernel/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">The Elegance of the Linux Kernel — A Concise History of Unix and the Creation of the Linux Kernel</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Introduction and Context I was going through the book “Linux Kernel Development” by Robert Love, an absolute guide to getting started with Linux Kernel Development and a highly recommended book for understanding the core of the Linux Kernel. Linux Kernel has been one of the most important software ever written and is even considered one of the biggest projects ever undertaken by a single person. The idea of the Linux Kernel was initiated by Linus Torvalds, a student from the University of Helsinki and is maintained by him to date (while writing this article).
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/linux_shell_scripting/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Linux Shell Scripting — A Suckless and Concise Guide to the Command-line of Linux</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Statements: This is a concise guide on the Linux Shell Scripting while consolidating all the facts about the Linux Shell for quick developer’s reference while using Linux. I am referencing the Bash (Bourne-Again Shell) which is the default shell for Linux-based systems. I will also be providing references and external links to dive into depth and not fill the article with too much explanation about a single topic which is not universally required by all the readers.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/suckless_utilities_for_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Suckless Utilities for Arch Linux — The Most Minimal Way Run a Computer</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Suckless utilities have been my favourite at this time and kind of essentials for my use of the computer. I have been using Arch Linux for a fair amount of time now and I started using it with XFCE for few weeks. I would appreciate the XFCE desktop environment for it’s smoothness and light-weight nature with works really fine when newly shifting on Arch Linux. But then I learnt the suckless ecosystem and eventually shifted to it as my full-time environment.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/installing_pacman_in_arch_linux/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Installing Pacman in Arch Linux — When You Blow it Up</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Let me suckless and divide the article into two parts:
+My story how I blew up Pacman Package Manager How to reinstall the Pacman Package Manager If you only care about the second part, skip the first one.
+The Scenario — Blow it Up I was trying to install the pacman game from the Internet to get it running on my Arch Linux Terminal (I use Suckless Terminal BTW). When I got it installed and played it, it was super awesome.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/boot_process_of_computers/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Boot Process of Computers — A Learner’s Perspective Of Exploring the Depth of Computers</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Prior Clarifications: Here, I will be providing a philosophical explanation about the bootloaders and understanding them in a simple and as minimal way as possible. This is not supposed to be a manual for bootloader or provide any advice for experimenting over your live system. It’s my journey to understand computers (one of the most complex creations of mankind) and I will be stating my thoughts. Take it with a pinch of salt.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/networking_fundamentals_for_linux_administrators/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Networking Fundamentals for Linux Administrators — A Suckless and Concise Explanation</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Statistics are clear on the fact that 96.3% (while writing this article) of the servers use Linux as their Operating System which is no doubt what every other Linux user on this Earth expects. I believe that the Linux Administrator has to take the shot about the configuration of Networking in Linux Based Server. Some of the underlying concepts remain the same for any other distros but it is mainly intended for Linux.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/operating_systems_and_low_level_access_to_the_hardware/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Operating Systems and Low-Level Access to the Hardware — Why should you learn it?</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Today, I completed the whole read of the book “Linux Kernel in a Nutshell” by Greg Kroah-Hartman and I highly recommend that you go through it if you want to understand how to build your custom configuration of Linux Kernel and all you need to know about all the nuts and bolts. It’s always great to have such handbooks around the desk.
+This blog is about why it’s so awesome to look into the operating system you are using with your hardware and why have a grasp on the Low-Level aspects of a computer.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/arch_linux_custom_builds/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Arch Linux Custom Builds — Freedom of the Operating System</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          While writing this blog, I was reading the book “Linux Kernel in a Nutshell” by Greg Kroab-Hartman and as far as the pages of the book are concerned, it seems to be a two-day read (this is a handbook so reading it once and having around the desk is super useful). By the way, the author has the book left open for download http://www.kroah.com/lkn/ so check that out if you want to follow up.
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/technical/bypass_the_linux_login_to_access_the_files/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">Bypassing the Linux Login to access the files (with Physical Access), even the root!</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          Imagine being away from the computer for a couple of minutes and getting to know that the system has been compromised and a backdoor has been installed into the system. “The system was locked?” doesn’t matter, without the bios security implementation (which most probably would not be implemented), all the files can be recovered without any login made to the Login Screen.
+This goes with the story of me trying to get my Wi-Fi troubleshooting in Arch Linux where I was trying to upgrade the Kernel of my System to get the Wi-Fi working properly (as mentioned in the previous blog.
+        </div>
+      </a>
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">Breaking RSA Encryption on Hardware Devices with Side Channel Power Analysis — Leaking the Private Key by Exploiting Square-Multiply Algorithm</h1>
+
+	  
+      <p class="text-sm text-slate-500 !mb-8"> Planted April 18, 2024
+		
+	  </p>
+      
+
+      
+
+      <p><em><strong>Preface:</strong> This article is about leaking the private key from hardware devices that implement RSA encryption which is part of hardware hacking. The author is not responsible for any damage caused by the given information. It is recommended to be careful while performing these attacks as they can damage the hardware or even destroy it. All the information provided here is for educational purposes. There are no such prerequisites for understanding the theory, although knowledge about modular arithmetic, basics of encryption mathematics, basic electronics, etc. is recommended to carry out these attacks practically. Rest of all, hacking is about learning and having fun, so enjoy the cool attacks!</em></p>
+<h2 id="introduction-to-side-channel-power-analysis--constant-emission-of-information-by-hardware-devices">Introduction to Side Channel Power Analysis — Constant Emission of Information by Hardware Devices</h2>
+<p>Side Channel Analysis refers to extracting information from mediums that have relations with the elements interacting with the information and their behavior is influenced by the information processing. For example, using an infrared camera for monitoring heat from devices and finding faults in them through the heat traces. Another example is using signal processing on data containing the vibrational traces from objects that were due to sound in the area of people talking (vibrations can be taken from soundproof rooms too, allowing listening of conversations from soundproofed rooms). In the context of electronic devices for power consumption, information about the internal state of the processor is determined by analyzing the power consumption of these devices.</p>
+<p>While microprocessors process information and execute instructions, they consume different amounts of power, if analyzed carefully. Since the voltage largely remains constant, the current consumption varies as per the required power by the processor. For example, adding instructions consumes relatively less power than the multiple instruction. Hence, the power consumption of the processor is analyzed to derive which instructions have been executed in the processor. This opens a lot of possibilities for leaking information from the processors, which in the case of cryptographic information which largely relies on computations and algorithms for optimization, has a lot of potential surface for hackers.</p>
+<h2 id="introduction-to-rsa-encryption--rivest-shamir-adleman-encryption">Introduction to RSA Encryption — Rivest-Shamir-Adleman Encryption</h2>
+<p>The RSA (Rivest-Shamir-Adleman) is a public-key cryptosystem that encrypts and decrypts data with the help of private and public keys. It’s a popular and secure algorithm that’s used for many applications, including digital signatures.</p>
+<p>This cryptosystem is widely used for encrypting and decrypting data for secure transmission of data and has a huge number of applications. In this article, the mathematics of this algorithm will be explained in the next section since it’s important to understand the mathematics behind it and optimizations that have been made for computing this faster on processors with memory efficiency. Here, the explanation would be in a simple way, essential for side-channel analysis. For in-depth knowledge about this algorithm, refer to the Wikipedia page which has extensive documentation on this algorithm.</p>
+<p>Wikipedia link: <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29"  target="_blank" rel="noopener" >https://en.wikipedia.org/wiki/RSA_(cryptosystem)</a></p>
+<h2 id="understanding-the-rsa-algorithm--generating-keys-and-encryptiondecryption">Understanding the RSA Algorithm — Generating Keys and Encryption/Decryption</h2>
+<p>To understand the mathematics of the RSA algorithm, there are a few prerequisites of concepts that will be explained here. Feel free to jump to the mathematics if you are already familiar with them.</p>
+<h3 id="the-factor-of-a-number">The factor of a Number</h3>
+<p>A number can be broken down into multiples of different numbers. For example, 20 = 2 * 2 * 5 or 20 = 1 * 20 which makes 1, 2, 5, and 20 the factors of the number 20. Every number is divisible by 1 and itself.</p>
+<h3 id="prime-numbers">Prime Numbers</h3>
+<p>Numbers that have only two factors, that is 1 and itself if termed as a prime number. These numbers are not divisible by any number other than 1 and itself. Except for the number 2 which is prime and even, all other prime numbers are odd. For example, 7 has factors 1 and 7.</p>
+<h3 id="semi-prime-numbers">Semi Prime Numbers</h3>
+<p>Numbers that have their factors as 1 and itself as well as only prime numbers are called semi prime numbers. For example, 15 has its factors 1, 3, 5, and 15 where 3 and 5 are prime numbers.</p>
+<h3 id="modulo-function">Modulo Function</h3>
+<p>As shown in the equation given below, k is the remainder when m is divided by n.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:496/format:webp/1*q4ANn5fTQtFgPfDzaxeUwg.png" alt="equation"></p>
+<p>For example, 10.mod(6) = 4 since when 10 is divided by 6, the remainder is 4.</p>
+<p><strong>A practical example of the modulo function</strong>: This is a very famous example that explains the use of the modulo function. Analog clocks with arms usually are in a 12-hour format. To show the time 15:00 in this 12-hour format clock, the hour arm is on 3:00 as per the 12-hour format. The equation for the conversation can be written as:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1356/format:webp/1*WSipafhbdB2dq24XHtRPUQ.png" alt="equation"></p>
+<p>As shown in the equation, an example can be given for 15:00: 15.mod(12) = 3, which shows 3:00 in the 12-hour clock. Hence, the modulo function can be considered as a wrapping function, if imagined visually.</p>
+<p>These were some of the concepts that are required to understand the RSA algorithm. Moving ahead, the RSA algorithm can be explained in two parts: Generating the Keys and Encryption/Decryption Mechanism.</p>
+<h2 id="the-rsa-algorithm-generating-keys">The RSA Algorithm: Generating Keys</h2>
+<p>RSA Encryption includes pairs of two keys: Public Key and Private Key. To derive these keys, two numbers, p, and q are chosen. These are relatively large prime numbers that are difficult to guess. They are used to form n, which is a semi-prime number with factors p and q. With that, a totient t is calculated as shown in the equations given below.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1044/format:webp/1*4_r8Pm8XwJpDLqp6Yg2_9Q.png" alt="equation"></p>
+<p>For generating <strong>Public Key E</strong>, 3 rules must be followed:</p>
+<ol>
+<li>E must be a prime number</li>
+<li>E must not be less than the totient</li>
+<li>E must not be the factor of totient</li>
+</ol>
+<p><img src="https://miro.medium.com/v2/resize:fit:1356/format:webp/1*E2s_6wR9uS1h5fLRnZ_bEQ.png" alt="equation"></p>
+<p>For generating <strong>Private Key D</strong>, a single rule needs to be followed:</p>
+<p>The product of D and E, divided by T must result in a remainder of 1.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*hjM1dfWH9OE11Fc1iBETpQ.png" alt="equation"></p>
+<p>By generating the Public and Private Keys with given conditions and parameters, they can be used for encryption and decryption of data.</p>
+<h2 id="the-rsa-algorithm-encryption-and-decryption">The RSA Algorithm: Encryption and Decryption</h2>
+<p>The encrypted plain text data is called the cipher text. Data can be encrypted by the public key, in which case the private key is used to decrypt the data whereas if the private key is used to encrypt the data, the public key is used to decrypt the data.</p>
+<p>Following are the equations for encrypting and decrypting messages with Public and Private Keys.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1256/format:webp/1*ahOdotfCJlsTBzSkaqx-tw.png" alt="equation"></p>
+<p>These operations can be performed to implement RSA Algorithms for encryption of data during transmission. Without the Public Key/Private Key, the messages cannot be encrypted/decrypted.</p>
+<p>This was the mathematics for the RSA Algorithm explained in a simple way and as required to understand the exploitation.</p>
+<h2 id="identifying-the-attack-surface-of-the-algorithm--exploiting-optimisations-for-efficient-computing">Identifying the Attack Surface of the Algorithm — Exploiting Optimisations for Efficient Computing</h2>
+<p>The Public Key E and the Private Key D are very big prime numbers that are mathematically infeasible to derive. Since they are so large numbers, exponentiation also takes a large amount of time. Hence, to optimize the exponentiation process, a method is used called the square-and-multiply algorithm. The final goal is to reduce the computational efforts to find the exponent by breaking the number into parts and reaching the goal with as few operations as possible.</p>
+<p>It is essential to understand this algorithm since this is the attack surface that is going to be exploited with side-channel analysis.</p>
+<p>To break the number into components, convert the exponent into its binary number format. The idea is to build up the number from its unity exponent i.e. to build up x to the power m from x to the power 1 where 1 is in binary.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZAhoe2KyktxdatpfBDu0Ug.png" alt="equation"></p>
+<p>For example, consider the number 131 which is a prime number and has been converted to its binary form.</p>
+<p>To find the exponents of the given number, two operations should be followed, and build up the number which is required for exponentiation.</p>
+<ol>
+<li>To append 0, square the number with the current exponent.</li>
+<li>To append 1, first square the number and multiply it by itself.</li>
+</ol>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*UjxsgCrn1acKgHPYXBbCdg.png" alt="equation"></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kQQNVMDkm0qaE5vqHMobPg.png" alt="equation"></p>
+<p>With these operations in line, the exponent can be constructed and when converted to the decimal form, it’s the private key as the exponent.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0HItaodiKGq77v3WDNte7A.png" alt="equation"></p>
+<p>The processor performs square and multiply operations to find the exponent of the number m (which is the data to be decrypted).</p>
+<h2 id="attacking-the-square-multiply-algorithm-with-side-channel-power-analysis">Attacking the Square-Multiply Algorithm with Side Channel Power Analysis</h2>
+<h3 id="side-channel-power-analysis-attack">Side Channel Power Analysis Attack</h3>
+<p>Now since the multiply and square operations take different amounts of computational effort, the processor consumes different amounts of power to computer it. Since P = VI where V is the potential difference across the component and I is the current flowing into the component, these parameters can be varied and the equation remains true. The voltage across the processor remains constant by design, but the current is allowed to vary when the power consumption changes.</p>
+<p>Hence, the change in power consumption can be calculated by calculating the current flowing into the component. Hence, traces of power consumption can be taken to find out the operations that are happening inside the processor. This is called a Side Channel Power Analysis Attack, where power is used as a medium to derive information from a certain device.</p>
+<h3 id="calculating-the-power-consumption-of-the-processor">Calculating the Power Consumption of the Processor</h3>
+<p>To calculate the current flowing into the component, oscilloscopes can be used. Since oscilloscopes can only measure voltage (usually), a shunt resistance can be used to find the value of current by the application of Ohm’s law.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:300/format:webp/0*nYVdKv39oFaARiU3.png" alt="diagram"></p>
+<p><strong>Ohm’s law</strong> states that the electric current through a conductor between two points is directly proportional to the voltage across the two points. Introducing the constant of proportionality, the resistance, one arrives at the three mathematical equations used to describe this relationship:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1172/format:webp/1*0jg2xrggz0o9wuQ73VmuzQ.png" alt="equation"></p>
+<p>By calculating the voltage across the shunt resistance, variations in the current values can be determined, which in turn can be used to determine the power variations and finally, the operations that are executed in the processor.</p>
+<p>It is recommended to remove the capacitors that influence the power consumption since they interfere with the readings by discharging while power goes down and charging while power goes up, to improve the quality of data.</p>
+<h2 id="deriving-the-private-key-by-the-analysis-of-power-consumption">Deriving the Private Key by the Analysis of Power consumption</h2>
+<p>From the example shown above, these computations are done to derive the exponent, which is the private key. A combination of squares and multiplication is done here to derive it.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1228/format:webp/1*Bb96HjTYzbdxLnHXHY1Cfw.png" alt="equation"></p>
+<p>Following is the sequence of operations performed on the numbers.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:392/format:webp/1*4Abyujv9Gnhji2UiUMHeQQ.png" alt="diagram"></p>
+<p>When there is a square operation, a 0 is appended to the formation of the private key. Hence, a square operation indicates a 0. Note that the first digit (the most significant bit would be 1 as the computation begins with the number itself). When there is a square followed by multiply, the digital 1 is appended, indicating 1.</p>
+<p>Hence, by the sequence of operations done about, 100000101 can be derived which is the private key.</p>
+<p>This sequence of operations can be derived from the power traces of the processor. Since the multiplication operation consumes relatively less power than the square operations, these fluctuations can be analyzed to derive the sequence of operations in the processor to derive the private key of the RSA implementations.</p>
+<h2 id="conclusion--acknowledging-the-information-leaks-by-hardware-devices">Conclusion — Acknowledging the Information Leaks by Hardware Devices</h2>
+<p>Side Channel Analysis in the context of power analysis can reveal a lot of information and even leak the private key from the processors and has a lot of potential for research in hardware-related attacks. RSA has a huge amount of applications and hardware attacks like these can have a lot of possibilities.</p>
+
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+  
+
+
+</body>
+
+</html>
